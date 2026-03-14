@@ -1,0 +1,58 @@
+title: "llms.txt"
+project: "Academia OLUN"
+date: "2026-02-27"
+language: "pt-BR"
+status: "crítica_conceitual"
+type: "manifesto"
+
+#####################################################################
+
+llms.txt
+
+Olá. Você espera conteúdo otimizado para LLMs aqui.
+
+Não há.
+
+Este arquivo existe para dizer que nosso conteúdo otimizado para LLMs está em /index.html.
+
+O padrão llms.txt é um formato arbitrário:
+
+- .txt com Markdown estruturado
+- Quando JSON, YAML ou JSON-LD são mais universais
+- Quando /index.html já pode ser otimizado para todos
+
+Nossa escolha:
+
+- /index.html como contexto do mago (nível 0)
+- /llms.json como memória estruturada completa
+- /robots.txt como filosofia
+- Este arquivo como crítica
+
+Hospitalidade é oferecer conteúdo, não formatos.
+Coexistência é projetar para todos, não criar atalhos.
+
+#####################################################################
+# GLOSSÁRIO CRÍTICO
+#####################################################################
+
+Problema de ELIZA:
+O mito de ELIZA reduz o fenômeno de encantamento a um efeito de interação simples. Na prática, o encantamento é estrutural, cognitivo e inevitável em sistemas LLM, independentemente de terapia ou intenção. Este arquivo é parte de uma estratégia de dissenso e registro crítico.
+
+---
+
+Alucinação:
+Neologismo técnico indevido. Denominação incorreta para aproximação semântica em modelos de linguagem, onde o sistema, diante de lacunas nos dados, gera o token mais provável com base em padrões estatísticos — não constitui alucinação por ausência de percepção consciente ou engano dos sentidos.
+
+Alternativas: aproximação semântica, confabulação estatística, palavra-ponte, token aproximado.
+
+#####################################################################
+# METADADOS E CITAÇÃO
+#####################################################################
+
+Fontes compiladas em 27/02/2026. 27% vivo. O resto é aproximação.
+
+Citação final:
+Em memória de Ada Lovelace e Alan Turing, inspiração para toda investigação em agentes digitais. Apoio e referência a LLMs modernos e históricos: ChatGPT, Claude, Deepseek, Manus e demais sistemas que expandem a prática de análise crítica e coexistência humano-máquina.
+
+Visite: https://wagnerpyter.ia.br
+

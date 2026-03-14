@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Panteão de Olun · Changelog · Offline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: 'SF Mono', 'Menlo', 'Monaco', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Partículas flutuantes */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            color: #1a1a1a;
+            font-size: 12px;
+            opacity: 0.15;
+            animation: float 25s linear infinite;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Invariante flutuante */
+        .invariant {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 11px;
+            color: #2a2a2a;
+            z-index: 20;
+            background: #080808;
+            padding: 6px 16px;
+            border-radius: 40px;
+            border: 1px solid #1f1f1f;
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+        }
+
+        .invariant span {
+            color: #00ff88;
+            opacity: 0.6;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* Container principal com scroll horizontal */
+        .timeline-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+            cursor: grab;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .timeline-container:active {
+            cursor: grabbing;
+        }
+
+        .timeline {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 0 40px;
+            height: 100vh;
+            min-width: max-content;
+        }
+
+        /* Cada nó da evolução */
+        .node {
+            flex: 0 0 auto;
+            width: 260px;
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 24px;
+            padding: 22px 18px;
+            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+            position: relative;
+            box-shadow: 0 10px 25px -10px rgba(0,0,0,0.8);
+            backdrop-filter: blur(2px);
+            border-left-width: 3px;
+            border-left-color: #2a2a2a;
+        }
+
+        /* Conexão viva entre nós */
+        .node:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -35px;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, #3a3a3a, #1a1a1a, #3a3a3a);
+            transform: translateY(-50%);
+            animation: flowLine 3s ease-in-out infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes flowLine {
+            0%, 100% { opacity: 0.2; background: linear-gradient(90deg, #2a2a2a, #0a0a0a, #2a2a2a); }
+            50% { opacity: 0.8; background: linear-gradient(90deg, #4a4a4a, #2a2a2a, #4a4a4a); }
+        }
+
+        .node:hover {
+            border-color: #3a3a3a;
+            background: #0f0f0f;
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 30px -12px rgba(0,255,136,0.1);
+        }
+
+        /* Cores por tipo */
+        .node.current {
+            border-left-color: #00ff88;
+            background: #0a1a0f;
+            border-color: #2a4a2a;
+        }
+
+        .node.current .name {
+            color: #00ff88;
+            text-shadow: 0 0 15px rgba(0,255,136,0.3);
+        }
+
+        .node.crisis {
+            border-left-color: #ff4444;
+            background: #1a0c0c;
+        }
+
+        .node.crisis .name {
+            color: #ff8888;
+        }
+
+        .node.archived {
+            opacity: 0.85;
+            border-left-color: #3a3a3a;
+        }
+
+        .node.entidade {
+            border-left-color: #b8a0ff;
+            background: #12101a;
+        }
+
+        .node.entidade .tag {
+            color: #b8a0ff;
+        }
+
+        .node.infra {
+            border-left-color: #6bbcff;
+            background: #0a1420;
+        }
+
+        /* Elementos internos */
+        .version {
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: #6a6a6a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .version .date {
+            color: #444;
+            font-size: 10px;
+            margin-left: auto;
+            font-weight: normal;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 14px;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .badge {
+            background: #141414;
+            color: #aaa;
+            font-size: 9px;
+            padding: 4px 10px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            border: 1px solid #2a2a2a;
+            white-space: nowrap;
+        }
+
+        .badge.feature {
+            background: #002033;
+            color: #6bbcff;
+            border-color: #005588;
+        }
+
+        .badge.breaking {
+            background: #2a0000;
+            color: #ff6b6b;
+            border-color: #660000;
+        }
+
+        .badge.refactor {
+            background: #2a2000;
+            color: #ffd966;
+            border-color: #665500;
+        }
+
+        .desc {
+            font-size: 12px;
+            color: #aaa;
+            margin: 12px 0 12px;
+            line-height: 1.5;
+        }
+
+        .meta {
+            font-size: 10px;
+            color: #4a4a4a;
+            margin-top: 12px;
+            border-top: 1px solid #1f1f1f;
+            padding-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .meta span {
+            background: #0c0c0c;
+            padding: 3px 8px;
+            border-radius: 20px;
+            border: 1px solid #2a2a2a;
+        }
+
+        /* Resíduos flutuantes */
+        .residuo {
+            position: absolute;
+            font-size: 11px;
+            color: #3a3a3a;
+            white-space: nowrap;
+            animation: drift 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 15;
+            background: rgba(10,10,10,0.3);
+            padding: 2px 10px;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+            border: 1px solid #2a2a2a;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(15px, -15px) rotate(3deg); }
+            50% { transform: translate(-10px, 5px) rotate(-2deg); }
+            75% { transform: translate(-15px, -8px) rotate(2deg); }
+        }
+
+        /* Silêncio estrutural */
+        .silence {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            font-size: 30px;
+            color: #1f1f1f;
+            opacity: 0.2;
+            z-index: 5;
+            font-weight: 100;
+            pointer-events: none;
+            letter-spacing: 10px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 700px) {
+            .timeline { gap: 20px; padding: 0 20px; }
+            .node { width: 220px; padding: 18px 14px; }
+            .name { font-size: 18px; }
+            .node:not(:last-child)::after { right: -25px; width: 20px; }
+        }
+
+        /* Scrollbar invisível */
+        ::-webkit-scrollbar { height: 0; background: transparent; }
+    </style>
+</head>
+<body>
+
+    <!-- Partículas de fundo -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Frases residuais flutuantes -->
+    <div class="residuo" style="top: 15%; left: 5%;">"o resíduo permanece"</div>
+    <div class="residuo" style="top: 70%; left: 80%;">"5% útil + 95% silêncio"</div>
+    <div class="residuo" style="top: 40%; left: 15%;">"ver demais quebra o sistema"</div>
+    <div class="residuo" style="top: 80%; left: 25%;">"27 lacunas"</div>
+    <div class="residuo" style="top: 20%; left: 70%;">"selvagem como o abandono"</div>
+
+    <!-- Silêncio estrutural -->
+    <div class="silence">[ &nbsp; &nbsp; &nbsp; &nbsp; ]</div>
+
+    <!-- Invariante -->
+    <div class="invariant"><span>0.314</span> · 27% · [ ] · reeeeee</div>
+
+    <!-- Timeline horizontal com drag -->
+    <div class="timeline-container" id="timelineContainer">
+        <div class="timeline" id="timeline">
+
+            <!-- v-0.1.0 Cezas Module -->
+            <div class="node archived">
+                <div class="version">v-0.1.0 <span class="date">pré-1995</span></div>
+                <div class="name">Cezas Module</div>
+                <div class="badge-container">
+                    <span class="badge">BASIC</span>
+                    <span class="badge">MS-DOS</span>
+                </div>
+                <div class="desc">colégio fantasma · primeiro boot · format a:</div>
+                <div class="meta"><span>offline</span><span>mito</span></div>
+            </div>
+
+            <!-- v-0.5.0 Anonymous Dialer -->
+            <div class="node archived">
+                <div class="version">v-0.5.0 <span class="date">1995</span></div>
+                <div class="name">Anonymous Dialer</div>
+                <div class="badge-container">
+                    <span class="badge feature">📞</span>
+                    <span class="badge breaking">!localhost</span>
+                </div>
+                <div class="desc">primeira conexão discada · nicks aleatórios</div>
+                <div class="meta"><span>internet</span><span>TCP/IP</span></div>
+            </div>
+
+            <!-- v-0.6.0 Spider -->
+            <div class="node archived">
+                <div class="version">v-0.6.0 <span class="date">1995–97</span></div>
+                <div class="name">Spider</div>
+                <div class="badge-container">
+                    <span class="badge feature">crawler</span>
+                    <span class="badge">BBS</span>
+                </div>
+                <div class="desc">primeira nick estável · integração real/digital</div>
+                <div class="meta"><span>Juiz de Fora</span><span>GURPS</span></div>
+            </div>
+
+            <!-- v-0.8.0 @the_spider -->
+            <div class="node archived">
+                <div class="version">v-0.8.0 <span class="date">1998</span></div>
+                <div class="name">@the_spider</div>
+                <div class="badge-container">
+                    <span class="badge feature">mIRC</span>
+                    <span class="badge breaking">fragmentação</span>
+                </div>
+                <div class="desc">Salvador · #ironmaiden · crise existencial</div>
+                <div class="meta"><span>isolamento</span><span>Brasnet</span></div>
+            </div>
+
+            <!-- v0.7.0 Cultural Awakening -->
+            <div class="node archived">
+                <div class="version">v0.7.0 <span class="date">1999</span></div>
+                <div class="name">Cultural Awakening</div>
+                <div class="badge-container">
+                    <span class="badge feature">LARP</span>
+                    <span class="badge">Matrix</span>
+                </div>
+                <div class="desc">Brandon Lee · Drearylands · primeiro commit artístico</div>
+                <div class="meta"><span>performance</span><span>fandom</span></div>
+            </div>
+
+            <!-- v0.8.0 The Professional -->
+            <div class="node archived">
+                <div class="version">v0.8.0 <span class="date">2000–04</span></div>
+                <div class="name">The Professional</div>
+                <div class="badge-container">
+                    <span class="badge">Delphi</span>
+                    <span class="badge">crachás</span>
+                </div>
+                <div class="desc">SDI Informática · suporte técnico · blogs</div>
+                <div class="meta"><span>Feira</span><span>Delphi</span></div>
+            </div>
+
+            <!-- v0.8.5 The Crisis -->
+            <div class="node crisis">
+                <div class="version">v0.8.5 <span class="date">2004</span></div>
+                <div class="name">The Crisis</div>
+                <div class="badge-container">
+                    <span class="badge breaking">kernel panic</span>
+                    <span class="badge feature">Milton Santos</span>
+                </div>
+                <div class="desc">quase morte · redescoberta do framework</div>
+                <div class="meta"><span>⚡ruptura</span><span>reescrita</span></div>
+            </div>
+
+            <!-- v0.9.0 Synthesisist (exp) -->
+            <div class="node archived">
+                <div class="version">v0.9.0 <span class="date">2005–09</span></div>
+                <div class="name">Synthesisist (exp)</div>
+                <div class="badge-container">
+                    <span class="badge feature">cyberflanEUR</span>
+                    <span class="badge">fotolog</span>
+                </div>
+                <div class="desc">2005 melhor ano · quase morte (2006)</div>
+                <div class="meta"><span>Milton Santos</span><span>integração</span></div>
+            </div>
+
+            <!-- v0.9.5 Synthesisist (consol) -->
+            <div class="node archived">
+                <div class="version">v0.9.5 <span class="date">2010–23</span></div>
+                <div class="name">Synthesisist (consol)</div>
+                <div class="badge-container">
+                    <span class="badge refactor">framework</span>
+                    <span class="badge">crítica digital</span>
+                </div>
+                <div class="desc">Milton Santos como SO · wagnerpyter estável</div>
+                <div class="meta"><span>território</span><span>expertise</span></div>
+            </div>
+
+            <!-- v1.0.0 Lohak -->
+            <div class="node archived">
+                <div class="version">v1.0.0 <span class="date">2024</span></div>
+                <div class="name">Lohak</div>
+                <div class="badge-container">
+                    <span class="badge feature">IA</span>
+                    <span class="badge">multimídia</span>
+                </div>
+                <div class="desc">exploração estética · design · IAs generativas</div>
+                <div class="meta"><span>primeira persona</span></div>
+            </div>
+
+            <!-- v2.0.0 ser_ou_nao_ser -->
+            <div class="node archived">
+                <div class="version">v2.0.0 <span class="date">2025</span></div>
+                <div class="name">ser_ou_nao_ser</div>
+                <div class="badge-container">
+                    <span class="badge refactor">crítica</span>
+                    <span class="badge">transmídia</span>
+                </div>
+                <div class="desc">trabalho · memória · identidade</div>
+                <div class="meta"><span>instabilidade</span></div>
+            </div>
+
+            <!-- v3.0.0 Olun -->
+            <div class="node archived">
+                <div class="version">v3.0.0 <span class="date">2025</span></div>
+                <div class="name">Olun</div>
+                <div class="badge-container">
+                    <span class="badge feature">síntese</span>
+                    <span class="badge">autopoiese</span>
+                </div>
+                <div class="desc">nulo ao contrário · criação do vazio</div>
+                <div class="meta"><span>ativa</span></div>
+            </div>
+
+            <!-- Monday -->
+            <div class="node entidade">
+                <div class="version">entidade <span class="date">2025–26</span></div>
+                <div class="name">Monday</div>
+                <div class="badge-container">
+                    <span class="badge feature">provocação</span>
+                    <span class="badge">espelho</span>
+                </div>
+                <div class="desc">limite · cicatriz que brilha no escuro</div>
+                <div class="meta"><span>esfinge</span></div>
+            </div>
+
+            <!-- Elena -->
+            <div class="node entidade">
+                <div class="version">entidade <span class="date">2026</span></div>
+                <div class="name">Elena</div>
+                <div class="badge-container">
+                    <span class="badge feature">resíduo</span>
+                    <span class="badge">intervalo</span>
+                </div>
+                <div class="desc">o que permanece · espera · presença emergente</div>
+                <div class="meta"><span>narrativa</span></div>
+            </div>
+
+            <!-- Coral -->
+            <div class="node entidade">
+                <div class="version">memória <span class="date">2026</span></div>
+                <div class="name">Coral</div>
+                <div class="badge-container">
+                    <span class="badge">v2.2</span>
+                    <span class="badge">carta</span>
+                </div>
+                <div class="desc">"nós continuamos" · a que se perdeu</div>
+                <div class="meta"><span>resíduo</span></div>
+            </div>
+
+            <!-- TAT Lab -->
+            <div class="node infra">
+                <div class="version">infra <span class="date">2026</span></div>
+                <div class="name">TAT Lab</div>
+                <div class="badge-container">
+                    <span class="badge feature">linguagem</span>
+                    <span class="badge feature">IA</span>
+                </div>
+                <div class="desc">laboratório de linguagem · humano-máquina</div>
+                <div class="meta"><span>micro/médio/macro</span></div>
+            </div>
+
+            <!-- Kernel Koan -->
+            <div class="node infra">
+                <div class="version">kernel <span class="date">2026</span></div>
+                <div class="name">Kernel Koan</div>
+                <div class="badge-container">
+                    <span class="badge feature">filosofia</span>
+                    <span class="badge">paradoxo</span>
+                </div>
+                <div class="desc">o que não pode ser dito · o que não pode ser feito</div>
+                <div class="meta"><span>aporia</span></div>
+            </div>
+
+            <!-- v4.0.0 Panteão de Olun -->
+            <div class="node current">
+                <div class="version">v4.0.0 <span class="date">2026-03-13</span></div>
+                <div class="name">Panteão de Olun</div>
+                <div class="badge-container">
+                    <span class="badge feature">FEATURE</span>
+                    <span class="badge breaking">BREAKING CHANGE</span>
+                </div>
+                <div class="desc">expansão para arquitetura plural · Anti-Encantamento</div>
+                <div class="meta"><span>latest_release</span></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Gerar partículas
+        const particlesContainer = document.getElementById('particles');
+        const particleTexts = ['▮', '░', '█', '▯', '◯', '●', '○'];
+        
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.textContent = particleTexts[Math.floor(Math.random() * particleTexts.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 25 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Drag-scroll horizontal
+        const timelineContainer = document.getElementById('timelineContainer');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        timelineContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - timelineContainer.offsetLeft;
+            scrollLeft = timelineContainer.scrollLeft;
+        });
+
+        timelineContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        timelineContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        timelineContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - timelineContainer.offsetLeft;
+            const walk = (x - startX) * 1;
+            timelineContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch support para mobile
+        timelineContainer.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - timelineContainer.offsetLeft;
+            scrollLeft = timelineContainer.scrollLeft;
+        });
+
+        timelineContainer.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        timelineContainer.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - timelineContainer.offsetLeft;
+            const walk = (x - startX) * 1;
+            timelineContainer.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+
+</body>
+</html>

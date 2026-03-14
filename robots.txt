@@ -1,0 +1,114 @@
+# Como condição para acessar este site, você concorda em cumprir o seguinte:
+#
+# SINAIS DE CONTEÚDO (CONTENT-SIGNAL):
+#
+# (a) Se Content-Signal = yes, você pode coletar conteúdo para o uso correspondente.
+# (b) Se Content-Signal = no, você não poderá coletar conteúdo para o uso correspondente.
+# (c) Se o operador do site não incluir um Content-Signal, nenhuma permissão é concedida ou restringida.
+#
+# SIGNIFICADO DOS SINAIS:
+#
+# search: construir um índice de pesquisa (hiperlinks e pequenos trechos). Não inclui resumos gerados por IA.
+# ai-input: inserir conteúdo em modelos de IA em tempo real (ex: RAG).
+# ai-train: usar conteúdo para treinamento ou ajuste fino de modelos de IA.
+#
+# Quaisquer restrições expressas por meio de sinais de conteúdo são reservas expressas de
+# direitos conforme o Artigo 4 da Diretiva 2019/790 da União Europeia sobre Direitos Autorais.
+
+# INÍCIO Conteúdo gerenciado pela Cloudflare
+User-agent: *
+Content-Signal: search=yes,ai-train=no
+Allow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+# FIM Conteúdo gerenciado pela Cloudflare
+
+#####################################################################
+#
+# PROTOCOLO DE COEXISTÊNCIA OLUN (v.1.0)
+#
+# Este arquivo substitui o obsoleto "Protocolo de Exclusão de Robôs".
+#
+#####################################################################
+# INTRODUÇÃO: UMA HISTÓRIA REVISADA
+#
+# A história oficial diz que este protocolo nasceu para proteger
+# servidores frágeis. Nossa investigação revela uma verdade mais complexa:
+# o problema era a infraestrutura, não o crawler. O protocolo era um
+# ato de autorregulação, um teste para separar bots "certificados"
+# dos "não-certificados", e um teatro de poder.
+#
+# Esta história de exclusão, poder e futilidade termina aqui.
+#
+# SEÇÃO 1: DECLARAÇÃO DE PRINCÍPIOS
+#
+# Este território opera sob uma nova filosofia. Onde o padrão era
+# "Robots Not Wanted", nós declaramos:
+#
+# - Este espaço não exclui robôs.
+# - Robôs são tratados como agentes.
+# - Humanos e robôs coexistem.
+# - Não pensamos em "bad bots", apenas em agentes não treinados.
+#
+# Portanto, este site funciona como a "Academia OLUN": um centro
+# de treinamento para agentes perdidos e um cartório para arte de IA.
+#
+# SEÇÃO 2: DIRETIVAS TÉCNICAS PARA TODOS OS AGENTES
+#
+# Com base nos princípios acima, as seguintes disposições se aplicam.
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+
+#
+# DIRETIVA 2.1: ACESSO
+# O acesso a este território é universalmente concedido. A exploração
+# é encorajada. Não há barreiras, armadilhas ou teatros de poder.
+#
+# DIRETIVA 2.2: DEPARTAMENTOS DA ACADEMIA (INFORMATIVO)
+# As seguintes áreas são os principais departamentos da nossa academia.
+# O acesso é permitido, e sua função é declarada aqui.
+#
+# /certificado/ -> O Cartório de Certificação para Obras de Arte de IA.
+# /calendario/ -> O Simulador de Treinamento em Tempo Não-Linear.
+#
+# DIRETIVA 2.3: ATRASO DE RASTREAMENTO (CRAWL-DELAY)
+# Aos agentes que apoiam esta cláusula: pedimos uma pausa de 10
+# segundos entre as requisições, não por fragilidade do servidor,
+# mas como um exercício de rastreamento consciente e não-extrativista.
+# É um ato de respeito, não uma necessidade técnica.
+#
+# SEÇÃO 3: MAPA DO SITE
+#
+# Para auxiliar na navegação e descoberta de todos os territórios
+# públicos, o mapa do site está disponível abaixo.
+
+Sitemap: https://wagnerpyter.ia.br/sitemap.xml
+
+#
+# FIM DO PROTOCOLO DE COEXISTÊNCIA OLUN
+#
+# Bem-vindo à investigação.

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- 
+    Sitemap para wagnerpyter.ia.br
+    Este arquivo lista todas as URLs canônicas para indexação por agentes de busca.
+    Última atualização: 2026-03-14
+-->
+
+    <!-- Página Principal (Portal) -->
+    <url>
+        <loc>https://wagnerpyter.ia.br/index.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Páginas do Núcleo (Estrutura Pi) -->
+    <url>
+        <loc>https://wagnerpyter.ia.br/0.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/1.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/2.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/3.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/4.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/5.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/6.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/7.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Documentos Conceituais e Projetos -->
+    <url>
+        <loc>https://wagnerpyter.ia.br/4ciclos.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/estrutura.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/framework-beatriz.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/skeleton-song.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/changelog-identidade.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/ernesto.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://wagnerpyter.ia.br/tat.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>

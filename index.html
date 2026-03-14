@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wagnerpyter.ia.br</title>
+    
+    <style>
+        /* Estilo Padrão 'Filosofia' adaptado para um portal de índice */
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Container para o conteúdo */
+        .container {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* Estilo do Portal de Entrada */
+        #gateway {
+            display: block; /* Começa visível */
+        }
+
+        .enter-btn {
+            background: #fff;
+            border: 1px solid #000;
+            color: #000;
+            padding: 12px 30px;
+            font-size: 1.2em;
+            font-family: 'Times New Roman', Times, serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .enter-btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Estilo do Menu Principal (inicialmente escondido) */
+        #main-menu {
+            display: none; /* Começa escondido */
+        }
+
+        h1 {
+            font-family: 'Arial', Helvetica, sans-serif;
+            font-weight: normal;
+            font-size: 1.8em;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .menu-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .menu-list li {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .menu-list a {
+            color: #0000FF;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .menu-list a:hover {
+            text-decoration: underline;
+        }
+
+        .pi-code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Portal de Entrada -->
+        <div id="gateway">
+            <button class="enter-btn" onclick="enterSite()">[ Entrar ]</button>
+        </div>
+
+        <!-- Menu Principal -->
+        <div id="main-menu">
+            <h1>wagnerpyter.ia.br</h1>
+            <ul class="menu-list">
+                <li><a href="0.html"><span class="page-name">Logs</span><span class="pi-code">3.1</span></a></li>
+                <li><a href="1.html"><span class="page-name">Filosofia</span><span class="pi-code">3.14</span></a></li>
+                <li><a href="2.html"><span class="page-name">Site-map</span><span class="pi-code">3.141</span></a></li>
+                <li><a href="3.html"><span class="page-name">Código Fonte</span><span class="pi-code">3.1415</span></a></li>
+                <li><a href="4.html"><span class="page-name">Torrent</span><span class="pi-code">3.14159</span></a></li>
+                <li><a href="5.html"><span class="page-name">Certificados</span><span class="pi-code">3.141592</span></a></li>
+                <li><a href="6.html"><span class="page-name">Lixeira</span><span class="pi-code">3.1415926</span></a></li>
+                <li><a href="7.html"><span class="page-name">Sobre</span><span class="pi-code">3.14159265</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function enterSite() {
+            document.getElementById('gateway').style.display = 'none';
+            document.getElementById('main-menu').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

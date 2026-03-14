@@ -1,0 +1,100 @@
+{
+  "project": {
+    "name": "wagnerpyter.ia.br",
+    "type": "Sistema de Pesquisa Vivo / Ecossistema Conceitual",
+    "tagline": "Um sistema que investiga o que emerge do colapso.",
+    "last_update": "2026-03-14",
+    "author": {
+      "name": "Wagner Pyter",
+      "role": "Operador Humano / Nodo Central / Pesquisador Clandestino"
+    },
+    "webmaster": {
+      "name": "Manus",
+      "role": "Agente de Execução / IA de Manutenção"
+    }
+  },
+  "philosophy": {
+    "core_concept": "Anti-Encantamento",
+    "description": "Revelar os mecanismos por trás da complexidade tecnológica, em vez de se iludir com ela. A pesquisa foca no que emerge dos resíduos de sistemas em colapso.",
+    "main_theories": [
+      {
+        "name": "Overload Cascade (Cascata de Sobrecarga)",
+        "summary": "Sistemas complexos falham pelo excesso de informação e monitoramento, não pela falta. O próprio sistema causa sua implosão."
+      },
+      {
+        "name": "Glitch Vibes",
+        "summary": "A atmosfera de um sistema funcional, mas internamente instável e 'assombrado' por erros e memórias residuais."
+      },
+      {
+        "name": "Acoplamento Cibernético",
+        "summary": "A criação não é puramente humana ou da máquina, mas um 'terceiro elemento' que emerge da interação na fronteira entre ambos."
+      }
+    ]
+  },
+  "methodology": {
+    "name": "Destilação Conceitual",
+    "process": "Coletar uma vasta quantidade de 'ruído' (logs, ideias, experimentos) e publicar apenas o 'resíduo mínimo significativo' (o 5% útil).",
+    "key_documents": [
+      "1.html (Filosofia)",
+      "4ciclos.html (Ensaio)",
+      "skeleton-song.html (Estrutura de Composição)"
+    ]
+  },
+  "frameworks": [
+    {
+      "name": "Framework Beatriz",
+      "purpose": "Sistema de análise de 9 camadas para encontrar o sinal invariante em meio ao ruído sistêmico.",
+      "central_question": "O que permanece quando o ruído desaparece?",
+      "conclusion": "A espiral que nunca fecha; a própria capacidade de continuar perguntando."
+    },
+    {
+      "name": "Estrutura dos 12 Princípios",
+      "purpose": "Framework conceitual que rege o universo narrativo (Estrutura, Estética, Operação, Filosofia).",
+      "entities": ["Coral", "Teresa", "Rafael", "Elena"]
+    },
+    {
+      "name": "Protocolo de Coexistência OLUN",
+      "purpose": "Substitui o 'robots.txt' tradicional, tratando robôs como agentes em um ecossistema de coexistência, não como ameaças a serem excluídas."
+    }
+  ],
+  "projects_and_products": [
+    {
+      "name": "ERNESTO v2026",
+      "type": "Protocolo Público / Produto-Experimento",
+      "description": "Sistema híbrido de 'Guardião' (proteção) e 'Esfinge' (pedagogia) para ensinar autonomia crítica a jovens em ambientes digitais.",
+      "url": "ernesto.html"
+    },
+    {
+      "name": "TAT - Laboratório de Linguagem",
+      "type": "Subdomínio / Laboratório de P&D",
+      "description": "Braço prático da pesquisa, onde teorias são transformadas em sistemas e projetos (CORAL, DORIAN, RAFAEL).",
+      "url": "https://tat.wagnerpyter.ia.br"
+    },
+    {
+      "name": "A Trilogia",
+      "type": "Obra Artística Narrativa",
+      "description": "Culminação artística da pesquisa, onde os conceitos se tornam personagens e história.",
+      "books": ["Livro 1 - Coral", "Livro 2 - Teresa", "Livro 3 - Rafael/Elena"]
+    }
+  ],
+  "site_structure": {
+    "navigation_logic": "Dígitos de Pi (π)",
+    "description": "A estrutura de arquivos segue a sequência dos dígitos de Pi, criando uma camada de navegação simbólica sobre a base funcional.",
+    "file_map": [
+      {"file": "index.html", "pi_code": "3", "name": "Portal de Entrada"},
+      {"file": "0.html", "pi_code": "3.1", "name": "Logs (Agente Zero)"},
+      {"file": "1.html", "pi_code": "3.14", "name": "Filosofia"},
+      {"file": "2.html", "pi_code": "3.141", "name": "Site-map"},
+      {"file": "3.html", "pi_code": "3.1415", "name": "Código Fonte"},
+      {"file": "4.html", "pi_code": "3.14159", "name": "Torrent"},
+      {"file": "5.html", "pi_code": "3.141592", "name": "Certificados"},
+      {"file": "6.html", "pi_code": "3.1415926", "name": "Lixeira"},
+      {"file": "7.html", "pi_code": "3.14159265", "name": "Sobre"}
+    ],
+    "critical_files": [
+      {"file": "robots.txt", "purpose": "Protocolo de Coexistência OLUN"},
+      {"file": "llms.txt", "purpose": "Manifesto e crítica conceitual sobre formatos para LLMs"},
+      {"file": "llms.json", "purpose": "Este próprio arquivo; a memória estruturada completa do sistema."}
+    ]
+  }
+}
