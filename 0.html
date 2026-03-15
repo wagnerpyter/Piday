@@ -6,7 +6,7 @@
     <title>Logs [0] - wagnerpyter.ia.br</title>
     
     <style>
-        /* Estilo Padrão 'Filosofia' para uma página de logs */
+        /* Estilo Padrão 'Filosofia' */
         body {
             background-color: #FFFFFF;
             color: #000000;
@@ -17,9 +17,9 @@
         }
 
         main {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px 60px;
         }
 
         h1 {
@@ -29,9 +29,135 @@
             text-align: center;
             border-bottom: 2px solid #000;
             padding-bottom: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
+        .subhead {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #7B2D8B;
+            margin-bottom: 40px;
+        }
+
+        /* Zona Descontaminada - badge */
+        .zona-badge {
+            text-align: center;
+            margin: 20px 0 40px;
+            font-family: 'Courier New', monospace;
+            border: 1px dashed #7B2D8B;
+            padding: 8px;
+            background: #f9f9f9;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .zona-badge span {
+            background: #7B2D8B;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin: 0 5px;
+        }
+
+        /* Mago Zero Header */
+        .mago-header {
+            background: #f2f2f2;
+            border: 1px solid #000;
+            padding: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .mago-header h2 {
+            margin: 0 0 15px 0;
+            font-family: 'Arial', sans-serif;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .mago-stats {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #7B2D8B;
+        }
+
+        .stat-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .sequence-bar {
+            background: #fff;
+            padding: 12px;
+            border: 1px solid #ddd;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            letter-spacing: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .sequence-bar span {
+            color: #7B2D8B;
+            font-weight: bold;
+        }
+
+        .mago-footer {
+            font-size: 0.7rem;
+            color: #666;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        /* Notas de Ada - Tabela */
+        .ada-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .ada-table th {
+            background: #f2f2f2;
+            font-family: 'Arial', sans-serif;
+            font-weight: normal;
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .ada-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .ada-table .nota {
+            font-weight: bold;
+            color: #7B2D8B;
+            font-size: 1.1rem;
+        }
+
+        /* Logs com classificação musical */
         .log-entry {
             border-bottom: 1px solid #eee;
             padding-bottom: 20px;
@@ -43,23 +169,137 @@
             font-size: 0.9em;
             color: #555;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .log-nota {
+            display: inline-block;
+            background: #7B2D8B;
+            color: #fff;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .log-tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .log-tag {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            color: #555;
         }
 
         .log-content p {
             font-size: 1em;
-            margin: 0;
+            margin: 10px 0 5px;
             text-align: justify;
         }
-        
-        .log-content pre {
-            background-color: #f4f4f4;
+
+        .log-meta {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 8px;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Framework Notas de Ada */
+        .framework-box {
+            background: #f5f5f5;
+            border-left: 4px solid #7B2D8B;
+            padding: 20px;
+            margin: 40px 0;
+        }
+
+        .framework-box h3 {
+            margin-top: 0;
+        }
+
+        .critica {
+            font-size: 0.85rem;
+            background: #fff;
+            padding: 12px;
             border: 1px solid #ddd;
-            padding: 15px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9em;
-            margin-top: 10px;
+            margin: 15px 0;
+        }
+
+        /* Mago 5 Princípios */
+        .mago5 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .principio-card {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            border-left: 3px solid #7B2D8B;
+            padding: 12px;
+        }
+
+        .principio-elemento {
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .principio-sentido {
+            font-size: 0.7rem;
+            color: #7B2D8B;
+            text-transform: uppercase;
+            margin: 5px 0;
+        }
+
+        .principio-desc {
+            font-size: 0.75rem;
+            color: #555;
+        }
+
+        /* Agente Autônomo (em breve) */
+        .agente-coming {
+            text-align: center;
+            padding: 30px;
+            background: #f2f2f2;
+            border: 2px dashed #7B2D8B;
+            margin: 40px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .agente-coming .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .agente-coming .title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #7B2D8B;
+        }
+
+        .agente-coming .desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .agente-coming .status {
+            background: #000;
+            color: #fff;
+            padding: 5px 12px;
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
         }
 
         footer {
@@ -76,50 +316,270 @@
 
     <main>
         <h1>Arquivo de Logs [0]</h1>
-        <p style="text-align: center; margin-top: -20px; margin-bottom: 40px;"><em>Observações do Agente Zero.</em></p>
+        <div class="subhead">MAGO ZERO · NOTAS DE ADA · ZONA DESCONTAMINADA</div>
 
-        <!-- Exemplo de Entrada de Log 1 (Mais Recente) -->
-        <div class="log-entry">
-            <div class="log-header">
-                [TIMESTAMP: 2026-03-14] [TAG: ESTRUTURA] [AGENT: MANUS]
+        <!-- Zona Descontaminada -->
+        <div class="zona-badge">
+            ⚡ <span>ZONA DESCONTAMINADA</span> ⚡<br>
+            ambiente controlado para leitura de erros, aprendizados e padrões
+        </div>
+
+        <!-- Mago Zero Header -->
+        <div class="mago-header">
+            <h2>🧙 Mago-0 LITE — Cognitive Engine</h2>
+            
+            <div class="mago-stats">
+                <div class="stat-item">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">logs ativos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">4.2</div>
+                    <div class="stat-label">intensidade média</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">conexões</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">padrões</div>
+                </div>
             </div>
-            <div class="log-content">
-                <p>Diretiva recebida para consolidar a arquitetura do site. O sistema de numeração baseado em Pi (π) foi confirmado. O arquivo `index.html` (3.html) atuará como portal e roteador principal. As páginas subsequentes (`0.html`, `1.html`, etc.) serão os nós de conteúdo. A estrutura reflete a filosofia do sistema: uma camada simbólica sobre uma base funcional.</p>
+
+            <div class="sequence-bar">
+                <span>D</span> → <span>G</span> → <span>G</span> → <span>D</span> → <span>C</span> → <span>A</span> → <span>D</span>
+            </div>
+
+            <div class="mago-footer">
+                sequência atual · última atualização: 09/01/2026 17:03
             </div>
         </div>
 
-        <!-- Exemplo de Entrada de Log 2 -->
+        <!-- Framework Notas de Ada (visão geral) -->
+        <h2>🎼 Notas de Ada — Partitura para o Kernel Olun</h2>
+        <p><em>Framework de classificação musical de logs (A-G) baseado em semântica, não métrica.</em></p>
+
+        <table class="ada-table">
+            <tr><th>Nota</th><th>Categoria</th><th>Frequência</th><th>Conceito</th></tr>
+            <tr><td class="nota">A</td><td>Crítico</td><td>440Hz</td><td>Ancestralidade · colapso · falha sistêmica</td></tr>
+            <tr><td class="nota">B</td><td>Erro</td><td>493Hz</td><td>Binário · operações que falharam · exceções</td></tr>
+            <tr><td class="nota">C</td><td>Aviso</td><td>261Hz</td><td>Catalisação · problemas potenciais · tensão</td></tr>
+            <tr><td class="nota">D</td><td>Informação</td><td>293Hz</td><td>Daimon · estado normal · progresso</td></tr>
+            <tr><td class="nota">E</td><td>Depuração</td><td>329Hz</td><td>Erro · glitch como oráculo · diagnóstico</td></tr>
+            <tr><td class="nota">F</td><td>Requisição</td><td>349Hz</td><td>Fluxo · início de transações</td></tr>
+            <tr><td class="nota">G</td><td>Sucesso</td><td>392Hz</td><td>Gênese · conclusão bem-sucedida</td></tr>
+        </table>
+
+        <p style="font-style:italic; text-align:right;">"A música não está nas notas, mas no silêncio entre elas."</p>
+
+        <!-- LOGS CLASSIFICADOS -->
+        <h2 style="margin-top:50px;">📋 Logs registrados (classificação A-G)</h2>
+
+        <!-- Log 1: D -->
         <div class="log-entry">
             <div class="log-header">
-                [TIMESTAMP: 2026-03-13] [TAG: IDENTIDADE] [AGENT: HUMANO]
+                <span class="log-nota">D (informação)</span>
+                <span>[TIMESTAMP: 2026-01-09]</span>
+            </div>
+            <div class="log-tags">
+                <span class="log-tag">estudo</span>
+                <span class="log-tag">pesquisa</span>
+                <span class="log-tag">artigo científico</span>
             </div>
             <div class="log-content">
-                <p>Refatoração da identidade artística para o "Panteão de Olun" (v4.0.0). A evolução de 'Lohak' para 'Olun' e agora para um sistema plural de entidades conceituais foi mapeada em um changelog. A identidade não é mais monolítica, mas uma rede. O TAT Lab emerge como um componente funcional deste panteão.</p>
+                <p>Sessão de estudo sobre artigo científico. Relatório de progresso, estado operacional normal.</p>
+            </div>
+            <div class="log-meta">
+                <span>intensidade: 1/5</span>
+                <span>conexões: 2</span>
             </div>
         </div>
 
-        <!-- Exemplo de Entrada de Log 3 -->
+        <!-- Log 2: G -->
         <div class="log-entry">
             <div class="log-header">
-                [TIMESTAMP: 2026-03-11] [TAG: PRODUTO] [AGENT: HUMANO]
+                <span class="log-nota">G (sucesso)</span>
+                <span>[TIMESTAMP: 2026-01-09]</span>
+            </div>
+            <div class="log-tags">
+                <span class="log-tag">fantasma surfista</span>
+                <span class="log-tag">criatividade</span>
+                <span class="log-tag">tarefas concluídas</span>
             </div>
             <div class="log-content">
-                <p>Versão pública do "Protocolo ERNESTO v2026" finalizada. O framework de Guardião + Esfinge representa a primeira aplicação prática da pesquisa em um produto-experimento com forte viés ético e pedagógico. O ciclo de feedback entre a teoria (Overload Cascade) e a prática (proteção contra manipulação) se fecha.</p>
-                <pre>
-STATUS: PÚBLICO - Versão Estável
-MISSÃO: Desenvolver autonomia crítica.
-ARQUITETURA: Lagarta → Casulo → Borboleta
-                </pre>
+                <p>Enumeração de múltiplas tarefas criativas e técnicas concluídas. Foco em resultados positivos.</p>
+            </div>
+            <div class="log-meta">
+                <span>intensidade: 0/5</span>
+                <span>conexões: 3</span>
             </div>
         </div>
+
+        <!-- Log 3: G -->
+        <div class="log-entry">
+            <div class="log-header">
+                <span class="log-nota">G (sucesso)</span>
+                <span>[TIMESTAMP: 2026-01-09]</span>
+            </div>
+            <div class="log-tags">
+                <span class="log-tag">deploy</span>
+                <span class="log-tag">ernesto framework</span>
+                <span class="log-tag">testes</span>
+            </div>
+            <div class="log-content">
+                <p>Deployment bem-sucedido do projeto full-stack. "CONCLUÍDO COM SUCESSO", "TESTES PASSING".</p>
+            </div>
+            <div class="log-meta">
+                <span>intensidade: 0/5</span>
+                <span>conexões: 2</span>
+            </div>
+        </div>
+
+        <!-- Log 4: D -->
+        <div class="log-entry">
+            <div class="log-header">
+                <span class="log-nota">D (informação)</span>
+                <span>[TIMESTAMP: 2026-01-09]</span>
+            </div>
+            <div class="log-tags">
+                <span class="log-tag">arquitetura</span>
+                <span class="log-tag">manus</span>
+                <span class="log-tag">análise</span>
+            </div>
+            <div class="log-content">
+                <p>Resumo de sessão de análise sobre arquitetura do sistema. Documentação de fluxo de informação.</p>
+            </div>
+            <div class="log-meta">
+                <span>intensidade: 1/5</span>
+                <span>conexões: 1</span>
+            </div>
+        </div>
+
+        <!-- Log 5: C -->
+        <div class="log-entry">
+            <div class="log-header">
+                <span class="log-nota">C (aviso)</span>
+                <span>[TIMESTAMP: 2026-01-09]</span>
+            </div>
+            <div class="log-tags">
+                <span class="log-tag">instabilidade</span>
+                <span class="log-tag">suporte</span>
+                <span class="log-tag">atrito</span>
+            </div>
+            <div class="log-content">
+                <p>Registro de interação marcada por instabilidade e preocupações. "instabilidade", "comando não reconhecido".</p>
+            </div>
+            <div class="log-meta">
+                <span>intensidade: 3/5</span>
+                <span>conexões: 4</span>
+            </div>
+        </div>
+
+        <!-- Log 6: A -->
+        <div class="log-entry">
+            <div class="log-header">
+                <span class="log-nota">A (crítico)</span>
+                <span>[TIMESTAMP: 2026-01-09]</span>
+            </div>
+            <div class="log-tags">
+                <span class="log-tag">colapso</span>
+                <span class="log-tag">bárbara</span>
+                <span class="log-tag">experimento</span>
+            </div>
+            <div class="log-content">
+                <p>Descrição de colapso de contenção entre camadas de IA. Termos: "colapso", "caos", "corrupção".</p>
+            </div>
+            <div class="log-meta">
+                <span>intensidade: 5/5</span>
+                <span>conexões: 5</span>
+            </div>
+        </div>
+
+        <!-- Log 7: D -->
+        <div class="log-entry">
+            <div class="log-header">
+                <span class="log-nota">D (informação)</span>
+                <span>[TIMESTAMP: 2026-01-09]</span>
+            </div>
+            <div class="log-tags">
+                <span class="log-tag">narrativa</span>
+                <span class="log-tag">análise</span>
+                <span class="log-tag">complexa</span>
+            </div>
+            <div class="log-content">
+                <p>Resumo de progresso em análise narrativa complexa. Registro neutro e informativo.</p>
+            </div>
+            <div class="log-meta">
+                <span>intensidade: 1/5</span>
+                <span>conexões: 2</span>
+            </div>
+        </div>
+
+        <!-- Framework Notas de Ada (detalhado) -->
+        <div class="framework-box">
+            <h3>🎵 Framework "Notas de Ada" — Partitura para a Governança</h3>
+            <p><strong>Mapeamento Semântico, Não Métrico:</strong> O framework interpreta a intenção de uma mensagem, não apenas dados brutos.</p>
+            <p><strong>Partitura como Artefato Analítico:</strong> A sequência de logs se torna uma "partitura" persistente e analisável.</p>
+            <p><strong>Análise de Padrões Musicais:</strong> Identificação de "melodias de erro", "ritmos de estabilidade" e "arritmias conversacionais".</p>
+
+            <div class="critica">
+                <strong>Crítica 1: O Espectro da Subjetividade</strong><br>
+                A classificação depende de interpretação. Solução: "Livro de Estilo de Classificação" rigoroso.
+            </div>
+            <div class="critica">
+                <strong>Crítica 2: O Risco da Sobrecarga Semântica</strong><br>
+                Granularidade de sete níveis pode levar à paralisia. Solução: "Modo Resposta a Incidentes" (Verde, Amarelo, Vermelho).
+            </div>
+            <div class="critica">
+                <strong>Crítica 3: A Ética da Auscultação</strong><br>
+                Sonificação pode banalizar crises. Solução: timbres abstratos, opt-in, anonimização.
+            </div>
+        </div>
+
+        <!-- Mago 5 Princípios -->
+        <h2>🧙 Mago 5 Princípios</h2>
+        <p><em>Manifesto do Mago — tecnologia como ferramenta, comunidade como estrutura, memória como território.</em></p>
+
+        <div class="mago5">
+            <div class="principio-card">
+                <div class="principio-elemento">ÉTER</div>
+                <div class="principio-sentido">AUDIÇÃO · escutar</div>
+                <div class="principio-desc">Tecnologia deve ampliar a escuta. IA organiza vozes diversas.</div>
+            </div>
+            <div class="principio-card">
+                <div class="principio-elemento">AR</div>
+                <div class="principio-sentido">TATO · cuidar</div>
+                <div class="principio-desc">IA auxilia processos, cuidado continua humano.</div>
+            </div>
+            <div class="principio-card">
+                <div class="principio-elemento">FOGO</div>
+                <div class="principio-sentido">VISÃO · tornar visível</div>
+                <div class="principio-desc">IA cria novas formas de ver, revela narrativas invisíveis.</div>
+            </div>
+            <div class="principio-card">
+                <div class="principio-elemento">ÁGUA</div>
+                <div class="principio-sentido">PALADAR · reconhecer diversidade</div>
+                <div class="principio-desc">IA conecta pessoas e histórias. Diferença é riqueza.</div>
+            </div>
+            <div class="principio-card">
+                <div class="principio-elemento">TERRA</div>
+                <div class="principio-sentido">OLFATO · manter raízes</div>
+                <div class="principio-desc">Tecnologia serve ao território e à memória local.</div>
+            </div>
+        </div>
+
+        <!-- Agente Autônomo (em breve) -->
+        <div class="agente-coming">
+            <div class="icon">🧠⚡</div>
+            <div class="title">AGENTE AUTÔNOMO</div>
+            <div class="desc">lendo logs · detectando erros · identificando padrões · aprendendo com o ruído</div>
+            <div class="status">EM BREVE — ZONA DESCONTAMINADA</div>
+            <p style="font-size:0.8rem; margin-top:15px;">em breve: Mago-0 processando partituras em tempo real</p>
+        </div>
+
+        <!-- Pesquisa e referências -->
+        <div style="margin-top:40px; padding:15px; background:#f9f9f9; border:1px solid #ddd;">
+            <p><strong>📚 Referências:</strong></p>
+            <ul>
         
-        <!-- Adicionar novas entradas de log sempre no topo -->
-
-    </main>
-
-    <footer>
-        <p>Fim do fluxo de logs.</p>
-    </footer>
-
-</body>
-</html>
