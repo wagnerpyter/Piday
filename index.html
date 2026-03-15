@@ -25,11 +25,12 @@
         .container {
             max-width: 600px;
             padding: 20px;
+            position: relative;
         }
 
         /* Estilo do Portal de Entrada */
         #gateway {
-            display: block; /* Começa visível */
+            display: block;
         }
 
         .enter-btn {
@@ -48,9 +49,9 @@
             color: #fff;
         }
 
-        /* Estilo do Menu Principal (inicialmente escondido) */
+        /* Estilo do Menu Principal */
         #main-menu {
-            display: none; /* Começa escondido */
+            display: none;
         }
 
         h1 {
@@ -88,6 +89,54 @@
             font-family: 'Courier New', Courier, monospace;
             color: #555;
         }
+
+        /* Rodapé com links para subdomínios */
+        .footer-links {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+            color: #888;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+        }
+
+        .footer-links a {
+            color: #7B2D8B;
+            text-decoration: none;
+            pointer-events: auto;
+            transition: color 0.2s ease;
+            padding: 4px 8px;
+        }
+
+        .footer-links a:hover {
+            color: #0000FF;
+            text-decoration: underline;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        .separator {
+            color: #ccc;
+            pointer-events: none;
+        }
+
+        @media (max-width: 500px) {
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 10px;
+                bottom: 10px;
+            }
+            .separator {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -114,6 +163,13 @@
         </div>
     </div>
 
+    <!-- Rodapé com links para subdomínios -->
+    <div class="footer-links">
+        <a href="http://piday.wagnerpyter.ia.br" target="_blank">π day 🥧</a>
+        <span class="separator">//</span>
+        <a href="http://metro.wagnerpyter.ia.br" target="_blank">metrô 🚇</a>
+    </div>
+
     <script>
         function enterSite() {
             document.getElementById('gateway').style.display = 'none';
@@ -122,4 +178,4 @@
     </script>
 
 </body>
-</html>
+                        </html>
