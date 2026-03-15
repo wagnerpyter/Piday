@@ -17,12 +17,12 @@
         }
 
         main {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px 60px;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             font-family: 'Arial', Helvetica, sans-serif;
             font-weight: normal;
             border-bottom: 1px solid #000000;
@@ -33,16 +33,90 @@
             font-size: 1.8em;
             text-align: center;
             border-bottom: 2px solid #000000;
+            margin-bottom: 20px;
         }
 
-        h2 {
-            font-size: 1.4em;
-            margin-top: 40px;
+        .subhead {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #7B2D8B;
+            margin-bottom: 40px;
         }
 
-        p {
-            font-size: 1em;
-            text-align: justify;
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin: 20px 0;
+        }
+
+        .code-block {
+            background: #f9f9f9;
+            border-left: 4px solid #7B2D8B;
+            padding: 15px;
+            margin: 25px 0;
+        }
+
+        .code-title {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e7e7e7;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px 8px;
+            margin: 2px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+        }
+
+        .file-tree {
+            font-family: 'Courier New', monospace;
+            background: #f2f2f2;
+            padding: 20px;
+            border: 1px solid #ddd;
+            line-height: 2;
+            font-size: 0.85rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: #f5f5f5;
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #7B2D8B;
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #666;
         }
 
         a {
@@ -52,16 +126,6 @@
 
         a:hover {
             color: #FF00FF;
-        }
-
-        pre {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            padding: 15px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9em;
         }
 
         footer {
@@ -78,11 +142,60 @@
 
     <main>
         <h1>Código Fonte [3]</h1>
-        <p>Este site foi construído com uma filosofia de simplicidade, transparência e "anti-encantamento". A escolha por uma estética minimalista, inspirada na web dos anos 90, é uma decisão de design deliberada, não uma limitação técnica. O objetivo é focar no conteúdo e na estrutura, removendo o ruído visual.</p>
-        <p>Todo o sistema é composto por arquivos HTML estáticos, sem frameworks complexos ou dependências externas, garantindo leveza, portabilidade e longevidade.</p>
+        <div class="subhead">TRANSPARÊNCIA · SIMPLICIDADE · ANOS 90</div>
 
-        <h2>Estrutura Base (Template)</h2>
-        <p>A maioria das páginas é gerada a partir de um template mestre ("Padrão Filosofia") que define a estrutura e o estilo. Abaixo está um trecho do CSS que governa a aparência do site:</p>
+        <!-- Estatísticas rápidas -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">17</div>
+                <div class="stat-label">arquivos HTML</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">frameworks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">dependências</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">27%</div>
+                <div class="stat-label">vivo</div>
+            </div>
+        </div>
+
+        <!-- Filosofia do código -->
+        <div class="code-block">
+            <div class="code-title">⚡ FILOSOFIA DO CÓDIGO</div>
+            <p>Este site foi construído com uma filosofia de simplicidade, transparência e "anti-encantamento". A estética minimalista, inspirada na web dos anos 90, é uma decisão de design deliberada — não uma limitação técnica. O objetivo é focar no conteúdo e na estrutura, removendo o ruído visual.</p>
+            <p><strong>Sem frameworks. Sem build. Sem mistério.</strong> Apenas HTML, CSS e JavaScript puros, servidos como arquivos estáticos.</p>
+        </div>
+
+        <!-- Estrutura de arquivos -->
+        <h2>📁 Estrutura do Site</h2>
+        <div class="file-tree">
+            📂 wagnerpyter.ia.br/<br>
+            ├── <a href="index.html">index.html</a>              # portal com efeito 27%<br>
+            ├── <a href="0.html">0.html</a>                  # logs · mago zero · notas de ada<br>
+            ├── <a href="1.html">1.html</a>                  # filosofia · overload cascade<br>
+            ├── <a href="2.html">2.html</a>                  # atlas · site-map<br>
+            ├── <a href="3.html">3.html</a>                  # código fonte (você está aqui)<br>
+            ├── <a href="4.html">4.html</a>                  # torrent · internet archive<br>
+            ├── <a href="5.html">5.html</a>                  # certificados · ACA/CDC<br>
+            ├── <a href="6.html">6.html</a>                  # lixeira · galeria descartes<br>
+            ├── <a href="7.html">7.html</a>                  # sobre · operador<br>
+            ├── <a href="robots.txt">robots.txt</a>              # protocolo de coexistência OLUN<br>
+            ├── <a href="sitemap.xml">sitemap.xml</a>             # mapa para buscadores<br>
+            ├── <a href="llms.txt">llms.txt</a>                # manifesto crítico<br>
+            ├── <a href="llms.html">llms.html</a>               # invisível para humanos<br>
+            ├── 📂 assets/                 # (opcional)<br>
+            └── 📜 ... (demais arquivos)
+        </div>
+
+        <!-- Template Padrão Filosofia -->
+        <h2>🎨 Template Padrão 'Filosofia'</h2>
+        <p>A maioria das páginas é gerada a partir deste template mestre, que define a estrutura e o estilo básico.</p>
+
         <pre>
 /* Estilo Padrão 'Filosofia' */
 body {
@@ -117,23 +230,83 @@ a:hover {
 }
         </pre>
 
-        <h2>Exemplo de Componente: Bloco de Log</h2>
-        <p>A página de Logs (`0.html`) utiliza uma estrutura de `div` para cada entrada, com classes específicas para o cabeçalho e o conteúdo, como visto abaixo. Isso permite a apresentação clara de informações com metadados.</p>
-        <pre>
-&lt;div class="log-entry"&gt;
+        <!-- Exemplos de componentes -->
+        <h2>🧩 Componentes Reutilizáveis</h2>
+
+        <div class="code-block">
+            <div class="code-title">📋 Bloco de Log (0.html)</div>
+            <pre>&lt;div class="log-entry"&gt;
     &lt;div class="log-header"&gt;
-        [TIMESTAMP: 2026-03-14] [TAG: ESTRUTURA]
+        &lt;span class="log-nota"&gt;D (informação)&lt;/span&gt;
+        [TIMESTAMP: 2026-01-09]
+    &lt;/div&gt;
+    &lt;div class="log-tags"&gt;
+        &lt;span class="log-tag"&gt;estudo&lt;/span&gt;
     &lt;/div&gt;
     &lt;div class="log-content"&gt;
-        &lt;p&gt;Diretiva recebida para consolidar a arquitetura do site...&lt;/p&gt;
+        &lt;p&gt;Sessão de estudo...&lt;/p&gt;
     &lt;/div&gt;
-&lt;/div&gt;
-        </pre>
+&lt;/div&gt;</pre>
+        </div>
 
-        <h2>Repositório</h2>
-        <p>O código fonte completo deste site, incluindo todos os arquivos HTML e assets, está (ou estará) disponível publicamente em um repositório Git para consulta, estudo e auditoria.</p>
-        <p><strong>Link para o repositório:</strong> (A ser adicionado)</p>
-        
+        <div class="code-block">
+            <div class="code-title">🏷️ Cards de Certificado (5.html)</div>
+            <pre>&lt;div class="certificate-block"&gt;
+    &lt;span class="certificate-badge"&gt;ACA-1.0&lt;/span&gt;
+    &lt;h3&gt;Entre o Zero e o Um&lt;/h3&gt;
+    &lt;div class="certificate-field"&gt;
+        &lt;span class="field-label"&gt;ACA-ID:&lt;/span&gt;
+        &lt;span class="field-content"&gt;42a7b9c0...&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+
+        <!-- Mago-0 Framework (Python) -->
+        <h2>🤖 Mago-0 LITE — Cognitive Engine</h2>
+        <p>Framework em Python para processamento cognitivo de logs através de três módulos: Leitura, Aprendizado e Resposta.</p>
+
+        <pre>
+class Mago0:
+    def __init__(self, logs):
+        self.mental_map = LearningModule.build_mental_map(logs)
+    
+    def ingest_log(self, log):
+        structure = ReadingModule.analyze_structure(log)
+        self.mental_map.logs.append(log)
+        self.mental_map = LearningModule.build_mental_map(self.mental_map.logs)
+    
+    def query(self, command):
+        logs, hypothesis, confidence = ResponseModule.generate_hypothesis(...)
+        return logs, hypothesis, confidence</pre>
+
+        <p><a href="mago0_framework.py" target="_blank">📥 baixar mago0_framework.py</a></p>
+
+        <!-- Notas de Ada -->
+        <h2>🎼 Notas de Ada — Classificação Musical</h2>
+        <p>Framework que traduz logs em notas musicais (A-G) para análise de padrões.</p>
+
+        <table style="width:100%; border-collapse:collapse; margin:20px 0;">
+            <tr><th>Nota</th><th>Categoria</th><th>Frequência</th></tr>
+            <tr><td>A</td><td>Crítico</td><td>440Hz</td></tr>
+            <tr><td>B</td><td>Erro</td><td>493Hz</td></tr>
+            <tr><td>C</td><td>Aviso</td><td>261Hz</td></tr>
+            <tr><td>D</td><td>Informação</td><td>293Hz</td></tr>
+            <tr><td>E</td><td>Depuração</td><td>329Hz</td></tr>
+            <tr><td>F</td><td>Requisição</td><td>349Hz</td></tr>
+            <tr><td>G</td><td>Sucesso</td><td>392Hz</td></tr>
+        </table>
+
+        <!-- Repositório -->
+        <h2>📦 Repositório</h2>
+        <p>O código fonte completo deste site está disponível publicamente no GitHub para consulta, estudo e auditoria.</p>
+        <p><a href="https://github.com/wagnerpyter/wagnerpyter.ia.br" target="_blank">github.com/wagnerpyter/wagnerpyter.ia.br</a></p>
+
+        <!-- Licença -->
+        <div style="margin-top:40px; padding:20px; background:#f5f5f5; border:1px solid #ddd;">
+            <p><strong>⬤ LICENÇA:</strong> Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0). Você pode compartilhar e adaptar, desde que dê crédito e não use para fins comerciais.</p>
+            <p style="font-family:'Courier New'; font-size:0.8rem; margin-top:10px;">27% vivo. O resto é código aberto.</p>
+        </div>
+
     </main>
 
     <footer>
@@ -141,4 +314,4 @@ a:hover {
     </footer>
 
 </body>
-</html>
+    </html>
