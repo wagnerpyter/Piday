@@ -42,6 +42,7 @@
             font-family: 'Times New Roman', Times, serif;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-bottom: 25px;
         }
 
         .enter-btn:hover {
@@ -49,7 +50,51 @@
             color: #fff;
         }
 
-        /* Estilo do Menu Principal */
+        /* Aviso da Lua (agora na entrada, visível antes de clicar) */
+        .moon-notice {
+            padding: 12px 15px;
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            border-left: 3px solid #7B2D8B;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .moon-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .moon-text {
+            color: #333;
+        }
+
+        .moon-text strong {
+            color: #7B2D8B;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.7rem;
+        }
+
+        .moon-text .date {
+            color: #666;
+            font-size: 0.7rem;
+            margin-top: 2px;
+        }
+
+        .moon-text .time {
+            font-size: 0.65rem;
+            color: #888;
+        }
+
+        /* Estilo do Menu Principal (inalterado) */
         #main-menu {
             display: none;
         }
@@ -90,7 +135,7 @@
             color: #555;
         }
 
-        /* Rodapé com links para subdomínios */
+        /* Rodapé com links */
         .footer-links {
             position: fixed;
             bottom: 20px;
@@ -136,18 +181,31 @@
             .separator {
                 display: none;
             }
+            .moon-notice {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Portal de Entrada -->
+        <!-- Portal de Entrada COM AVISO DA LUA (visível antes de entrar) -->
         <div id="gateway">
             <button class="enter-btn" onclick="enterSite()">[ Entrar ]</button>
+            
+            <!-- Aviso da Lua Nova -->
+            <div class="moon-notice">
+                <div class="moon-icon">🌑</div>
+                <div class="moon-text">
+                    <strong>Próxima atualização: lua nova</strong><br>
+                    18 · março · 2026 — 22h26
+                    <div class="date">nascimento do pensamento · novo ciclo</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Menu Principal -->
+        <!-- Menu Principal (inalterado) -->
         <div id="main-menu">
             <h1>wagnerpyter.ia.br</h1>
             <ul class="menu-list">
@@ -163,7 +221,7 @@
         </div>
     </div>
 
-    <!-- Rodapé com links para subdomínios -->
+    <!-- Rodapé com links (inalterado) -->
     <div class="footer-links">
         <a href="http://piday.wagnerpyter.ia.br" target="_blank">π day 🥧</a>
         <span class="separator">//</span>
@@ -178,4 +236,4 @@
     </script>
 
 </body>
-                        </html>
+                                                                                                                </html>
