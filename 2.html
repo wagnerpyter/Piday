@@ -6,7 +6,7 @@
     <title>Site-map [2] - wagnerpyter.ia.br</title>
     
     <style>
-        /* Estilo Padrão 'Filosofia' para um sitemap */
+        /* Estilo Padrão 'Filosofia' para um atlas/ mapa conceitual */
         body {
             background-color: #FFFFFF;
             color: #000000;
@@ -17,12 +17,12 @@
         }
 
         main {
-            max-width: 750px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px 60px;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             font-family: 'Arial', Helvetica, sans-serif;
             font-weight: normal;
             border-bottom: 1px solid #000000;
@@ -30,55 +30,215 @@
         }
 
         h1 {
-            font-size: 1.8em;
+            font-size: 2.2em;
             text-align: center;
-            border-bottom: 2px solid #000000;
+            border-bottom: 3px double #000;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
         }
 
-        h2 {
-            font-size: 1.4em;
-            margin-top: 40px;
-        }
-
-        p {
-            font-size: 1em;
-        }
-
-        a {
-            color: #0000FF;
-            text-decoration: underline;
-        }
-
-        a:hover {
-            color: #FF00FF;
-        }
-
-        .map-container {
+        .subhead {
+            text-align: center;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 1em;
-            line-height: 1.8;
-            padding-left: 20px;
+            font-size: 0.9rem;
+            color: #7B2D8B;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
-        .map-container ul {
-            list-style-type: none;
-            padding-left: 20px;
-            border-left: 1px dashed #888;
+        .atlas-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            padding: 20px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            font-style: italic;
         }
 
-        .map-container li {
+        /* Estrutura principal tipo atlas */
+        .atlas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .atlas-card {
+            border: 1px solid #000;
+            padding: 0;
+            background: #fff;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+
+        .atlas-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0 rgba(123,45,139,0.1);
+            border-color: #7B2D8B;
+        }
+
+        .card-header {
+            background: #f2f2f2;
+            padding: 15px;
+            border-bottom: 1px solid #000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+        }
+
+        .card-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .card-subtitle {
+            font-size: 0.7rem;
+            color: #7B2D8B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .mind-map {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 2;
+            white-space: pre-wrap;
+            background: #fafafa;
+            padding: 15px;
+            border: 1px dashed #ccc;
+        }
+
+        .branch {
+            margin-left: 20px;
+            border-left: 1px dotted #7B2D8B;
+            padding-left: 15px;
+        }
+
+        .node {
+            margin: 8px 0;
             position: relative;
         }
 
-        .map-container li::before {
-            content: "└─ ";
+        .node::before {
+            content: "•";
+            color: #7B2D8B;
             position: absolute;
             left: -20px;
         }
 
+        .node.main::before {
+            content: "◉";
+            font-size: 1.2rem;
+            left: -25px;
+            top: -2px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            margin: 2px;
+            color: #555;
+        }
+
+        /* Seção institucional (em breve) */
+        .institutional-soon {
+            margin: 60px 0 30px;
+            padding: 30px;
+            background: #f2f2f2;
+            border: 2px dashed #7B2D8B;
+            text-align: center;
+        }
+
+        .institutional-soon .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .institutional-soon .title {
+            font-size: 1.8rem;
+            font-family: 'Arial', sans-serif;
+            color: #7B2D8B;
+        }
+
+        .institutional-soon .desc {
+            font-size: 0.9rem;
+            color: #666;
+            max-width: 500px;
+            margin: 15px auto;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 5px 15px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* Linha do tempo / arquitetura */
+        .arch-container {
+            margin: 40px 0;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #000;
+        }
+
+        .arch-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pi-chain {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px 15px;
+            font-family: 'Courier New', monospace;
+            background: #f5f5f5;
+            padding: 15px;
+        }
+
+        .pi-item {
+            padding: 5px 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-left: 3px solid #7B2D8B;
+        }
+
+        .pi-item a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .pi-item a:hover {
+            color: #7B2D8B;
+        }
+
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             padding-top: 20px;
             border-top: 1px solid #000000;
             font-size: 0.9em;
@@ -89,71 +249,181 @@
 <body>
 
     <main>
-        <h1>Mapa do Sistema [2]</h1>
-        <p>Este documento apresenta a arquitetura de informação do ecossistema <strong>wagnerpyter.ia.br</strong>, mostrando a hierarquia de arquivos, conceitos e subdomínios.</p>
+        <h1>ATLAS · wagnerpyter.ia.br</h1>
+        <div class="subhead">CARTOGRAFIA DE TERRITÓRIOS · 2026</div>
 
-        <h2>Estrutura de Arquivos (Domínio Principal)</h2>
-        <div class="map-container">
-            <strong>/ (root)</strong>
-            <ul>
-                <li>
-                    <a href="index.html">3.html (index.html)</a> — Portal de Entrada
-                    <ul>
-                        <li><a href="0.html">31.html (0.html)</a> — Logs do Agente Zero</li>
-                        <li><a href="1.html">314.html (1.html)</a> — Filosofia de Pesquisa</li>
-                        <li><a href="2.html">3141.html (2.html)</a> — Mapa do Sistema (esta página)</li>
-                        <li><a href="3.html">31415.html (3.html)</a> — Código Fonte</li>
-                        <li><a href="4.html">314159.html (4.html)</a> — Arquivo Torrent</li>
-                        <li><a href="5.html">3141592.html (5.html)</a> — Certificados</li>
-                        <li><a href="6.html">31415926.html (6.html)</a> — Lixeira de Resíduos</li>
-                        <li><a href="7.html">314159265.html (7.html)</a> — Sobre o Operador</li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="atlas-intro">
+            <p>Este atlas organiza os territórios do projeto em três camadas: o núcleo duro (numeração π), os continentes emergentes (Teatro Mágico e Círculos Ciclos) e as terras em exploração (institucional).</p>
+            <p style="font-family:'Courier New'; margin-top:10px;">⟡ todo mapa é provisório ⟡</p>
         </div>
 
-        <h2>Estrutura Conceitual (Entidades e Frameworks)</h2>
-        <div class="map-container">
-            <strong>Frameworks</strong>
-            <ul>
-                <li>
-                    <a href="framework-beatriz.html">Framework Beatriz</a> — Sistema de análise de 9 camadas
-                    <ul>
-                        <li>Notas de Ada — Taxonomia musical de eventos</li>
-                        <li>Mago-0 — Mapa mental de conexões</li>
-                        <li>Kernel Olun — Ressonância de frequências</li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="estrutura.html">Estrutura dos 12 Princípios</a> — Regras do universo narrativo
-                    <ul>
-                        <li>Entidades: Coral, Teresa, Rafael, Elena</li>
-                    </ul>
-                </li>
-            </ul>
-            <strong>Produtos-Experimento</strong>
-            <ul>
-                <li><a href="ernesto.html">Protocolo ERNESTO v2026</a> — Framework de Autonomia Crítica</li>
-            </ul>
+        <!-- CAMADA 1: NÚCLEO PI (arquivos existentes) -->
+        <div class="arch-container">
+            <div class="arch-title">
+                <span>🥧</span> NÚCLEO π — ARQUITETURA BASE
+            </div>
+            <div class="pi-chain">
+                <span class="pi-item"><a href="index.html">3 · portal</a></span>
+                <span class="pi-item"><a href="0.html">3.1 · logs</a></span>
+                <span class="pi-item"><a href="1.html">3.14 · filosofia</a></span>
+                <span class="pi-item"><a href="2.html">3.141 · atlas</a></span>
+                <span class="pi-item"><a href="3.html">3.1415 · código</a></span>
+                <span class="pi-item"><a href="4.html">3.14159 · torrent</a></span>
+                <span class="pi-item"><a href="5.html">3.141592 · certificados</a></span>
+                <span class="pi-item"><a href="6.html">3.1415926 · lixeira</a></span>
+                <span class="pi-item"><a href="7.html">3.14159265 · sobre</a></span>
+            </div>
+            <p style="text-align:center; font-size:0.8rem; margin-top:15px;">8 páginas · 1 constante · 27% vivo</p>
         </div>
 
-        <h2>Estrutura de Expansão (Subdomínios)</h2>
-        <div class="map-container">
-            <strong>Pontes de Conexão</strong>
-            <ul>
-                <li>Teatro Mágico — Portal narrativo para subdomínios</li>
-                <li>Círculos — Mapa visual de subdomínios</li>
-            </ul>
-            <strong>Laboratórios Ativos</strong>
-            <ul>
-                <li><a href="tat.html">tat.wagnerpyter.ia.br</a> — Laboratório de Linguagem e Sistemas Criativos</li>
-            </ul>
+        <!-- CAMADA 2: TERRITÓRIOS EM EXPANSÃO (grid) -->
+        <div class="atlas-grid">
+            
+            <!-- Teatro Mágico (ficção/arte/pessoal) -->
+            <div class="atlas-card">
+                <div class="card-header">
+                    <div class="card-icon">🎭</div>
+                    <div>
+                        <div class="card-subtitle">continente · ficção · arte · pessoal</div>
+                        <div class="card-title">TEATRO MÁGICO</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p><em>"Entrada custa a loucura. Saída, a memória."</em></p>
+                    
+                    <div class="mind-map">
+                        🎭 TEATRO MÁGICO
+                        ├── 🎪 PALCO PRINCIPAL
+                        │   ├── <span class="tag">personas</span> <span class="tag">alter-egos</span>
+                        │   ├── <span class="tag">dramaturgia</span> <span class="tag">monólogos</span>
+                        │   └── <span class="tag">performances</span> <span class="tag">registros</span>
+                        │
+                        ├── 📜 FICÇÃO
+                        │   ├── <span class="tag">contos</span> <span class="tag">narrativas</span>
+                        │   ├── <span class="tag">universos</span> <span class="tag">mitologias</span>
+                        │   └── <span class="tag">personagens</span> <span class="tag">arquétipos</span>
+                        │
+                        ├── 🎨 ARTE PESSOAL
+                        │   ├── <span class="tag">fotografia</span> <span class="tag">exorcismos urbanos</span>
+                        │   ├── <span class="tag">poesia</span> <span class="tag">pilish</span> <span class="tag">metropoemas</span>
+                        │   └── <span class="tag">multimídia</span> <span class="tag">instalações</span>
+                        │
+                        └── 🧠 MEMÓRIA AFETIVA
+                            ├── <span class="tag">infância</span> <span class="tag">origens</span>
+                            ├── <span class="tag">vó Guiomar</span> <span class="tag">musa</span>
+                            └── <span class="tag">diários</span> <span class="tag">registros íntimos</span>
+                    </div>
+
+                    <div style="margin-top:15px; display:flex; gap:5px; flex-wrap:wrap;">
+                        <span class="tag">em breve</span>
+                        <span class="tag">subdomínio</span>
+                        <span class="tag">teatro.wagnerpyter.ia.br</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Círculos Ciclos (laboratório/experimentos/mecanismos) -->
+            <div class="atlas-card">
+                <div class="card-header">
+                    <div class="card-icon">🔄</div>
+                    <div>
+                        <div class="card-subtitle">laboratório · experimentos · mecanismos</div>
+                        <div class="card-title">CÍRCULOS CICLOS</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p><em>"O que retorna, transformado."</em></p>
+                    
+                    <div class="mind-map">
+                        🔄 CÍRCULOS CICLOS
+                        ├── 🌙 TAT LAB CYCLE
+                        │   ├── 🌑 <span class="tag">lua nova</span> (pensar)
+                        │   ├── 🌓 <span class="tag">lua crescente</span> (estruturar)
+                        │   ├── 🌕 <span class="tag">lua cheia</span> (publicar)
+                        │   └── 🌗 <span class="tag">lua minguante</span> (limpar)
+                        │
+                        ├── ⚙️ MECANISMOS
+                        │   ├── <span class="tag">Mago-0</span> (framework cognitivo)
+                        │   ├── <span class="tag">Notas de Ada</span> (classificação A-G)
+                        │   ├── <span class="tag">ACA/CDC</span> (atestados/certificados)
+                        │   └── <span class="tag">overload cascade</span> (hipótese)
+                        │
+                        ├── 🧪 EXPERIMENTOS
+                        │   ├── <span class="tag">sonificação de logs</span>
+                        │   ├── <span class="tag">partituras de erro</span>
+                        │   ├── <span class="tag">agentes autônomos</span>
+                        │   └── <span class="tag">zona descontaminada</span>
+                        │
+                        └── 📊 ANÁLISE
+                            ├── <span class="tag">padrões</span> <span class="tag">sequências</span>
+                            ├── <span class="tag">frequências</span> <span class="tag">intensidades</span>
+                            └── <span class="tag">visualização</span> <span class="tag">partituras</span>
+                    </div>
+
+                    <div style="margin-top:15px; display:flex; gap:5px; flex-wrap:wrap;">
+                        <span class="tag">em breve</span>
+                        <span class="tag">subdomínio</span>
+                        <span class="tag">ciclos.wagnerpyter.ia.br</span>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- SEÇÃO 3: INSTITUCIONAL (EM BREVE) -->
+        <div class="institutional-soon">
+            <div class="icon">🏛️</div>
+            <div class="title">INSTITUCIONAL</div>
+            <div class="desc">
+                cartório · registros públicos · acervo formal · documentação oficial · certificações · parcerias · linha do tempo do projeto
+            </div>
+            <div class="status-badge">EM BREVE — 2026</div>
+            <div style="margin-top:20px; font-family:'Courier New'; font-size:0.8rem;">
+                ⬤ domínio sugerido: institucional.wagnerpyter.ia.br
+            </div>
+        </div>
+
+        <!-- MAPA CONCEITUAL (VISÃO GERAL) -->
+        <h2 style="margin-top:60px;">🌐 VISÃO GERAL DO ATLAS</h2>
+
+        <div style="display:flex; flex-direction:column; gap:15px; margin:30px 0; padding:20px; background:#f5f5f5; border:1px solid #ddd; font-family:'Courier New';">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:1.5rem;">🥧</span>
+                <span style="font-weight:bold;">NÚCLEO π (ativo):</span>
+                <span>3.1 · 3.14 · 3.141 · 3.1415 · 3.14159 · 3.141592 · 3.1415926 · 3.14159265</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:1.5rem;">🎭</span>
+                <span style="font-weight:bold;">TEATRO MÁGICO (futuro):</span>
+                <span>ficção · arte pessoal · personas · memórias</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:1.5rem;">🔄</span>
+                <span style="font-weight:bold;">CÍRCULOS CICLOS (futuro):</span>
+                <span>laboratório · experimentos · mecanismos · TAT Lab</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:1.5rem;">🏛️</span>
+                <span style="font-weight:bold;">INSTITUCIONAL (futuro):</span>
+                <span>cartório · registros públicos · documentação oficial</span>
+            </div>
+        </div>
+
+        <!-- LEGENDAS E NOTAS -->
+        <div style="margin-top:50px; padding:20px; border-top:1px solid #ddd;">
+            <p style="font-size:0.85rem; color:#666;">
+                <strong>⬤ COMO LER ESTE ATLAS:</strong> O núcleo π já está no ar. Os continentes Teatro Mágico e Círculos Ciclos são territórios em planejamento, com mind maps que representam possíveis expansões futuras. A área institucional será o cartório formal do projeto.
+            </p>
+            <p style="font-size:0.8rem; font-family:'Courier New'; margin-top:15px; text-align:right;">
+                ⟡ atlas compilado em 15/03/2026 · 27% vivo, o resto é mapa ⟡
+            </p>
+        </div>
+
     </main>
 
     <footer>
-        <p>Fim do mapa do sistema.</p>
+        <p><a href="index.html">portal</a> · <a href="0.html">logs</a> · <a href="1.html">filosofia</a> · <a href="3.html">código</a></p>
+        <p style="font-size:0.7rem; margin-top:10px;">wagnerpyter.ia.br — cartografia de territórios</p>
     </footer>
 
 </body>
-</html>
+            </html>
