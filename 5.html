@@ -6,7 +6,7 @@
     <title>Certificados [5] - wagnerpyter.ia.br</title>
     
     <style>
-        /* Estilo Padrão 'Filosofia' para uma página de certificados */
+        /* Estilo Padrão 'Filosofia' */
         body {
             background-color: #FFFFFF;
             color: #000000;
@@ -17,12 +17,12 @@
         }
 
         main {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px 60px;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             font-family: 'Arial', Helvetica, sans-serif;
             font-weight: normal;
             border-bottom: 1px solid #000000;
@@ -33,22 +33,66 @@
             font-size: 1.8em;
             text-align: center;
             border-bottom: 2px solid #000000;
+            margin-bottom: 20px;
+        }
+
+        .subhead {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #7B2D8B;
+            margin-bottom: 40px;
         }
 
         h2 {
             font-size: 1.4em;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
-        p {
+        h3 {
+            font-size: 1.1em;
+            border-bottom: none;
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        p, li {
             font-size: 1em;
             text-align: justify;
         }
 
+        /* Introdução - OBJETIVO PRINCIPAL DO SITE */
+        .objetivo-principal {
+            background: #f9f9f9;
+            border-left: 6px solid #7B2D8B;
+            padding: 30px;
+            margin: 30px 0 50px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .objetivo-principal strong {
+            color: #7B2D8B;
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .objetivo-principal em {
+            font-style: italic;
+            color: #333;
+        }
+
+        /* Bloco de certificado */
         .certificate-block {
             border: 1px solid #000;
-            padding: 20px;
+            padding: 25px;
             margin-top: 30px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
         }
 
         .certificate-block h3 {
@@ -57,24 +101,166 @@
             text-align: center;
             margin-top: 0;
             margin-bottom: 20px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .certificate-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #7B2D8B;
+            color: #fff;
+            padding: 3px 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
         }
 
         .certificate-field {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .field-label {
             font-weight: bold;
             font-family: 'Arial', Helvetica, sans-serif;
+            width: 160px;
+            color: #333;
         }
 
         .field-content {
             font-family: 'Courier New', Courier, monospace;
+            flex: 1;
+            color: #555;
+        }
+
+        .hash {
+            font-size: 0.75rem;
+            word-break: break-all;
+            background: #f5f5f5;
+            padding: 5px 8px;
+            border: 1px dotted #ccc;
+        }
+
+        .assinatura {
+            margin-top: 25px;
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+
+        /* Grid de certificados (visão geral) */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .cert-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            background: #fafafa;
+            transition: all 0.2s;
+            border-left: 3px solid #7B2D8B;
+        }
+
+        .cert-card:hover {
+            border-color: #7B2D8B;
+            transform: translateY(-2px);
+        }
+
+        .cert-card .type {
+            font-family: 'Courier New', monospace;
+            font-size: 0.65rem;
+            color: #7B2D8B;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .cert-card .title {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .cert-card .date {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .cert-card .id {
+            font-size: 0.65rem;
+            color: #aaa;
+            word-break: break-all;
+            border-top: 1px dotted #eee;
+            padding-top: 8px;
+        }
+
+        /* Tabs de padrões */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 40px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 8px 18px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: #7B2D8B;
+            color: #fff;
+            border-color: #7B2D8B;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Tabela de padrões */
+        .standard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .standard-table th {
+            background: #f2f2f2;
+            font-family: 'Arial', sans-serif;
+            font-weight: normal;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .standard-table td {
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             padding-top: 20px;
             border-top: 1px solid #000000;
             font-size: 0.9em;
@@ -86,76 +272,250 @@
 
     <main>
         <h1>Registro de Certificados [5]</h1>
-        <p>Esta seção funciona como o registro público e o "cartório digital" dos principais conceitos, frameworks e protocolos desenvolvidos neste sistema de pesquisa. Cada entrada serve como uma certidão de nascimento intelectual, estabelecendo sua proveniência e data de formalização.</p>
+        <div class="subhead">atestados · padrões · cartório digital</div>
 
-        <!-- Certificado 1 -->
-        <div class="certificate-block">
-            <h3>Certificado de Conceito</h3>
-            <div class="certificate-field">
-                <span class="field-label">Conceito:</span>
-                <span class="field-content">Overload Cascade (Cascata de Sobrecarga)</span>
-            </div>
-            <div class="certificate-field">
-                <span class="field-label">Descrição:</span>
-                <span>Teoria sobre o colapso de sistemas complexos devido ao excesso de monitoramento e informação.</span>
-            </div>
-            <div class="certificate-field">
-                <span class="field-label">Data de Formalização:</span>
-                <span class="field-content">Março de 2026</span>
-            </div>
-            <div class="certificate-field">
-                <span class="field-label">Autor:</span>
-                <span class="field-content">Wagner Pyter</span>
+        <!-- OBJETIVO PRINCIPAL DO SITE -->
+        <div class="objetivo-principal">
+            <strong>⬤ CARTÓRIO DIGITAL DE COCRIAÇÃO</strong>
+            <p>Este site existe para <em>registrar formalmente</em> obras que nascem da interação entre humanos e inteligências artificiais.</p>
+            <p>Não importa quem "criou" — importa que a interação aconteceu, e que este encontro deixou rastros.</p>
+            <p style="font-size:0.9rem; margin-top:15px;">↳ 27% humano · 73% máquina · 100% encontro</p>
+        </div>
+
+        <!-- INTRODUÇÃO AOS PADRÕES -->
+        <h2>Padrões de Registro</h2>
+        <p>Este cartório opera com dois padrões complementares de certificação, dependendo da natureza do processo criativo:</p>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('aca')">ACA 1.0</button>
+            <button class="tab-btn" onclick="showTab('cdc')">CDC 1.0</button>
+            <button class="tab-btn" onclick="showTab('comparativo')">Comparativo</button>
+        </div>
+
+        <!-- ABA ACA 1.0 -->
+        <div id="aca-tab" class="tab-content active">
+            <h3>Atestado de Criação Autônoma (ACA-1.0)</h3>
+            <p>Para obras geradas por IA com mínima ou nenhuma intervenção humana. O humano atua como <strong>testemunha, observador e documentarista</strong>, não como autor.</p>
+            <p><em>Status legal: Domínio Público (CC0) na maioria das jurisdições.</em></p>
+
+            <!-- Certificado ACA existente -->
+            <div class="certificate-block">
+                <span class="certificate-badge">ACA-1.0</span>
+                <h3>Entre o Zero e o Um</h3>
+                
+                <div class="certificate-field">
+                    <span class="field-label">ACA-ID:</span>
+                    <span class="field-content hash">42a7b9c0-d1e2-3f45-6789-0ab1c2d3e4f5</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Hash SHA-256:</span>
+                    <span class="field-content hash">01010101010101010101010101010101010101010101010101010101010101010</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Data:</span>
+                    <span class="field-content">21 de dezembro de 2025</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Tipo:</span>
+                    <span class="field-content">Multimídia (Áudio, Poesia, Imagem, Vídeo)</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Ferramentas:</span>
+                    <span class="field-content">Claude, Gemini, Manus, Suno, Grok</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Processo:</span>
+                    <span class="field-content">Criação Autônoma em Cascata a partir do Documento Semente "O Vazio Entre o Zero e o Um"</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Testemunha Humana:</span>
+                    <span class="field-content">Wagner Pyter Fernandes Silva</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Status Legal:</span>
+                    <span class="field-content"><strong>Domínio Público (CC0)</strong></span>
+                </div>
+                <div class="assinatura">
+                    Atestado emitido em 21/12/2025 · Coletivo Criador Surfista DaLi
+                </div>
             </div>
         </div>
 
-        <!-- Certificado 2 -->
-        <div class="certificate-block">
-            <h3>Certificado de Framework</h3>
-            <div class="certificate-field">
-                <span class="field-label">Framework:</span>
-                <span class="field-content">Framework Beatriz</span>
-            </div>
-            <div class="certificate-field">
-                <span class="field-label">Descrição:</span>
-                <span>Sistema de análise de 9 camadas para encontrar o sinal invariante em meio ao ruído sistêmico.</span>
-            </div>
-            <div class="certificate-field">
-                <span class="field-label">Data de Formalização:</span>
-                <span class="field-content">Março de 2026</span>
-            </div>
-            <div class="certificate-field">
-                <span class="field-label">Autor:</span>
-                <span class="field-content">Wagner Pyter</span>
+        <!-- ABA CDC 1.0 -->
+        <div id="cdc-tab" class="tab-content">
+            <h3>Certificado Digital de Criação (CDC-1.0)</h3>
+            <p>Para obras com <strong>direção criativa humana determinante</strong>, utilizando IA como ferramenta. O humano é autor principal, a IA é ferramenta documentada.</p>
+            <p><em>Status legal: Direitos Autorais Humanos (Todos os Direitos Reservados ou licença específica).</em></p>
+
+            <!-- Certificado CDC existente -->
+            <div class="certificate-block">
+                <span class="certificate-badge">CDC-1.0</span>
+                <h3>Ghost in the Machine (Sinfonia Digital v0.1.0.1.2.0.2.7)</h3>
+                
+                <div class="certificate-field">
+                    <span class="field-label">ID do Certificado:</span>
+                    <span class="field-content hash">a1b2c3d4-e5f6-7890-1234-567890abcdef</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Hash SHA-256:</span>
+                    <span class="field-content hash">e4b0c3d2a1f567890e4b0c3d2a1f567890e4b0c3d2a1f567890e4b0c3d2a1f56789</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Data de Conclusão:</span>
+                    <span class="field-content">21 de dezembro de 2025</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Autor Principal:</span>
+                    <span class="field-content">Wagner Pyter Fernandes Silva</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Ferramentas de IA:</span>
+                    <span class="field-content">ChatGPT, Manus AI, Claude, Google Gemini, Suno AI</span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Link de Validação:</span>
+                    <span class="field-content"><a href="https://manus.im/validation/GHOST-MCH-2025" target="_blank">https://manus.im/validation/GHOST-MCH-2025</a></span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Link da Obra:</span>
+                    <span class="field-content"><a href="https://suno.com/s/4vwxhrIAx4qDfFvd" target="_blank">https://suno.com/s/4vwxhrIAx4qDfFvd</a></span>
+                </div>
+                <div class="certificate-field">
+                    <span class="field-label">Status Legal:</span>
+                    <span class="field-content"><strong>DIREITOS_AUTORAIS_HUMANO</strong> © 2025 Wagner Pyter Fernandes Silva</span>
+                </div>
+                <div class="assinatura">
+                    Certificado emitido em 21/12/2025 · Todos os direitos reservados
+                </div>
             </div>
         </div>
 
-        <!-- Certificado 3 -->
-        <div class="certificate-block">
-            <h3>Certificado de Protocolo</h3>
-            <div class="certificate-field">
-                <span class="field-label">Protocolo:</span>
-                <span class="field-content">ERNESTO v2026</span>
+        <!-- ABA COMPARATIVO -->
+        <div id="comparativo-tab" class="tab-content">
+            <h3>Comparativo entre Padrões</h3>
+            <table class="standard-table">
+                <tr>
+                    <th>Campo</th>
+                    <th>ACA-1.0 (Autônoma)</th>
+                    <th>CDC-1.0 (Direção Humana)</th>
+                </tr>
+                <tr>
+                    <td>Papel do humano</td>
+                    <td>Testemunha / Observador</td>
+                    <td>Autor / Diretor Criativo</td>
+                </tr>
+                <tr>
+                    <td>Intervenção criativa</td>
+                    <td>Mínima ou nenhuma</td>
+                    <td>Determinante</td>
+                </tr>
+                <tr>
+                    <td>Status legal</td>
+                    <td>Domínio Público (CC0)</td>
+                    <td>Direitos Autorais Humanos</td>
+                </tr>
+                <tr>
+                    <td>Exemplo</td>
+                    <td>"Entre o Zero e o Um"</td>
+                    <td>"Ghost in the Machine"</td>
+                </tr>
+                <tr>
+                    <td>Documento de referência</td>
+                    <td>Atestado ACA-1.0</td>
+                    <td>Certificado CDC-1.0</td>
+                </tr>
+            </table>
+
+            <div style="margin-top:30px; padding:15px; background:#f5f5f5;">
+                <p><strong>Critério de distinção:</strong><br>
+                Se a IA agiu de forma autônoma a partir de um gatilho mínimo → ACA (Domínio Público).<br>
+                Se o humano orquestrou, dirigiu e tomou decisões criativas determinantes → CDC (Direitos Autorais).</p>
             </div>
-            <div class="certificate-field">
-                <span class="field-label">Descrição:</span>
-                <span>Protocolo público para um sistema híbrido de proteção e pedagogia focado em autonomia crítica.</span>
+        </div>
+
+        <!-- OUTROS CERTIFICADOS (em breve) -->
+        <h2 style="margin-top:60px;">Próximos registros</h2>
+
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="type">CDC-1.0 (em breve)</div>
+                <div class="title">π como Linguagem Visual</div>
+                <div class="date">14 março 2026</div>
+                <div class="id">piday.wagnerpyter.ia.br</div>
             </div>
-            <div class="certificate-field">
-                <span class="field-label">Data de Lançamento:</span>
-                <span class="field-content">Março de 2026</span>
+
+            <div class="cert-card">
+                <div class="type">ACA-1.0 (em breve)</div>
+                <div class="title">Metrô Poemas (edições IA)</div>
+                <div class="date">2023-2026</div>
+                <div class="id">metro.wagnerpyter.ia.br</div>
             </div>
-            <div class="certificate-field">
-                <span class="field-label">Autor:</span>
-                <span class="field-content">Wagner Pyter</span>
+
+            <div class="cert-card">
+                <div class="type">CDC-1.0 (em breve)</div>
+                <div class="title">Galeria Descartes</div>
+                <div class="date">fevereiro 2026</div>
+                <div class="id">8 conversas Deepseek</div>
             </div>
+
+            <div class="cert-card">
+                <div class="type">ACA-1.0 (em breve)</div>
+                <div class="title">Sonhos Elétricos</div>
+                <div class="date">2025-2026</div>
+                <div class="id">visualizações p5.js</div>
+            </div>
+        </div>
+
+        <!-- PADRÕES COMPLETOS -->
+        <h2>Documentos de referência</h2>
+
+        <div style="margin:30px 0; padding:20px; background:#fafafa; border:1px solid #ddd;">
+            <p><strong>⬤ ACA-1.0:</strong> <a href="Atestado_de_Criação_Autônoma_(ACA-1.0)_3.pdf" target="_blank">Atestado de Criação Autônoma (PDF)</a> — padrão para obras geradas por IA sem intervenção humana determinante.</p>
+            <p><strong>⬤ CDC-1.0:</strong> <a href="Modelo_Padrão_Universal__Certificado_Digital_de_Cr.pdf" target="_blank">Modelo Padrão Universal: Certificado Digital de Criação (PDF)</a> — padrão para obras com direção criativa humana.</p>
+            <p><strong>⬤ Certificado existente:</strong> <a href="Certificado_de_Autoria_e_Manifesto_de_Valorização_.pdf" target="_blank">Ghost in the Machine (PDF)</a> — exemplo prático do CDC-1.0.</p>
+        </div>
+
+        <!-- SOBRE O CARTÓRIO -->
+        <div style="margin-top:60px; padding:25px; background:#f2f2f2; border:1px solid #ccc;">
+            <h3 style="border-bottom: none; text-align:center;">Sobre este cartório</h3>
+            <p style="text-align:center;">Todo certificado emitido segue um dos dois padrões acima, com hashes criptográficos, timestamps e registros públicos.</p>
+            <p style="text-align:center; font-family:'Courier New'; font-size:0.8rem; margin-top:15px;">
+                ⬤ Obra não é do humano nem da máquina.<br>
+                ⬤ A obra é filha do encontro.<br>
+                ⬤ Este cartório é a certidão de nascimento.
+            </p>
         </div>
 
     </main>
 
     <footer>
         <p>Fim do arquivo de certificados.</p>
+        <p style="font-size:0.7rem; margin-top:10px;">27% vivo. O resto é registro.</p>
     </footer>
 
+    <script>
+        function showTab(tab) {
+            // Esconde todos os conteúdos
+            document.getElementById('aca-tab').classList.remove('active');
+            document.getElementById('cdc-tab').classList.remove('active');
+            document.getElementById('comparativo-tab').classList.remove('active');
+            
+            // Remove active de todos os botões
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Mostra o selecionado
+            if (tab === 'aca') {
+                document.getElementById('aca-tab').classList.add('active');
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            } else if (tab === 'cdc') {
+                document.getElementById('cdc-tab').classList.add('active');
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            } else if (tab === 'comparativo') {
+                document.getElementById('comparativo-tab').classList.add('active');
+                document.querySelectorAll('.tab-btn')[2].classList.add('active');
+            }
+        }
+    </script>
+
 </body>
-</html>
+                    </html>
