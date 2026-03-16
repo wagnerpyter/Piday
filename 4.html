@@ -17,12 +17,12 @@
         }
 
         main {
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px 60px;
         }
 
-        h1, h2 {
+        h1, h2, h3 {
             font-family: 'Arial', Helvetica, sans-serif;
             font-weight: normal;
             border-bottom: 1px solid #000000;
@@ -33,14 +33,22 @@
             font-size: 1.8em;
             text-align: center;
             border-bottom: 2px solid #000000;
+            margin-bottom: 30px;
         }
 
         h2 {
             font-size: 1.4em;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
-        p {
+        h3 {
+            font-size: 1.1em;
+            border-bottom: none;
+            font-style: italic;
+            margin-top: 25px;
+        }
+
+        p, li {
             font-size: 1em;
             text-align: justify;
         }
@@ -54,17 +62,259 @@
             color: #FF00FF;
         }
 
+        /* Introdução */
+        .intro {
+            background: #f9f9f9;
+            border-left: 4px solid #7B2D8B;
+            padding: 20px;
+            margin: 30px 0;
+            font-size: 0.95rem;
+        }
+
+        .intro strong {
+            color: #7B2D8B;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Cards de torrent/archive */
+        .archive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .archive-card {
+            border: 1px solid #ddd;
+            background: #fff;
+            padding: 20px;
+            transition: all 0.2s;
+            border-left: 3px solid #7B2D8B;
+        }
+
+        .archive-card:hover {
+            border-color: #7B2D8B;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .archive-card .date {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            color: #7B2D8B;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .archive-card .title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted #eee;
+            padding-bottom: 8px;
+        }
+
+        .archive-card .desc {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .archive-card .meta {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .archive-card .hash {
+            font-size: 0.65rem;
+            color: #aaa;
+            word-break: break-all;
+        }
+
+        .archive-card .link {
+            margin-top: 12px;
+        }
+
+        .archive-card .link a {
+            font-size: 0.8rem;
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ddd;
+            transition: all 0.2s;
+        }
+
+        .archive-card .link a:hover {
+            background: #7B2D8B;
+            color: #fff;
+            border-color: #7B2D8B;
+        }
+
+        /* Bloco Internet Archive */
+        .ia-block {
+            background: #f2f2f2;
+            padding: 25px;
+            margin: 40px 0;
+            border: 1px solid #ccc;
+            border-top: 3px solid #7B2D8B;
+        }
+
+        .ia-block h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .ia-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .ia-item {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .ia-item .ia-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            opacity: 0.7;
+        }
+
+        .ia-item .ia-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .ia-item .ia-date {
+            font-size: 0.7rem;
+            color: #7B2D8B;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 8px;
+        }
+
+        .ia-item .ia-link {
+            font-size: 0.7rem;
+            word-break: break-all;
+        }
+
+        /* Atestados ACA */
+        .aca-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f5f0f7;
+            border: 1px solid #d8c0e0;
+        }
+
+        .aca-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .aca-card {
+            background: #fff;
+            border: 1px solid #d8c0e0;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .aca-card .aca-id {
+            font-size: 0.65rem;
+            color: #7B2D8B;
+            word-break: break-all;
+            margin-bottom: 8px;
+        }
+
+        .aca-card .aca-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .aca-card .aca-date {
+            font-size: 0.7rem;
+            color: #666;
+            border-top: 1px dotted #eee;
+            margin-top: 8px;
+            padding-top: 5px;
+        }
+
+        .stats {
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: #888;
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: 8px;
+        }
+
+        /* Princípios */
+        .principles {
+            margin: 40px 0;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #000;
+        }
+
+        .principles ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .principles li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .principles li::before {
+            content: "⬤";
+            color: #7B2D8B;
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
         .download-box {
             border: 1px solid #000;
-            padding: 20px 30px;
-            margin-top: 30px;
+            padding: 25px 30px;
+            margin: 40px 0;
             text-align: center;
+            background: #fafafa;
         }
 
         .download-link {
             font-size: 1.2em;
             font-weight: bold;
             font-family: 'Courier New', Courier, monospace;
+            background: #fff;
+            padding: 10px 20px;
+            border: 1px solid #000;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .download-link:hover {
+            background: #000;
+            color: #fff;
         }
 
         footer {
@@ -81,31 +331,194 @@
 
     <main>
         <h1>Arquivo Torrent [4]</h1>
-        <p>Em linha com os princípios de baixa centralidade, resiliência e soberania do conhecimento, este sistema de pesquisa não deve depender de um único servidor ou plataforma. O conhecimento, uma vez publicado, deve ser livre e distribuível.</p>
-        <p>Esta seção oferece um arquivo `.torrent` contendo uma cópia completa e arquivada deste site, incluindo todos os documentos, frameworks e logs. Ao baixar e compartilhar (semear) este arquivo, você ajuda a garantir a permanência e a disponibilidade desta pesquisa, tornando-se um nó na rede de distribuição.</p>
+        <p style="text-align: center; margin-top: -20px; margin-bottom: 30px;"><em>registros de permanência · distribuição · soberania</em></p>
 
-        <h2>Princípios por Trás da Descentralização</h2>
-        <ul>
-            <li><strong>Anti-fragilidade:</strong> Se este site sair do ar, o conhecimento sobrevive na rede peer-to-peer.</li>
-            <li><strong>Soberania do Usuário:</strong> Permite que você possua uma cópia local, completa e imutável do trabalho, para estudo e consulta offline.</li>
-            <li><strong>Distribuição Sensorial:</strong> Cada "semeador" se torna parte do "corpo sensorial" do projeto, ecoando o princípio nº 12 da Estrutura.</li>
-        </ul>
-
-        <div class="download-box">
-            <h2>Download do Arquivo</h2>
-            <p>Para baixar, você precisará de um cliente BitTorrent (como <a href="https://www.qbittorrent.org/" target="_blank" rel="noopener noreferrer">qBittorrent</a>, <a href="https://transmissionbt.com/" target="_blank" rel="noopener noreferrer">Transmission</a>, etc.).</p>
-            <p class="download-link">
-                <!-- O link real para o arquivo .torrent será colocado aqui -->
-                <a href="#">wagnerpyter.ia.br_archive_2026-03.torrent</a>
-            </p>
-            <p>(Link a ser adicionado)</p>
+        <!-- Introdução conceitual -->
+        <div class="intro">
+            <p><strong>⬤ REGISTROS DE PERMANÊNCIA</strong></p>
+            <p>Este conhecimento não deve depender de um único servidor. Uma vez publicado, deve ser livre e distribuível.</p>
+            <p>Torrents, Internet Archive, hashes e atestados — tudo que garante que a obra continue existindo mesmo se este site um dia desaparecer.</p>
+            <p style="margin-top:10px; font-size:0.8rem;">↳ 27% vivo. O resto é arquivado.</p>
         </div>
-        
+
+        <!-- SEÇÃO 1: TORRENTS DO SITE -->
+        <h2>⬇️ torrents</h2>
+
+        <div class="archive-grid">
+            <div class="archive-card">
+                <div class="date">2026-03-14 · π day</div>
+                <div class="title">wagnerpyter.ia.br — completo</div>
+                <div class="desc">Site completo com todas as páginas HTML, CSS, assets e logs. Snapshot do Pi Day 2026.</div>
+                <div class="meta">
+                    <span>17 arquivos</span>
+                    <span>1.2 MB</span>
+                </div>
+                <div class="hash">hash: a4b8...f3e1</div>
+                <div class="link"><a href="#">wagnerpyter.ia.br_2026-03-14.torrent</a></div>
+            </div>
+
+            <div class="archive-card">
+                <div class="date">2026-02-28</div>
+                <div class="title">Galeria Descartes — imagens</div>
+                <div class="desc">Coleção completa de imagens geradas por IA (Deepseek, Gemini, Midjourney) — Ícaro, Medusa, Arachne, Frankenstein, etc.</div>
+                <div class="meta">
+                    <span>24 imagens</span>
+                    <span>45 MB</span>
+                </div>
+                <div class="hash">hash: d7c2...9a4b</div>
+                <div class="link"><a href="#">galeria-descartes_2026-02.torrent</a></div>
+            </div>
+
+            <div class="archive-card">
+                <div class="date">2026-02-14 a 2026-02-28</div>
+                <div class="title">Conversas Deepseek — HTML</div>
+                <div class="desc">Arquivos completos das conversas com Deepseek (Ícaro, Medusa, Arachne, Prometeu, Frankenstein, Adélia, Dorian Gray, Torquato).</div>
+                <div class="meta">
+                    <span>8 arquivos</span>
+                    <span>340 KB</span>
+                </div>
+                <div class="hash">hash: f2e8...3c7d</div>
+                <div class="link"><a href="#">deepseek-conversas_2026-02.torrent</a></div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO 2: INTERNET ARCHIVE -->
+        <h2>📦 internet archive</h2>
+
+        <div class="ia-block">
+            <h3>wayback machine — snapshots</h3>
+            <div class="ia-grid">
+                <div class="ia-item">
+                    <div class="ia-icon">🌐</div>
+                    <div class="ia-title">wagnerpyter.ia.br</div>
+                    <div class="ia-date">2026-03-14</div>
+                    <div class="ia-link"><a href="#">archive.org/pi-day</a></div>
+                </div>
+
+                <div class="ia-item">
+                    <div class="ia-icon">🥧</div>
+                    <div class="ia-title">piday.wagnerpyter.ia.br</div>
+                    <div class="ia-date">2026-03-14</div>
+                    <div class="ia-link"><a href="#">archive.org/piday</a></div>
+                </div>
+
+                <div class="ia-item">
+                    <div class="ia-icon">🚇</div>
+                    <div class="ia-title">metro.wagnerpyter.ia.br</div>
+                    <div class="ia-date">2026-03-14</div>
+                    <div class="ia-link"><a href="#">archive.org/metro</a></div>
+                </div>
+
+                <div class="ia-item">
+                    <div class="ia-icon">🗑️</div>
+                    <div class="ia-title">Galeria Descartes</div>
+                    <div class="ia-date">2026-02-28</div>
+                    <div class="ia-link"><a href="#">archive.org/descartes</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO 3: ATESTADOS ACA (com base nos screenshots) -->
+        <h2>📜 atestados de criação autônoma (ACA)</h2>
+
+        <div class="aca-section">
+            <p style="margin-bottom:20px;"><strong>ACA 1.0</strong> — registros de autoria em caráter de trabalho, tratado de direito público.</p>
+
+            <div class="aca-grid">
+                <div class="aca-card">
+                    <div class="aca-id">fe33fab0-f3cd-11f0-b006-b54e7e6a284d</div>
+                    <div class="aca-title">Malha e Sorkh: A Noite que Viaja</div>
+                    <div class="aca-desc" style="font-size:0.75rem; color:#555;">Criação, Autonomia em Caráter de Trabalho, Tratado de Direito Público</div>
+                    <div class="aca-date">arquivado: 2026-01-17</div>
+                </div>
+
+                <div class="aca-card">
+                    <div class="aca-id">3a3abb60-de21-11f0-b006-958f1a090f99</div>
+                    <div class="aca-title">Atestado De Criação Autônoma (ACA 1.0)</div>
+                    <div class="aca-desc" style="font-size:0.75rem; color:#555;">Registro de obra autônoma</div>
+                    <div class="aca-date">arquivado: 2025-12-28</div>
+                </div>
+
+                <div class="aca-card">
+                    <div class="aca-id">4wno5i-4wno5i-4wno</div>
+                    <div class="aca-title">Gemini Generated Image</div>
+                    <div class="aca-desc" style="font-size:0.75rem; color:#555;">Imagem gerada por IA</div>
+                    <div class="aca-date">arquivado: 2025-12-28</div>
+                </div>
+
+                <div class="aca-card">
+                    <div class="aca-id">Antologia_mah_e_sorkh</div>
+                    <div class="aca-title">Mãh-e Sorkh: A Noite que Viaja</div>
+                    <div class="aca-desc" style="font-size:0.75rem; color:#555;">Antologia em construção · Introdução: A Parte Viva</div>
+                    <div class="aca-date">arquivado: 2026-01-17 <span class="stats">13 commits</span></div>
+                </div>
+            </div>
+
+            <p style="margin-top:20px; font-size:0.8rem; text-align:right; font-family:'Courier New';">↳ hashes e registros públicos</p>
+        </div>
+
+        <!-- SEÇÃO 4: OUTROS ARQUIVOS -->
+        <h2>📁 outros registros</h2>
+
+        <div class="archive-grid">
+            <div class="archive-card">
+                <div class="date">2025-12-27</div>
+                <div class="title">Sintetizadores Etéreos</div>
+                <div class="desc">Sintetizadores etéreos e som de relógio — experimento sonoro.</div>
+                <div class="meta">
+                    <span>áudio</span>
+                    <span>3.2 MB</span>
+                </div>
+                <div class="hash">hash: b8d2...7f4a</div>
+                <div class="link"><a href="#">sintetizadores-eterios.torrent</a></div>
+            </div>
+
+            <div class="archive-card">
+                <div class="date">2026-01-17</div>
+                <div class="title">antologia_mah_e_sorkh</div>
+                <div class="desc">Antologia completa · Mãh-e Sorkh: A Noite que Viaja</div>
+                <div class="meta">
+                    <span>texto</span>
+                    <span>180 KB</span>
+                </div>
+                <div class="hash">hash: e3c9...2b5d</div>
+                <div class="link"><a href="#">antologia-mah-sorkh.torrent</a></div>
+            </div>
+        </div>
+
+        <!-- PRINCÍPIOS DA DESCENTRALIZAÇÃO -->
+        <h2>🔄 princípios da permanência</h2>
+
+        <div class="principles">
+            <ul>
+                <li><strong>Anti-fragilidade:</strong> Se este site sair do ar, o conhecimento sobrevive na rede peer-to-peer e no Internet Archive.</li>
+                <li><strong>Soberania do usuário:</strong> Você pode possuir uma cópia local, completa e imutável do trabalho.</li>
+                <li><strong>Distribuição sensorial:</strong> Cada "semeador" se torna parte do corpo sensorial do projeto.</li>
+                <li><strong>Registro público:</strong> Atestados ACA e hashes garantem proveniência e autenticidade.</li>
+            </ul>
+        </div>
+
+        <!-- DOWNLOAD COMPLETO -->
+        <div class="download-box">
+            <h2 style="border-bottom: none; margin-bottom: 15px;">📦 pacote completo</h2>
+            <p>Todo o acervo em um único arquivo: site + imagens + conversas + atestados</p>
+            <p class="download-link">
+                <a href="#">wagnerpyter.ia.br_acervo_completo_2026-03.torrent</a>
+            </p>
+            <p style="margin-top:15px; font-size:0.8rem;">↳ 47 arquivos · 48.7 MB · hash: 7f3d...e8a2</p>
+        </div>
+
+        <!-- NOTA FINAL -->
+        <div style="margin: 40px 0; padding: 20px; background: #fff; border: 1px dashed #7B2D8B; text-align: center;">
+            <p style="font-family: 'Courier New'; font-size:0.8rem;">"O conhecimento não morre quando o servidor cai.<br>Ele vive em cada nó que escolhe guardar."</p>
+        </div>
+
     </main>
 
     <footer>
         <p>Fim do arquivo de distribuição.</p>
+        <p style="font-size:0.7rem; margin-top:10px;">27% vivo. O resto é rede.</p>
     </footer>
 
 </body>
-</html>
+                        </html>
