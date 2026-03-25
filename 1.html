@@ -144,6 +144,124 @@
             color: #666;
         }
 
+        /* NOVO: TRIÂNGULO CONCEITUAL */
+        .triangulo-container {
+            margin: 60px 0 40px;
+            padding: 20px;
+            background: #fafafa;
+            border: 1px solid #ddd;
+        }
+
+        .triangulo-titulo {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .triangulo-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .linha-superior {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .vertice {
+            text-align: center;
+            width: 200px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-left: 3px solid #7B2D8B;
+            transition: all 0.2s;
+        }
+
+        .vertice:hover {
+            transform: translateY(-3px);
+            border-color: #7B2D8B;
+            box-shadow: 5px 5px 0 rgba(123,45,139,0.1);
+        }
+
+        .vertice-titulo {
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .vertice-desc {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .centro {
+            text-align: center;
+            padding: 25px;
+            background: #fff;
+            border: 2px solid #7B2D8B;
+            width: 280px;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .centro::before {
+            content: "🌀";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fafafa;
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .centro-titulo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #7B2D8B;
+            margin-bottom: 8px;
+        }
+
+        .centro-desc {
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .vertice-inferior {
+            text-align: center;
+            width: 200px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-left: 3px solid #7B2D8B;
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+
+        .vertice-inferior:hover {
+            transform: translateY(-3px);
+            border-color: #7B2D8B;
+        }
+
+        .nota-triangulo {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dotted #ccc;
+            font-family: 'Courier New', monospace;
+        }
+
         footer {
             text-align: center;
             margin-top: 60px;
@@ -176,7 +294,7 @@
             <a href="#epilogo" class="nav-item">05. epílogo</a>
         </div>
 
-        <!-- TEXTO 1: INVESTIGAÇÃO (baseado no que você enviou) -->
+        <!-- TEXTO 1: INVESTIGAÇÃO -->
         <h2 id="investigacao">1. Investigação</h2>
         
         <p>Os primeiros sinais apareceram antes da explosão recente da inteligência artificial.</p>
@@ -377,41 +495,44 @@
             <p><strong>É que tipo de pensamento emergiu dessa interação.</strong></p>
         </div>
 
+        <!-- ===== NOVO: TRIÂNGULO CONCEITUAL ===== -->
+        <div class="triangulo-container">
+            <div class="triangulo-titulo">
+                <strong>🌀 TRIÂNGULO CONCEITUAL</strong> — três vértices conectados pelo centro
+            </div>
+            
+            <div class="triangulo-grid">
+                <div class="linha-superior">
+                    <div class="vertice">
+                        <div class="vertice-titulo">🔵 Máquinas não pensam</div>
+                        <div class="vertice-desc">natureza estatística dos LLMs · o que significa "pensar"</div>
+                    </div>
+                    <div class="vertice">
+                        <div class="vertice-titulo">🟢 Anti-encantamento</div>
+                        <div class="vertice-desc">relação psicológica humano-máquina · remover ilusões</div>
+                    </div>
+                </div>
+                
+                <div class="centro">
+                    <div class="centro-titulo">🌀 Overload Cascade</div>
+                    <div class="centro-desc">sistemas colapsam por excesso, não por falta de informação</div>
+                </div>
+                
+                <div class="vertice-inferior">
+                    <div class="vertice-titulo">🟠 Dano contido</div>
+                    <div class="vertice-desc">governança tecnológica · operar sem colapso</div>
+                </div>
+            </div>
+            
+            <div class="nota-triangulo">
+                ⟡ os três textos periféricos só fazem sentido quando conectados pelo centro ⟡
+            </div>
+        </div>
+
         <div class="assinatura">
             — Wagner Pyter<br>
             março de 2026
         </div>
 
         <footer>
-            <p>Fim do arquivo de filosofia.</p>
-            <p style="font-size:0.7rem; margin-top:10px;">27% vivo. O resto é aproximação.</p>
-        </footer>
-    </main>
-
-    <script>
-        // Destacar item ativo na navegação conforme rolagem
-        window.addEventListener('scroll', function() {
-            const sections = ['investigacao', 'sinais', 'sintese', 'nucleo', 'epilogo'];
-            let current = '';
-            
-            sections.forEach(id => {
-                const section = document.getElementById(id);
-                if (section) {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top <= 150 && rect.bottom >= 150) {
-                        current = id;
-                    }
-                }
-            });
-            
-            document.querySelectorAll('.nav-item').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-
-</body>
-            </html>
+            <p>Fim do 
