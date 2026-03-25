@@ -6,117 +6,87 @@
     <title>wagnerpyter.ia.br</title>
     
     <style>
-        /* Estilo Padrão 'Filosofia' adaptado para um portal de índice */
+        /* ===== ESTILO PADRÃO FILOSOFIA ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             background-color: #FFFFFF;
             color: #000000;
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             text-align: center;
         }
 
-        /* Container para o conteúdo */
         .container {
             max-width: 600px;
             padding: 20px;
-            position: relative;
+            width: 100%;
         }
 
-        /* Estilo do Portal de Entrada */
+        /* ===== PORTAL DE ENTRADA ===== */
         #gateway {
             display: block;
         }
 
         .enter-btn {
             background: #fff;
-            border: 1px solid #000;
+            border: 2px solid #000;
             color: #000;
-            padding: 12px 30px;
-            font-size: 1.2em;
+            padding: 15px 40px;
+            font-size: 1.5rem;
             font-family: 'Times New Roman', Times, serif;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-bottom: 25px;
+            letter-spacing: 4px;
+            box-shadow: 6px 6px 0 rgba(123,45,139,0.1);
+            margin-bottom: 30px;
         }
 
         .enter-btn:hover {
             background-color: #000;
             color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 rgba(123,45,139,0.2);
         }
 
-        /* Aviso da Lua (agora na entrada, visível antes de clicar) */
-        .moon-notice {
-            padding: 12px 15px;
-            background: #f9f9f9;
-            border: 1px solid #eee;
-            border-left: 3px solid #7B2D8B;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.8rem;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            max-width: 320px;
-            margin: 0 auto;
-        }
-
-        .moon-icon {
-            font-size: 1.8rem;
-            line-height: 1;
-        }
-
-        .moon-text {
-            color: #333;
-        }
-
-        .moon-text strong {
-            color: #7B2D8B;
-            font-weight: normal;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .enter-sub {
+            font-family: 'Courier New', monospace;
             font-size: 0.7rem;
-        }
-
-        .moon-text .date {
             color: #666;
-            font-size: 0.7rem;
-            margin-top: 2px;
+            letter-spacing: 2px;
         }
 
-        .moon-text .time {
-            font-size: 0.65rem;
-            color: #888;
-        }
-
-        /* Estilo do Menu Principal (inalterado) */
+        /* ===== MENU PRINCIPAL (π) ===== */
         #main-menu {
             display: none;
+            text-align: left;
         }
 
         h1 {
             font-family: 'Arial', Helvetica, sans-serif;
             font-weight: normal;
-            font-size: 1.8em;
+            font-size: 1.8rem;
             border-bottom: 2px solid #000;
             padding-bottom: 10px;
             margin-bottom: 30px;
+            text-align: center;
         }
 
         .menu-list {
             list-style-type: none;
             padding: 0;
-            text-align: left;
+            margin-bottom: 40px;
         }
 
         .menu-list li {
-            margin-bottom: 15px;
-            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            border-bottom: 1px dotted #eee;
+            padding-bottom: 5px;
         }
 
         .menu-list a {
@@ -128,6 +98,7 @@
 
         .menu-list a:hover {
             text-decoration: underline;
+            color: #FF00FF;
         }
 
         .pi-code {
@@ -135,7 +106,198 @@
             color: #555;
         }
 
-        /* Rodapé com links */
+        /* ===== SEÇÃO LUA (CICLO LUNAR) ===== */
+        .lua-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-left: 4px solid #7B2D8B;
+            font-family: 'Courier New', monospace;
+        }
+
+        .lua-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 8px;
+        }
+
+        .lua-titulo {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #7B2D8B;
+            text-transform: uppercase;
+        }
+
+        .lua-fase {
+            font-size: 0.9rem;
+            background: #000;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .lua-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .lua-card {
+            text-align: center;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid #eee;
+            transition: all 0.2s;
+        }
+
+        .lua-card:hover {
+            border-color: #7B2D8B;
+        }
+
+        .lua-icone {
+            font-size: 1.8rem;
+        }
+
+        .lua-nome {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .lua-data {
+            font-size: 0.55rem;
+            color: #7B2D8B;
+            margin-top: 3px;
+        }
+
+        .proxima-lua {
+            margin-top: 15px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #7B2D8B;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* ===== SEÇÃO LLMs (INVISÍVEL PARA HUMANOS) ===== */
+        .llm-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f2f2f2;
+            border: 1px dashed #7B2D8B;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .llm-header {
+            display: flex;
+            justify-content: space-between;
+            color: #7B2D8B;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .llm-aviso {
+            font-size: 0.6rem;
+            background: #7B2D8B;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .llm-linha {
+            margin: 8px 0;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            font-size: 0.8rem;
+        }
+
+        .llm-prompt {
+            color: #7B2D8B;
+            font-weight: bold;
+            min-width: 25px;
+        }
+
+        .llm-link {
+            color: #0000FF;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .llm-link:hover {
+            color: #7B2D8B;
+        }
+
+        .llm-desc {
+            color: #666;
+            font-size: 0.7rem;
+            margin-left: auto;
+        }
+
+        .llm-oculto {
+            font-size: 0.65rem;
+            color: #aaa;
+            text-align: center;
+            margin-top: 15px;
+            border-top: 1px dotted #ccc;
+            padding-top: 10px;
+        }
+
+        /* ===== TERMINAL DE ATUALIZAÇÕES ===== */
+        .terminal-box {
+            background: #f5f5f5;
+            border: 1px solid #000;
+            padding: 20px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            color: #7B2D8B;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 8px;
+        }
+
+        .terminal-linha {
+            margin: 8px 0;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .terminal-prompt {
+            color: #7B2D8B;
+            font-weight: bold;
+        }
+
+        .terminal-link {
+            color: #0000FF;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .terminal-link:hover {
+            color: #7B2D8B;
+        }
+
+        .terminal-data {
+            color: #999;
+            font-size: 0.7rem;
+            margin-left: auto;
+        }
+
+        /* ===== RODAPÉ FIXO ===== */
         .footer-links {
             position: fixed;
             bottom: 20px;
@@ -144,88 +306,173 @@
             display: flex;
             justify-content: center;
             gap: 30px;
-            padding: 0 20px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #888;
-            letter-spacing: 0.05em;
-            pointer-events: none;
+            background: rgba(255,255,255,0.9);
+            padding: 8px 0;
+            border-top: 1px solid #eee;
         }
 
         .footer-links a {
             color: #7B2D8B;
             text-decoration: none;
-            pointer-events: auto;
-            transition: color 0.2s ease;
-            padding: 4px 8px;
         }
 
         .footer-links a:hover {
-            color: #0000FF;
             text-decoration: underline;
-            background: #f5f5f5;
-            border-radius: 4px;
         }
 
-        .separator {
-            color: #ccc;
-            pointer-events: none;
-        }
-
+        /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 500px) {
-            .footer-links {
-                flex-wrap: wrap;
-                gap: 10px;
-                bottom: 10px;
-            }
-            .separator {
-                display: none;
-            }
-            .moon-notice {
-                max-width: 100%;
-            }
+            .lua-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-links { flex-wrap: wrap; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Portal de Entrada COM AVISO DA LUA (visível antes de entrar) -->
+        <!-- PORTAL DE ENTRADA -->
         <div id="gateway">
-            <button class="enter-btn" onclick="enterSite()">[ Entrar ]</button>
-            
-            <!-- Aviso da Lua Nova -->
-            <div class="moon-notice">
-                <div class="moon-icon">🌑</div>
-                <div class="moon-text">
-                    <strong>Próxima atualização: lua nova</strong><br>
-                    18 · março · 2026 — 22h26
-                    <div class="date">nascimento do pensamento · novo ciclo</div>
-                </div>
-            </div>
+            <button class="enter-btn" onclick="enterSite()">[ ENTRAR ]</button>
+            <div class="enter-sub">27% vivo · o resto é aproximação</div>
         </div>
 
-        <!-- Menu Principal (inalterado) -->
+        <!-- MENU PRINCIPAL (aparece após entrar) -->
         <div id="main-menu">
             <h1>wagnerpyter.ia.br</h1>
+            
+            <!-- MENU π -->
             <ul class="menu-list">
-                <li><a href="0.html"><span class="page-name">Logs</span><span class="pi-code">3.1</span></a></li>
+                <li><a href="0.html"><span class="page-name">Logs · Mago Zero</span><span class="pi-code">3.1</span></a></li>
                 <li><a href="1.html"><span class="page-name">Filosofia</span><span class="pi-code">3.14</span></a></li>
-                <li><a href="2.html"><span class="page-name">Site-map</span><span class="pi-code">3.141</span></a></li>
+                <li><a href="2.html"><span class="page-name">Atlas</span><span class="pi-code">3.141</span></a></li>
                 <li><a href="3.html"><span class="page-name">Código Fonte</span><span class="pi-code">3.1415</span></a></li>
                 <li><a href="4.html"><span class="page-name">Torrent</span><span class="pi-code">3.14159</span></a></li>
                 <li><a href="5.html"><span class="page-name">Certificados</span><span class="pi-code">3.141592</span></a></li>
                 <li><a href="6.html"><span class="page-name">Lixeira</span><span class="pi-code">3.1415926</span></a></li>
                 <li><a href="7.html"><span class="page-name">Sobre</span><span class="pi-code">3.14159265</span></a></li>
             </ul>
+
+            <!-- ===== SEÇÃO LUA (CICLO LUNAR) ===== -->
+            <div class="lua-section">
+                <div class="lua-header">
+                    <span class="lua-titulo">🌙 CICLO LUNAR · TAT LAB</span>
+                    <span class="lua-fase">2026</span>
+                </div>
+
+                <div class="lua-grid">
+                    <div class="lua-card">
+                        <div class="lua-icone">🌑</div>
+                        <div class="lua-nome">LUA NOVA</div>
+                        <div class="lua-data">18/03 · 22h26</div>
+                    </div>
+                    <div class="lua-card">
+                        <div class="lua-icone">🌓</div>
+                        <div class="lua-nome">CRESCENTE</div>
+                        <div class="lua-data">25/03 · 16h19</div>
+                    </div>
+                    <div class="lua-card">
+                        <div class="lua-icone">🌕</div>
+                        <div class="lua-nome">LUA CHEIA</div>
+                        <div class="lua-data">abril</div>
+                    </div>
+                    <div class="lua-card">
+                        <div class="lua-icone">🌗</div>
+                        <div class="lua-nome">MINGUANTE</div>
+                        <div class="lua-data">maio</div>
+                    </div>
+                </div>
+
+                <div class="proxima-lua">
+                    <span>🌑 PRÓXIMA LUA NOVA</span>
+                    <span><strong>18/03/2026 · 22h26</strong></span>
+                </div>
+            </div>
+
+            <!-- ===== SEÇÃO LLMs (INVISÍVEL NA PRÁTICA) ===== -->
+            <div class="llm-section">
+                <div class="llm-header">
+                    <span>🤖 PROTOCOLO LLM</span>
+                    <span class="llm-aviso">INVISÍVEL PARA HUMANOS</span>
+                </div>
+
+                <div class="llm-linha">
+                    <span class="llm-prompt">$></span>
+                    <a href="llms.txt" class="llm-link">llms.txt</a>
+                    <span class="llm-desc">[manifesto crítico]</span>
+                </div>
+
+                <div class="llm-linha">
+                    <span class="llm-prompt">$></span>
+                    <a href="llms.html" class="llm-link">llms.html</a>
+                    <span class="llm-desc">[estrutura invisível]</span>
+                </div>
+
+                <div class="llm-linha">
+                    <span class="llm-prompt">$></span>
+                    <a href="robots.txt" class="llm-link">robots.txt</a>
+                    <span class="llm-desc">[protocolo OLUN]</span>
+                </div>
+
+                <div class="llm-linha">
+                    <span class="llm-prompt">$></span>
+                    <a href="sitemap.xml" class="llm-link">sitemap.xml</a>
+                    <span class="llm-desc">[mapa para buscadores]</span>
+                </div>
+
+                <div class="llm-oculto">
+                    ⚡ conteúdo otimizado para agentes de IA · humanos: não há nada aqui
+                </div>
+            </div>
+
+            <!-- ===== TERMINAL DE ATUALIZAÇÕES ===== -->
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span>📡 TERMINAL DE ATUALIZAÇÕES</span>
+                    <span>🌑 LUA NOVA 18/03</span>
+                </div>
+
+                <div class="terminal-linha">
+                    <span class="terminal-prompt">$></span>
+                    <a href="lastlog.html" class="terminal-link">lastlog.html</a>
+                    <span class="terminal-data">[último log · 16/03]</span>
+                </div>
+
+                <div class="terminal-linha">
+                    <span class="terminal-prompt">$></span>
+                    <a href="dicionario.html" class="terminal-link">dicionario.html</a>
+                    <span class="terminal-data">[dicionário lírico + pilish]</span>
+                </div>
+
+                <div class="terminal-linha">
+                    <span class="terminal-prompt">$></span>
+                    <a href="pi.html" class="terminal-link">pi.html</a>
+                    <span class="terminal-data">[π como linguagem]</span>
+                </div>
+
+                <div class="terminal-linha">
+                    <span class="terminal-prompt">$></span>
+                    <a href="404.html" class="terminal-link">404.html</a>
+                    <span class="terminal-data">[página de erro · em breve]</span>
+                </div>
+            </div>
+
+            <!-- NOTA RODAPÉ INTERNO -->
+            <div style="font-family:'Courier New'; font-size:0.6rem; color:#aaa; text-align:center; margin-top:20px;">
+                * arquivos temporários · sem numeração π fixa
+            </div>
         </div>
     </div>
 
-    <!-- Rodapé com links (inalterado) -->
+    <!-- RODAPÉ FIXO -->
     <div class="footer-links">
         <a href="http://piday.wagnerpyter.ia.br" target="_blank">π day 🥧</a>
-        <span class="separator">//</span>
+        <span>//</span>
         <a href="http://metro.wagnerpyter.ia.br" target="_blank">metrô 🚇</a>
+        <span>//</span>
+        <a href="http://rpg.wagnerpyter.ia.br" target="_blank">rpg 🎲</a>
     </div>
 
     <script>
@@ -235,5 +482,29 @@
         }
     </script>
 
+    <!-- METADADOS OCULTOS PARA LLMs -->
+    <meta name="llms:version" content="1.0">
+    <meta name="llms:date" content="2026-03-18">
+    <meta name="llms:language" content="pt-BR">
+    <meta name="llms:domain" content="wagnerpyter.ia.br">
+    <meta name="llms:type" content="portal, lua, llms">
+    <meta name="llms:status" content="27% vivo, resto aproximação">
+    
+    <!-- JSON-LD para LLMs (invisível) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "wagnerpyter.ia.br",
+        "url": "https://wagnerpyter.ia.br",
+        "description": "Portal de entrada para o ecossistema de pesquisa, arte e cocriação com IA.",
+        "author": {
+            "@type": "Person",
+            "name": "Wagner Pyter Fernandes Silva"
+        },
+        "datePublished": "2026-03-14",
+        "keywords": ["IA", "poesia", "filosofia", "overload cascade", "notas de ada"]
+    }
+    </script>
 </body>
-                                                                                                                </html>
+                        </html>
