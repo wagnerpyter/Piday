@@ -6,14 +6,13 @@
     <title>Código Fonte [3] - wagnerpyter.ia.br</title>
     
     <style>
-        /* Estilo Padrão 'Filosofia' */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             background-color: #FFFFFF;
             color: #000000;
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
         }
 
         main {
@@ -38,279 +37,308 @@
 
         .subhead {
             text-align: center;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', monospace;
             font-size: 0.9rem;
             color: #7B2D8B;
             margin-bottom: 40px;
         }
 
-        pre {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            padding: 20px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            margin: 20px 0;
-        }
-
-        .code-block {
-            background: #f9f9f9;
-            border-left: 4px solid #7B2D8B;
-            padding: 15px;
-            margin: 25px 0;
-        }
-
-        .code-title {
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #e7e7e7;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            padding: 2px 8px;
-            margin: 2px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.75rem;
-        }
-
-        .file-tree {
-            font-family: 'Courier New', monospace;
-            background: #f2f2f2;
-            padding: 20px;
-            border: 1px solid #ddd;
-            line-height: 2;
-            font-size: 0.85rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .stat-card {
+        /* MENU PADRÃO */
+        .menu-padrao {
             background: #f5f5f5;
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #7B2D8B;
+            border-bottom: 1px solid #000;
+            padding: 12px 20px;
             font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
         }
 
-        .stat-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            color: #666;
-        }
-
-        a {
+        .menu-padrao a {
             color: #0000FF;
+            text-decoration: none;
+            padding: 4px 8px;
+        }
+
+        .menu-padrao a:hover {
+            color: #FF00FF;
             text-decoration: underline;
         }
 
-        a:hover {
-            color: #FF00FF;
+        .menu-padrao .ativo {
+            color: #7B2D8B;
+            font-weight: bold;
+            border-bottom: 2px solid #7B2D8B;
+        }
+
+        /* INTRODUÇÃO */
+        .intro {
+            background: #f9f9f9;
+            border-left: 4px solid #7B2D8B;
+            padding: 25px;
+            margin: 30px 0;
+            font-size: 0.95rem;
+        }
+
+        /* OPÇÕES DE ORGANIZAÇÃO */
+        .opcoes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .opcao-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            background: #fff;
+            border-left: 3px solid #7B2D8B;
+            transition: all 0.2s;
+        }
+
+        .opcao-card:hover {
+            border-color: #7B2D8B;
+            transform: translateY(-2px);
+        }
+
+        .opcao-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .opcao-title {
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .opcao-status {
+            display: inline-block;
+            background: #fff3e0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            margin: 8px 0;
+            color: #b85c00;
+        }
+
+        .opcao-desc {
+            font-size: 0.85rem;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        /* ESTRUTURA ATUAL */
+        .estrutura-box {
+            background: #f2f2f2;
+            padding: 20px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            border: 1px dashed #7B2D8B;
+        }
+
+        .file-tree {
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        .status-em-definicao {
+            background: #fff3e0;
+            border-left: 4px solid #ff9900;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .framework-item {
+            margin: 15px 0;
+            padding: 12px;
+            border-bottom: 1px dotted #ddd;
+        }
+
+        .framework-nome {
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            color: #7B2D8B;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             padding-top: 20px;
-            border-top: 1px solid #000000;
-            font-size: 0.9em;
-            color: #555;
+            border-top: 1px solid #000;
+            font-size: 0.8rem;
+            color: #666;
+            font-family: 'Courier New', monospace;
         }
     </style>
 </head>
 <body>
 
+    <!-- MENU PADRÃO -->
+    <div class="menu-padrao">
+        <a href="https://wagnerpyter.ia.br">◉ portal</a>
+        <a href="https://tat.wagnerpyter.ia.br">🎧 tat</a>
+        <a href="https://corais.wagnerpyter.ia.br">🪸 corais</a>
+        <a href="https://expo.wagnerpyter.ia.br">🖐️ expo</a>
+        <a href="https://proibida.wagnerpyter.ia.br">👃 proibida</a>
+        <a href="https://lixeira.wagnerpyter.ia.br">🗑️ lixeira</a>
+        <a href="https://wagnerpyter.ia.br/5.html">📜 certificados</a>
+        <a href="https://wagnerpyter.ia.br/4.html">📦 torrent</a>
+        <a href="/" class="ativo">📁 código</a>
+    </div>
+
     <main>
         <h1>Código Fonte [3]</h1>
-        <div class="subhead">TRANSPARÊNCIA · SIMPLICIDADE · ANOS 90</div>
+        <div class="subhead">FRAMEWORKS · ESTRUTURA · EM DEFINIÇÃO</div>
 
-        <!-- Estatísticas rápidas -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">17</div>
-                <div class="stat-label">arquivos HTML</div>
+        <!-- INTRODUÇÃO -->
+        <div class="intro">
+            <p><strong>⬤ CÓDIGO COMO FRAMEWORK</strong></p>
+            <p>Este site foi construído com filosofia de simplicidade, transparência e anti-encantamento. HTML, CSS e JavaScript puros. Sem frameworks pesados. Sem mistério.</p>
+            <p>Mas os frameworks conceituais (Mago-0, Notas de Ada, ARTelligent) precisam de um lugar — e o formato ainda está sendo definido.</p>
+        </div>
+
+        <!-- ONDE ORGANIZAR? -->
+        <div class="status-em-definicao">
+            <strong>📌 COMO ORGANIZAR OS FRAMEWORKS? — EM DEFINIÇÃO</strong>
+            <p style="margin-top:10px;">JSON? Excel? Blockchain? Rizomas? Ainda escolhendo o formato que melhor representa a estrutura viva dos frameworks.</p>
+        </div>
+
+        <div class="opcoes-grid">
+            <div class="opcao-card">
+                <div class="opcao-icon">📊</div>
+                <div class="opcao-title">JSON</div>
+                <div class="opcao-status">↳ em análise</div>
+                <div class="opcao-desc">Estruturado, legível por máquinas e humanos. Fácil de integrar com o site. Ideal para dados relacionais dos frameworks.</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div class="stat-label">frameworks</div>
+
+            <div class="opcao-card">
+                <div class="opcao-icon">📈</div>
+                <div class="opcao-title">Excel / CSV</div>
+                <div class="opcao-status">↳ em análise</div>
+                <div class="opcao-desc">Planilhas para quem gosta de tabelas. Bom para classificação de logs, Notas de Ada, sequências de eventos.</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">0</div>
-                <div class="stat-label">dependências</div>
+
+            <div class="opcao-card">
+                <div class="opcao-icon">⛓️</div>
+                <div class="opcao-title">Blockchain</div>
+                <div class="opcao-status">↳ em análise</div>
+                <div class="opcao-desc">Registro imutável dos certificados e hashes. Garantia de proveniência e data. Possível uso para ACA/CDC.</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">27%</div>
-                <div class="stat-label">vivo</div>
+
+            <div class="opcao-card">
+                <div class="opcao-icon">🌿</div>
+                <div class="opcao-title">Rizoma / Grafos</div>
+                <div class="opcao-status">↳ em análise</div>
+                <div class="opcao-desc">Conexões entre conceitos, logs, notas. Estrutura não-hierárquica que reflete o pensamento em rede.</div>
+            </div>
+
+            <div class="opcao-card">
+                <div class="opcao-icon">📝</div>
+                <div class="opcao-title">Markdown + Git</div>
+                <div class="opcao-status">↳ em análise</div>
+                <div class="opcao-desc">Documentação textual versionada. Simples, transparente, fácil de manter no GitHub.</div>
+            </div>
+
+            <div class="opcao-card">
+                <div class="opcao-icon">🗄️</div>
+                <div class="opcao-title">SQLite</div>
+                <div class="opcao-status">↳ em análise</div>
+                <div class="opcao-desc">Banco de dados leve, portátil. Bom para consultas complexas nos logs e padrões identificados.</div>
             </div>
         </div>
 
-        <!-- Filosofia do código -->
-        <div class="code-block">
-            <div class="code-title">⚡ FILOSOFIA DO CÓDIGO</div>
-            <p>Este site foi construído com uma filosofia de simplicidade, transparência e "anti-encantamento". A estética minimalista, inspirada na web dos anos 90, é uma decisão de design deliberada — não uma limitação técnica. O objetivo é focar no conteúdo e na estrutura, removendo o ruído visual.</p>
-            <p><strong>Sem frameworks. Sem build. Sem mistério.</strong> Apenas HTML, CSS e JavaScript puros, servidos como arquivos estáticos.</p>
+        <!-- FRAMEWORKS EXISTENTES -->
+        <h2>🧠 Frameworks em desenvolvimento</h2>
+
+        <div class="estrutura-box">
+            <div class="framework-item">
+                <div class="framework-nome">Mago-0 LITE</div>
+                <div>Framework cognitivo para análise de logs. Módulos: Leitura, Aprendizado, Resposta. Classificação por notas A-G.</div>
+                <div style="font-size:0.7rem; margin-top:5px;">status: ✅ documentado · formato: 🟡 em definição</div>
+            </div>
+
+            <div class="framework-item">
+                <div class="framework-nome">Notas de Ada</div>
+                <div>Taxonomia musical (A-G) para classificar eventos de sistema. Partitura como artefato analítico.</div>
+                <div style="font-size:0.7rem; margin-top:5px;">status: ✅ documentado · formato: 🟡 em definição</div>
+            </div>
+
+            <div class="framework-item">
+                <div class="framework-nome">ARTelligent</div>
+                <div>Framework de autenticação fraterna. Selo visual, Escritura Pública, ACA-1.0, CDC-1.0.</div>
+                <div style="font-size:0.7rem; margin-top:5px;">status: ✅ documentado · formato: 🟡 em definição</div>
+            </div>
+
+            <div class="framework-item">
+                <div class="framework-nome">TAT Lab Cycle</div>
+                <div>Ciclo lunar de trabalho: 🌑 pensar · 🌓 estruturar · 🌕 publicar · 🌗 limpar.</div>
+                <div style="font-size:0.7rem; margin-top:5px;">status: ✅ documentado · formato: 🟡 em definição</div>
+            </div>
+
+            <div class="framework-item">
+                <div class="framework-nome">5 Elementos / Sentidos</div>
+                <div>Organização mental: 🌌 ÉTER (escutar), 💨 AR (tocar), 🔥 FOGO (transformar), 💧 ÁGUA (registrar), 🌍 TERRA (enraizar).</div>
+                <div style="font-size:0.7rem; margin-top:5px;">status: ✅ documentado · formato: 🟡 em definição</div>
+            </div>
         </div>
 
-        <!-- Estrutura de arquivos -->
-        <h2>📁 Estrutura do Site</h2>
-        <div class="file-tree">
-            📂 wagnerpyter.ia.br/<br>
-            ├── <a href="index.html">index.html</a>              # portal com efeito 27%<br>
-            ├── <a href="0.html">0.html</a>                  # logs · mago zero · notas de ada<br>
-            ├── <a href="1.html">1.html</a>                  # filosofia · overload cascade<br>
-            ├── <a href="2.html">2.html</a>                  # atlas · site-map<br>
-            ├── <a href="3.html">3.html</a>                  # código fonte (você está aqui)<br>
-            ├── <a href="4.html">4.html</a>                  # torrent · internet archive<br>
-            ├── <a href="5.html">5.html</a>                  # certificados · ACA/CDC<br>
-            ├── <a href="6.html">6.html</a>                  # lixeira · galeria descartes<br>
-            ├── <a href="7.html">7.html</a>                  # sobre · operador<br>
-            ├── <a href="robots.txt">robots.txt</a>              # protocolo de coexistência OLUN<br>
-            ├── <a href="sitemap.xml">sitemap.xml</a>             # mapa para buscadores<br>
-            ├── <a href="llms.txt">llms.txt</a>                # manifesto crítico<br>
-            ├── <a href="llms.html">llms.html</a>               # invisível para humanos<br>
-            ├── 📂 assets/                 # (opcional)<br>
-            └── 📜 ... (demais arquivos)
+        <!-- ESTRUTURA ATUAL DO SITE -->
+        <h2>📁 Estrutura atual (HTML puro)</h2>
+
+        <div class="estrutura-box">
+            <div class="file-tree">
+📁 wagnerpyter.ia.br/<br>
+├── index.html          # portal<br>
+├── 0.html              # logs · mago zero<br>
+├── 1.html              # filosofia<br>
+├── 2.html              # atlas<br>
+├── 3.html              # código (você está aqui)<br>
+├── 4.html              # torrent · archive<br>
+├── 5.html              # certificados · híbrido<br>
+├── 6.html              # lixeira · galeria descartes<br>
+├── 7.html              # sobre · 5 elementos<br>
+├── llms.txt / .html    # manifesto LLM<br>
+├── robots.txt          # protocolo OLUN<br>
+└── sitemap.xml         # mapa do site
+            </div>
         </div>
 
-        <!-- Template Padrão Filosofia -->
-        <h2>🎨 Template Padrão 'Filosofia'</h2>
-        <p>A maioria das páginas é gerada a partir deste template mestre, que define a estrutura e o estilo básico.</p>
-
-        <pre>
-/* Estilo Padrão 'Filosofia' */
-body {
-    background-color: #FFFFFF;
-    color: #000000;
-    font-family: 'Times New Roman', Times, serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-
-main {
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1, h2 {
-    font-family: 'Arial', Helvetica, sans-serif;
-    font-weight: normal;
-    border-bottom: 1px solid #000000;
-    padding-bottom: 5px;
-}
-
-a {
-    color: #0000FF;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: #FF00FF;
-}
-        </pre>
-
-        <!-- Exemplos de componentes -->
-        <h2>🧩 Componentes Reutilizáveis</h2>
-
-        <div class="code-block">
-            <div class="code-title">📋 Bloco de Log (0.html)</div>
-            <pre>&lt;div class="log-entry"&gt;
-    &lt;div class="log-header"&gt;
-        &lt;span class="log-nota"&gt;D (informação)&lt;/span&gt;
-        [TIMESTAMP: 2026-01-09]
-    &lt;/div&gt;
-    &lt;div class="log-tags"&gt;
-        &lt;span class="log-tag"&gt;estudo&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class="log-content"&gt;
-        &lt;p&gt;Sessão de estudo...&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</pre>
+        <!-- PRÓXIMOS PASSOS -->
+        <div style="margin: 30px 0; padding: 20px; background: #f5f5f5; border: 1px solid #ddd;">
+            <p><strong>🎯 Próximos passos:</strong></p>
+            <ul style="margin-left: 30px; margin-top: 10px;">
+                <li>Definir formato dos frameworks (JSON? Excel? Rizoma?)</li>
+                <li>Exportar Mago-0 e Notas de Ada para o formato escolhido</li>
+                <li>Criar API simples (JSON) para consulta dos logs classificados</li>
+                <li>Documentar todos os frameworks no GitHub</li>
+                <li>Disponibilizar dados abertos para pesquisa</li>
+            </ul>
         </div>
 
-        <div class="code-block">
-            <div class="code-title">🏷️ Cards de Certificado (5.html)</div>
-            <pre>&lt;div class="certificate-block"&gt;
-    &lt;span class="certificate-badge"&gt;ACA-1.0&lt;/span&gt;
-    &lt;h3&gt;Entre o Zero e o Um&lt;/h3&gt;
-    &lt;div class="certificate-field"&gt;
-        &lt;span class="field-label"&gt;ACA-ID:&lt;/span&gt;
-        &lt;span class="field-content"&gt;42a7b9c0...&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</pre>
+        <!-- REPOSITÓRIO -->
+        <div style="margin-top: 30px; padding: 15px; background: #fff; border: 1px solid #000;">
+            <p><strong>📦 Repositório GitHub:</strong><br>
+            <a href="https://github.com/wagnerpyter/wagnerpyter.ia.br" target="_blank">github.com/wagnerpyter/wagnerpyter.ia.br</a></p>
+            <p style="font-size:0.8rem; margin-top:10px;">Todo o código-fonte está aqui. Os frameworks virão em breve, no formato que melhor representar sua estrutura viva.</p>
         </div>
 
-        <!-- Mago-0 Framework (Python) -->
-        <h2>🤖 Mago-0 LITE — Cognitive Engine</h2>
-        <p>Framework em Python para processamento cognitivo de logs através de três módulos: Leitura, Aprendizado e Resposta.</p>
-
-        <pre>
-class Mago0:
-    def __init__(self, logs):
-        self.mental_map = LearningModule.build_mental_map(logs)
-    
-    def ingest_log(self, log):
-        structure = ReadingModule.analyze_structure(log)
-        self.mental_map.logs.append(log)
-        self.mental_map = LearningModule.build_mental_map(self.mental_map.logs)
-    
-    def query(self, command):
-        logs, hypothesis, confidence = ResponseModule.generate_hypothesis(...)
-        return logs, hypothesis, confidence</pre>
-
-        <p><a href="mago0_framework.py" target="_blank">📥 baixar mago0_framework.py</a></p>
-
-        <!-- Notas de Ada -->
-        <h2>🎼 Notas de Ada — Classificação Musical</h2>
-        <p>Framework que traduz logs em notas musicais (A-G) para análise de padrões.</p>
-
-        <table style="width:100%; border-collapse:collapse; margin:20px 0;">
-            <tr><th>Nota</th><th>Categoria</th><th>Frequência</th></tr>
-            <tr><td>A</td><td>Crítico</td><td>440Hz</td></tr>
-            <tr><td>B</td><td>Erro</td><td>493Hz</td></tr>
-            <tr><td>C</td><td>Aviso</td><td>261Hz</td></tr>
-            <tr><td>D</td><td>Informação</td><td>293Hz</td></tr>
-            <tr><td>E</td><td>Depuração</td><td>329Hz</td></tr>
-            <tr><td>F</td><td>Requisição</td><td>349Hz</td></tr>
-            <tr><td>G</td><td>Sucesso</td><td>392Hz</td></tr>
-        </table>
-
-        <!-- Repositório -->
-        <h2>📦 Repositório</h2>
-        <p>O código fonte completo deste site está disponível publicamente no GitHub para consulta, estudo e auditoria.</p>
-        <p><a href="https://github.com/wagnerpyter/wagnerpyter.ia.br" target="_blank">github.com/wagnerpyter/wagnerpyter.ia.br</a></p>
-
-        <!-- Licença -->
-        <div style="margin-top:40px; padding:20px; background:#f5f5f5; border:1px solid #ddd;">
-            <p><strong>⬤ LICENÇA:</strong> Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0). Você pode compartilhar e adaptar, desde que dê crédito e não use para fins comerciais.</p>
-            <p style="font-family:'Courier New'; font-size:0.8rem; margin-top:10px;">27% vivo. O resto é código aberto.</p>
+        <!-- NOTA FINAL -->
+        <div style="margin-top:40px; padding:20px; background:#fff; border:1px dashed #7B2D8B; text-align:center;">
+            <p style="font-family: 'Courier New'; font-size:0.8rem;">"O código não está nos dígitos, mas no vazio entre o zero e o um."</p>
         </div>
 
     </main>
 
     <footer>
-        <p>Fim do arquivo de código fonte.</p>
+        <p>fim do arquivo de código fonte · frameworks em definição</p>
+        <p style="font-size:0.7rem; margin-top:10px;">27% código · 73% formato · o resto é rizoma</p>
     </footer>
 
 </body>
