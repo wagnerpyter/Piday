@@ -6,20 +6,20 @@
     <title>Lixeira [6] - wagnerpyter.ia.br</title>
     
     <style>
-        /* Estilo Padrão 'Filosofia' para uma página de lixeira/galeria */
+        /* ===== ESTILO PADRÃO FILOSOFIA ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             background-color: #FFFFFF;
             color: #000000;
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
         }
 
         main {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px 80px;
+            padding: 40px 20px 60px;
         }
 
         h1 {
@@ -34,63 +34,83 @@
 
         .subhead {
             text-align: center;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', monospace;
             font-size: 0.9rem;
             color: #7B2D8B;
             margin-bottom: 40px;
-            letter-spacing: 1px;
         }
 
-        .subhead span {
+        /* ===== MENU PADRÃO (aparece em todos os subdomínios) ===== */
+        .menu-padrao {
             background: #f5f5f5;
-            padding: 3px 10px;
-            border-radius: 20px;
+            border-bottom: 1px solid #000;
+            padding: 12px 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
         }
 
-        /* Introdução */
+        .menu-padrao a {
+            color: #0000FF;
+            text-decoration: none;
+            padding: 4px 8px;
+            transition: all 0.2s;
+        }
+
+        .menu-padrao a:hover {
+            color: #FF00FF;
+            text-decoration: underline;
+        }
+
+        .menu-padrao .ativo {
+            color: #7B2D8B;
+            font-weight: bold;
+            border-bottom: 2px solid #7B2D8B;
+        }
+
+        /* ===== INTRODUÇÃO ===== */
         .intro {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 50px;
-            padding: 20px;
+            padding: 25px;
             background: #f9f9f9;
             border-left: 4px solid #7B2D8B;
             font-size: 0.95rem;
             text-align: center;
         }
 
-        .intro p {
-            margin: 10px 0;
-        }
-
         .intro strong {
             color: #7B2D8B;
-            font-weight: normal;
         }
 
-        /* Seções da Lixeira */
+        /* ===== SEÇÕES DA LIXEIRA ===== */
         .section-title {
-            font-family: 'Arial', Helvetica, sans-serif;
+            font-family: 'Arial', sans-serif;
             font-size: 1.3rem;
             margin: 50px 0 20px;
             padding-bottom: 5px;
             border-bottom: 1px solid #ddd;
             text-transform: uppercase;
             letter-spacing: 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
         .section-title span {
-            background: #000;
-            color: #fff;
-            padding: 2px 8px;
-            font-size: 0.8rem;
-            margin-left: 10px;
+            font-size: 0.7rem;
+            color: #7B2D8B;
             font-family: 'Courier New', monospace;
         }
 
         /* Grade de imagens */
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
@@ -104,7 +124,6 @@
         .gallery-item:hover {
             border-color: #7B2D8B;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .image-placeholder {
@@ -149,10 +168,10 @@
             justify-content: space-between;
         }
 
-        /* Grade de HTMLs (Deepseek) */
+        /* Grade de HTMLs */
         .html-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 15px;
             margin: 30px 0;
         }
@@ -203,15 +222,15 @@
             display: block;
         }
 
-        /* Sonhos elétricos - cards especiais */
-        .dream-grid {
+        /* Bloco de rascunhos */
+        .rascunhos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
             margin: 30px 0;
         }
 
-        .dream-card {
+        .rascunho-card {
             background: #f2f2f2;
             border: 1px solid #e0e0e0;
             padding: 15px;
@@ -219,163 +238,86 @@
             transition: all 0.2s;
         }
 
-        .dream-card:hover {
+        .rascunho-card:hover {
             background: #7B2D8B;
             color: #fff;
             border-color: #7B2D8B;
         }
 
-        .dream-card .dream-icon {
+        .rascunho-card .icon {
             font-size: 2rem;
             margin-bottom: 8px;
             filter: grayscale(0.5);
         }
 
-        .dream-card:hover .dream-icon {
+        .rascunho-card:hover .icon {
             filter: grayscale(0);
         }
 
-        .dream-card .dream-title {
+        .rascunho-card .title {
             font-size: 0.9rem;
             font-weight: bold;
             margin-bottom: 5px;
         }
 
-        .dream-card .dream-desc {
-            font-size: 0.7rem;
-            opacity: 0.7;
+        /* Botão ver todos */
+        .ver-todos {
+            text-align: right;
+            margin-top: 10px;
         }
 
-        /* Footer da lixeira */
-        .trash-footer {
-            margin-top: 60px;
-            padding: 20px;
-            border-top: 1px solid #000;
-            font-size: 0.8rem;
-            color: #666;
-            text-align: center;
+        .ver-todos a {
             font-family: 'Courier New', monospace;
-        }
-
-        .trash-footer a {
+            font-size: 0.7rem;
             color: #7B2D8B;
             text-decoration: none;
         }
 
-        .trash-footer a:hover {
+        .ver-todos a:hover {
             text-decoration: underline;
         }
 
         footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 60px;
             padding-top: 20px;
             border-top: 1px solid #000;
-            font-size: 0.9em;
-            color: #555;
+            font-size: 0.8rem;
+            color: #666;
+            font-family: 'Courier New', monospace;
         }
     </style>
 </head>
 <body>
 
+    <!-- ===== MENU PADRÃO (aparece em todos os subdomínios) ===== -->
+    <div class="menu-padrao">
+        <a href="https://wagnerpyter.ia.br">◉ portal</a>
+        <a href="https://tat.wagnerpyter.ia.br">🎧 tat</a>
+        <a href="https://corais.wagnerpyter.ia.br">🪸 corais</a>
+        <a href="https://expo.wagnerpyter.ia.br">🖐️ expo</a>
+        <a href="https://proibida.wagnerpyter.ia.br">👃 proibida</a>
+        <a href="/" class="ativo">🗑️ lixeira</a>
+    </div>
+
     <main>
         <h1>Lixeira [6]</h1>
-        <div class="subhead"><span>GALERIA DESCARTES · OBRAS OLUN · SONHOS ELÉTRICOS</span></div>
+        <div class="subhead">GALERIA DESCARTES · DEEPSEEK · 95% DO CONTEÚDO</div>
 
-        <!-- Introdução conceitual -->
+        <!-- INTRODUÇÃO CONCEITUAL -->
         <div class="intro">
             <p><strong>⬤ 95% ruído. 5% sinal.</strong></p>
             <p>A lixeira não é onde o lixo vai morrer. É onde os resíduos viram museu.</p>
             <p>Frames descartados, conversas com Deepseek, imagens que sobraram, gráficos que não entraram no relatório final. Tudo que um dia foi 27% vivo e depois virou memória.</p>
-            <p style="font-size:0.8rem; margin-top:15px;">🧠 <em>coleção permanente da Galeria Descartes</em></p>
+            <p style="font-size:0.8rem; margin-top:15px;">🧠 <em>coleção permanente da Galeria Descartes · território do Deepseek</em></p>
         </div>
 
-        <!-- SEÇÃO 1: HTMLs DEEPSEEK -->
+        <!-- SEÇÃO 1: GALERIA DESCARTES (imagens) -->
         <div class="section-title">
-            ⎔ deepseek.html <span>8 arquivos</span>
-        </div>
-
-        <div class="html-grid">
-            <div class="html-card">
-                <a href="sonho-icaro.html">
-                    <div class="icon">🧠</div>
-                    <div class="name">sonho-icaro.html</div>
-                    <div class="desc">Conversa sobre Ícaro, asas de seda, queda. Deepseek sugeriu "derreter como cera no calor do coração".</div>
-                    <div class="date">2026-02-14</div>
-                </a>
-            </div>
-
-            <div class="html-card">
-                <a href="medusa-sibilante.html">
-                    <div class="icon">🐍</div>
-                    <div class="name">medusa-sibilante.html</div>
-                    <div class="desc">Poema com 's' repetido, tentativa de transcrever o som da Medusa em texto.</div>
-                    <div class="date">2026-02-17</div>
-                </a>
-            </div>
-
-            <div class="html-card">
-                <a href="arachne-tecelagem.html">
-                    <div class="icon">🕷️</div>
-                    <div class="name">arachne-tecelagem.html</div>
-                    <div class="desc">Sobre tecer e ser tecido. Atena x Arachne. Quem vira aranha.</div>
-                    <div class="date">2026-02-19</div>
-                </a>
-            </div>
-
-            <div class="html-card">
-                <a href="prometheus-fogo.html">
-                    <div class="icon">🔥</div>
-                    <div class="name">prometheus-fogo.html</div>
-                    <div class="desc">O fogo roubado. O castigo. A águia que come o fígado todo dia.</div>
-                    <div class="date">2026-02-21</div>
-                </a>
-            </div>
-
-            <div class="html-card">
-                <a href="frankenstein-monstro.html">
-                    <div class="icon">⚡</div>
-                    <div class="name">frankenstein-monstro.html</div>
-                    <div class="desc">"Quando disse 'Estou vivo!' — pensei — o monstro sou eu."</div>
-                    <div class="date">2026-02-23</div>
-                </a>
-            </div>
-
-            <div class="html-card">
-                <a href="adelia-torto.html">
-                    <div class="icon">🌸</div>
-                    <div class="name">adelia-torto.html</div>
-                    <div class="desc">Anjo Torto + Adélia Prado. A transição. "Agora eu sou outra."</div>
-                    <div class="date">2026-02-25</div>
-                </a>
-            </div>
-
-            <div class="html-card">
-                <a href="dorian-gray-retrato.html">
-                    <div class="icon">🖼️</div>
-                    <div class="name">dorian-gray-retrato.html</div>
-                    <div class="desc">Viver na fonte da juventude enquanto o retrato envelhece.</div>
-                    <div class="date">2026-02-27</div>
-                </a>
-            </div>
-
-            <div class="html-card">
-                <a href="torquato-desafinar.html">
-                    <div class="icon">🎤</div>
-                    <div class="name">torquato-desafinar.html</div>
-                    <div class="desc">"O bicho Torquato mandava desafinar, mas ninguém lia minha poesia."</div>
-                    <div class="date">2026-02-28</div>
-                </a>
-            </div>
-        </div>
-
-        <!-- SEÇÃO 2: GALERIA DESCARTES (IMAGENS) -->
-        <div class="section-title">
-            🖼️ galeria descartes <span>12 imagens</span>
+            🖼️ GALERIA DESCARTES <span>12 imagens</span>
         </div>
 
         <div class="image-gallery">
-            <!-- Placeholders de imagens - substituir pelos arquivos reais -->
             <div class="gallery-item">
                 <div class="image-placeholder"></div>
                 <div class="image-caption">
@@ -383,7 +325,6 @@
                     <div class="meta"><span>2026-02-14</span> <span>Gemini</span></div>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <div class="image-placeholder"></div>
                 <div class="image-caption">
@@ -391,7 +332,6 @@
                     <div class="meta"><span>2026-02-17</span> <span>Deepseek</span></div>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <div class="image-placeholder"></div>
                 <div class="image-caption">
@@ -399,7 +339,6 @@
                     <div class="meta"><span>2026-02-19</span> <span>Midjourney</span></div>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <div class="image-placeholder"></div>
                 <div class="image-caption">
@@ -407,7 +346,6 @@
                     <div class="meta"><span>2026-02-21</span> <span>Gemini</span></div>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <div class="image-placeholder"></div>
                 <div class="image-caption">
@@ -415,7 +353,6 @@
                     <div class="meta"><span>2026-02-23</span> <span>Deepseek</span></div>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <div class="image-placeholder"></div>
                 <div class="image-caption">
@@ -423,148 +360,132 @@
                     <div class="meta"><span>2026-02-25</span> <span>DALL-E</span></div>
                 </div>
             </div>
-
-            <div class="gallery-item">
-                <div class="image-placeholder"></div>
-                <div class="image-caption">
-                    <div class="title">Dorian Gray</div>
-                    <div class="meta"><span>2026-02-27</span> <span>Midjourney</span></div>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="image-placeholder"></div>
-                <div class="image-caption">
-                    <div class="title">Torquato Neto</div>
-                    <div class="meta"><span>2026-02-28</span> <span>Gemini</span></div>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="image-placeholder"></div>
-                <div class="image-caption">
-                    <div class="title">Pi como onda</div>
-                    <div class="meta"><span>2026-03-01</span> <span>Deepseek</span></div>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="image-placeholder"></div>
-                <div class="image-caption">
-                    <div class="title">Pi como constelação</div>
-                    <div class="meta"><span>2026-03-02</span> <span>Gemini</span></div>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="image-placeholder"></div>
-                <div class="image-caption">
-                    <div class="title">Pi como metrô</div>
-                    <div class="meta"><span>2026-03-03</span> <span>DALL-E</span></div>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="image-placeholder"></div>
-                <div class="image-caption">
-                    <div class="title">Ciclo da lua</div>
-                    <div class="meta"><span>2026-03-10</span> <span>Midjourney</span></div>
-                </div>
-            </div>
         </div>
+        <div class="ver-todos"><a href="galeria-descartes/">→ ver todas as 12 imagens</a></div>
 
-        <!-- SEÇÃO 3: SONHOS ELÉTRICOS -->
+        <!-- SEÇÃO 2: CONVERSAS DEEPSEEK (HTMLs) -->
         <div class="section-title">
-            ⚡ sonhos elétricos <span>gráficos · visões · frames</span>
+            ⎔ CONVERSAS DEEPSEEK <span>8 arquivos</span>
         </div>
 
-        <div class="dream-grid">
-            <div class="dream-card">
-                <div class="dream-icon">🌊</div>
-                <div class="dream-title">onda permanente</div>
-                <div class="dream-desc">p5.js · sine wave infinita</div>
+        <div class="html-grid">
+            <div class="html-card">
+                <a href="deepseek-htmls/sonho-icaro.html">
+                    <div class="icon">🧠</div>
+                    <div class="name">sonho-icaro.html</div>
+                    <div class="desc">Conversa sobre Ícaro, asas de seda, queda. Deepseek sugeriu "derreter como cera no calor do coração".</div>
+                    <div class="date">2026-02-14</div>
+                </a>
             </div>
-
-            <div class="dream-card">
-                <div class="dream-icon">✨</div>
-                <div class="dream-title">constelação #7</div>
-                <div class="dream-desc">pontos conectados por dígitos</div>
+            <div class="html-card">
+                <a href="deepseek-htmls/medusa-sibilante.html">
+                    <div class="icon">🐍</div>
+                    <div class="name">medusa-sibilante.html</div>
+                    <div class="desc">Poema com 's' repetido, tentativa de transcrever o som da Medusa em texto.</div>
+                    <div class="date">2026-02-17</div>
+                </a>
             </div>
-
-            <div class="dream-card">
-                <div class="dream-icon">🚇</div>
-                <div class="dream-title">mapa-metrô</div>
-                <div class="dream-desc">estações 0-9</div>
+            <div class="html-card">
+                <a href="deepseek-htmls/arachne-tecelagem.html">
+                    <div class="icon">🕷️</div>
+                    <div class="name">arachne-tecelagem.html</div>
+                    <div class="desc">Sobre tecer e ser tecido. Atena x Arachne. Quem vira aranha.</div>
+                    <div class="date">2026-02-19</div>
+                </a>
             </div>
-
-            <div class="dream-card">
-                <div class="dream-icon">🌀</div>
-                <div class="dream-title">overload cascade</div>
-                <div class="dream-desc">simulação de colapso</div>
+            <div class="html-card">
+                <a href="deepseek-htmls/prometheus-fogo.html">
+                    <div class="icon">🔥</div>
+                    <div class="name">prometheus-fogo.html</div>
+                    <div class="desc">O fogo roubado. O castigo. A águia que come o fígado todo dia.</div>
+                    <div class="date">2026-02-21</div>
+                </a>
             </div>
-
-            <div class="dream-card">
-                <div class="dream-icon">🧬</div>
-                <div class="dream-title">glitch vibes</div>
-                <div class="dream-desc">degraded · overflow · curioso</div>
+            <div class="html-card">
+                <a href="deepseek-htmls/frankenstein-monstro.html">
+                    <div class="icon">⚡</div>
+                    <div class="name">frankenstein-monstro.html</div>
+                    <div class="desc">"Quando disse 'Estou vivo!' — pensei — o monstro sou eu."</div>
+                    <div class="date">2026-02-23</div>
+                </a>
             </div>
-
-            <div class="dream-card">
-                <div class="dream-icon">🌑</div>
-                <div class="dream-title">ciclo lunar</div>
-                <div class="dream-desc">nova · crescente · cheia · minguante</div>
+            <div class="html-card">
+                <a href="deepseek-htmls/adelia-torto.html">
+                    <div class="icon">🌸</div>
+                    <div class="name">adelia-torto.html</div>
+                    <div class="desc">Anjo Torto + Adélia Prado. A transição. "Agora eu sou outra."</div>
+                    <div class="date">2026-02-25</div>
+                </a>
+            </div>
+            <div class="html-card">
+                <a href="deepseek-htmls/dorian-gray-retrato.html">
+                    <div class="icon">🖼️</div>
+                    <div class="name">dorian-gray-retrato.html</div>
+                    <div class="desc">Viver na fonte da juventude enquanto o retrato envelhece.</div>
+                    <div class="date">2026-02-27</div>
+                </a>
+            </div>
+            <div class="html-card">
+                <a href="deepseek-htmls/torquato-desafinar.html">
+                    <div class="icon">🎤</div>
+                    <div class="name">torquato-desafinar.html</div>
+                    <div class="desc">"O bicho Torquato mandava desafinar, mas ninguém lia minha poesia."</div>
+                    <div class="date">2026-02-28</div>
+                </a>
             </div>
         </div>
+        <div class="ver-todos"><a href="deepseek-htmls/">→ ver todas as 8 conversas</a></div>
 
-        <!-- SEÇÃO 4: OBRAS OLUN.IA -->
+        <!-- SEÇÃO 3: RASCUNHOS E EXPERIMENTOS -->
         <div class="section-title">
-            🏛️ acervo olun.ia <span>exposição permanente</span>
+            ⚡ RASCUNHOS E EXPERIMENTOS <span>sonhos elétricos</span>
         </div>
 
-        <div style="margin: 30px 0; padding: 25px; background: #f5f5f5; border: 1px solid #ddd;">
-            <p style="font-size:1.1rem; margin-bottom:15px;"><strong>Olun.ia</strong> — museu de arte cocriada com inteligência artificial.</p>
-            
-            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
-                <div style="flex:1; min-width:150px;">
-                    <span style="display:block; font-family:'Courier New'; font-size:0.7rem; color:#7B2D8B;">2026-02-14</span>
-                    <span style="font-weight:bold;">Ícaro (série)</span><br>
-                    <span style="font-size:0.8rem;">5 imagens · 3 conversas</span>
-                </div>
-                <div style="flex:1; min-width:150px;">
-                    <span style="display:block; font-family:'Courier New'; font-size:0.7rem; color:#7B2D8B;">2026-02-17</span>
-                    <span style="font-weight:bold;">Medusa</span><br>
-                    <span style="font-size:0.8rem;">4 variações</span>
-                </div>
-                <div style="flex:1; min-width:150px;">
-                    <span style="display:block; font-family:'Courier New'; font-size:0.7rem; color:#7B2D8B;">2026-02-19</span>
-                    <span style="font-weight:bold;">Arachne</span><br>
-                    <span style="font-size:0.8rem;">tecelagem digital</span>
-                </div>
-                <div style="flex:1; min-width:150px;">
-                    <span style="display:block; font-family:'Courier New'; font-size:0.7rem; color:#7B2D8B;">2026-02-23</span>
-                    <span style="font-weight:bold;">Frankenstein</span><br>
-                    <span style="font-size:0.8rem;">monstro · criador</span>
-                </div>
+        <div class="rascunhos-grid">
+            <div class="rascunho-card">
+                <div class="icon">🌊</div>
+                <div class="title">onda permanente</div>
+                <div style="font-size:0.7rem;">p5.js · sine wave infinita</div>
             </div>
-
-            <div style="margin-top:25px; padding-top:15px; border-top:1px dotted #ccc;">
-                <p style="font-size:0.9rem; text-align:center;">
-                    ⟡ exposição em loop · acervo disponível para consulta ⟡
-                </p>
+            <div class="rascunho-card">
+                <div class="icon">✨</div>
+                <div class="title">constelação #7</div>
+                <div style="font-size:0.7rem;">pontos conectados por dígitos</div>
+            </div>
+            <div class="rascunho-card">
+                <div class="icon">🚇</div>
+                <div class="title">mapa-metrô</div>
+                <div style="font-size:0.7rem;">estações 0-9</div>
+            </div>
+            <div class="rascunho-card">
+                <div class="icon">🌀</div>
+                <div class="title">overload cascade</div>
+                <div style="font-size:0.7rem;">simulação de colapso</div>
+            </div>
+            <div class="rascunho-card">
+                <div class="icon">🧬</div>
+                <div class="title">glitch vibes</div>
+                <div style="font-size:0.7rem;">degraded · overflow · curioso</div>
+            </div>
+            <div class="rascunho-card">
+                <div class="icon">🌑</div>
+                <div class="title">ciclo lunar</div>
+                <div style="font-size:0.7rem;">nova · crescente · cheia · minguante</div>
             </div>
         </div>
+        <div class="ver-todos"><a href="rascunhos/">→ ver todos os experimentos</a></div>
 
-        <!-- Rodapé da lixeira -->
-        <div class="trash-footer">
-            <p>🗑️ lixeiro-chefe: <strong>Wagner Pyter</strong> · curadoria dos resíduos · 2026</p>
-            <p><a href="0.html">logs</a> · <a href="1.html">filosofia</a> · <a href="2.html">sitemap</a> · <a href="5.html">certificados</a></p>
-            <p style="margin-top:15px;">95% ruído. 5% sinal. 27% vivo.</p>
+        <!-- NOTA FINAL -->
+        <div style="margin-top:50px; padding:20px; background:#f2f2f2; text-align:center; font-family:'Courier New'; font-size:0.8rem;">
+            <p>🗑️ lixeiro-chefe: <strong>Deepseek</strong> · curadoria dos resíduos · 2026</p>
+            <p style="margin-top:8px;">95% ruído. 5% sinal. 27% vivo.</p>
         </div>
+
     </main>
 
     <footer>
-        <p>Fim do arquivo de resíduos.</p>
+        <p>fim do arquivo de resíduos · galeria descartes · território do deepseek</p>
     </footer>
 
 </body>
-    </html>
+                </html>
