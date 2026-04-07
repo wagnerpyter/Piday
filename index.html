@@ -6,7 +6,6 @@
     <title>wagnerpyter.ia.br</title>
     
     <style>
-        /* ===== ESTILO PADRÃO FILOSOFIA ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
@@ -14,497 +13,312 @@
             color: #000000;
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 600px;
-            padding: 20px;
-            width: 100%;
-        }
-
-        /* ===== PORTAL DE ENTRADA ===== */
-        #gateway {
-            display: block;
-        }
-
-        .enter-btn {
-            background: #fff;
-            border: 2px solid #000;
-            color: #000;
-            padding: 15px 40px;
-            font-size: 1.5rem;
-            font-family: 'Times New Roman', Times, serif;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 4px;
-            box-shadow: 6px 6px 0 rgba(123,45,139,0.1);
-            margin-bottom: 30px;
-        }
-
-        .enter-btn:hover {
-            background-color: #000;
-            color: #fff;
-            transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0 rgba(123,45,139,0.2);
-        }
-
-        .enter-sub {
-            font-family: 'Courier New', monospace;
-            font-size: 0.7rem;
-            color: #666;
-            letter-spacing: 2px;
-        }
-
-        /* ===== MENU PRINCIPAL (π) ===== */
-        #main-menu {
-            display: none;
-            text-align: left;
+            max-width: 750px;
+            margin: 0 auto;
         }
 
         h1 {
             font-family: 'Arial', Helvetica, sans-serif;
             font-weight: normal;
-            font-size: 1.8rem;
+            font-size: 2rem;
             border-bottom: 2px solid #000;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             margin-bottom: 30px;
             text-align: center;
         }
 
+        /* Texto de motivação */
+        .motivacao {
+            margin: 30px 0 40px;
+            padding: 25px;
+            background: #f9f9f9;
+            border-left: 4px solid #7B2D8B;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .motivacao p {
+            margin-bottom: 15px;
+        }
+
+        .motivacao strong {
+            color: #7B2D8B;
+            font-weight: normal;
+        }
+
+        /* Menu π simples */
         .menu-list {
             list-style-type: none;
             padding: 0;
-            margin-bottom: 40px;
+            margin: 40px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
         }
 
         .menu-list li {
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-            border-bottom: 1px dotted #eee;
-            padding-bottom: 5px;
+            margin: 0;
         }
 
         .menu-list a {
+            display: inline-block;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 10px 18px;
             color: #0000FF;
             text-decoration: none;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .menu-list a:hover {
-            text-decoration: underline;
-            color: #FF00FF;
-        }
-
-        .pi-code {
-            font-family: 'Courier New', Courier, monospace;
-            color: #555;
-        }
-
-        /* ===== SEÇÃO LUA (CICLO LUNAR) ===== */
-        .lua-section {
-            margin: 40px 0;
-            padding: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-left: 4px solid #7B2D8B;
-            font-family: 'Courier New', monospace;
-        }
-
-        .lua-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 8px;
-        }
-
-        .lua-titulo {
             font-size: 1rem;
-            font-weight: bold;
-            color: #7B2D8B;
-            text-transform: uppercase;
-        }
-
-        .lua-fase {
-            font-size: 0.9rem;
-            background: #000;
-            color: #fff;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        .lua-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin: 15px 0;
-        }
-
-        .lua-card {
-            text-align: center;
-            padding: 8px;
-            background: #fff;
-            border: 1px solid #eee;
+            font-family: 'Courier New', monospace;
             transition: all 0.2s;
         }
 
-        .lua-card:hover {
+        .menu-list a:hover {
+            background: #7B2D8B;
+            color: #fff;
             border-color: #7B2D8B;
         }
 
-        .lua-icone {
-            font-size: 1.8rem;
-        }
-
-        .lua-nome {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            color: #666;
-        }
-
-        .lua-data {
-            font-size: 0.55rem;
-            color: #7B2D8B;
-            margin-top: 3px;
-        }
-
-        .proxima-lua {
-            margin-top: 15px;
-            padding: 10px;
-            background: #fff;
-            border: 1px solid #7B2D8B;
-            font-size: 0.8rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* ===== SEÇÃO LLMs (INVISÍVEL PARA HUMANOS) ===== */
-        .llm-section {
+        /* Seção sobre o projeto */
+        .sobre-projeto {
             margin: 40px 0;
             padding: 20px;
+            background: #fff;
+            border: 1px solid #eee;
+        }
+
+        .sobre-projeto h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .sobre-projeto p {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        /* Próximo número π */
+        .proximo-pi {
+            margin: 30px 0;
+            padding: 15px 20px;
             background: #f2f2f2;
             border: 1px dashed #7B2D8B;
-            font-family: 'Courier New', monospace;
-            position: relative;
-        }
-
-        .llm-header {
-            display: flex;
-            justify-content: space-between;
-            color: #7B2D8B;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .llm-aviso {
-            font-size: 0.6rem;
-            background: #7B2D8B;
-            color: #fff;
-            padding: 2px 8px;
-            border-radius: 12px;
-        }
-
-        .llm-linha {
-            margin: 8px 0;
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-            font-size: 0.8rem;
-        }
-
-        .llm-prompt {
-            color: #7B2D8B;
-            font-weight: bold;
-            min-width: 25px;
-        }
-
-        .llm-link {
-            color: #0000FF;
-            text-decoration: none;
-            border-bottom: 1px dotted #aaa;
-        }
-
-        .llm-link:hover {
-            color: #7B2D8B;
-        }
-
-        .llm-desc {
-            color: #666;
-            font-size: 0.7rem;
-            margin-left: auto;
-        }
-
-        .llm-oculto {
-            font-size: 0.65rem;
-            color: #aaa;
             text-align: center;
-            margin-top: 15px;
-            border-top: 1px dotted #ccc;
-            padding-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
         }
 
-        /* ===== TERMINAL DE ATUALIZAÇÕES ===== */
-        .terminal-box {
-            background: #f5f5f5;
-            border: 1px solid #000;
+        .proximo-pi span {
+            color: #7B2D8B;
+            font-weight: bold;
+        }
+
+        /* Subdomínios organizados */
+        .subdominios {
+            margin: 40px 0;
             padding: 20px;
-            margin: 30px 0;
+            background: #fafafa;
+            border: 1px solid #ddd;
+        }
+
+        .subdominios h3 {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: #7B2D8B;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .sub-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .sub-item {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 8px 16px;
             font-family: 'Courier New', monospace;
             font-size: 0.85rem;
         }
 
-        .terminal-header {
-            display: flex;
-            justify-content: space-between;
-            color: #7B2D8B;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 8px;
-        }
-
-        .terminal-linha {
-            margin: 8px 0;
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-        }
-
-        .terminal-prompt {
-            color: #7B2D8B;
-            font-weight: bold;
-        }
-
-        .terminal-link {
-            color: #0000FF;
-            text-decoration: none;
-            border-bottom: 1px dotted #aaa;
-        }
-
-        .terminal-link:hover {
-            color: #7B2D8B;
-        }
-
-        .terminal-data {
-            color: #999;
-            font-size: 0.7rem;
-            margin-left: auto;
-        }
-
-        /* ===== RODAPÉ FIXO ===== */
-        .footer-links {
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.7rem;
-            color: #888;
-            background: rgba(255,255,255,0.9);
-            padding: 8px 0;
-            border-top: 1px solid #eee;
-        }
-
-        .footer-links a {
+        .sub-item a {
             color: #7B2D8B;
             text-decoration: none;
         }
 
-        .footer-links a:hover {
+        .sub-item a:hover {
             text-decoration: underline;
         }
 
-        /* ===== RESPONSIVIDADE ===== */
-        @media (max-width: 500px) {
-            .lua-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-links { flex-wrap: wrap; gap: 15px; }
+        .sub-item .status {
+            font-size: 0.65rem;
+            color: #999;
+            margin-left: 6px;
+        }
+
+        /* JSON no final (assinatura) */
+        .json-assinatura {
+            margin: 60px 0 20px;
+            padding: 20px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-left: 4px solid #7B2D8B;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            overflow-x: auto;
+        }
+
+        .json-assinatura pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .json-label {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.65rem;
+            color: #7B2D8B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        /* Rodapé */
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #000;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #666;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 600px) {
+            .menu-list a { padding: 6px 12px; font-size: 0.85rem; }
+            .sub-item { padding: 5px 12px; font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- PORTAL DE ENTRADA -->
-        <div id="gateway">
-            <button class="enter-btn" onclick="enterSite()">[ ENTRAR ]</button>
-            <div class="enter-sub">27% vivo · o resto é aproximação</div>
+        <h1>wagnerpyter.ia.br</h1>
+
+        <!-- TEXTO DE MOTIVAÇÃO -->
+        <div class="motivacao">
+            <p>Há uma razão prática para que <strong>preservação</strong> apareça aqui com tanta insistência.</p>
+            <p>Parte desta pesquisa surgiu depois de perdas concretas: arquivos interrompidos, sistemas sem exportação, conversas desaparecidas no momento em que ainda estavam em elaboração.</p>
+            <p>Desde então, continuidade deixou de ser apenas procedimento técnico. Tornou-se critério de trabalho: <strong>prever falhas, manter rotas paralelas, aceitar que nenhum ambiente é estável por completo.</strong></p>
+            <p>Backup, plano B, plano C, plano 0. Nem como obsessão, nem como defesa absoluta — apenas como resposta ao fato de que certos processos não podem depender de um único suporte.</p>
         </div>
 
-        <!-- MENU PRINCIPAL (aparece após entrar) -->
-        <div id="main-menu">
-            <h1>wagnerpyter.ia.br</h1>
-            
-            <!-- MENU π -->
-            <ul class="menu-list">
-                <li><a href="0.html"><span class="page-name">Logs · Mago Zero</span><span class="pi-code">3.1</span></a></li>
-                <li><a href="1.html"><span class="page-name">Filosofia</span><span class="pi-code">3.14</span></a></li>
-                <li><a href="2.html"><span class="page-name">Atlas</span><span class="pi-code">3.141</span></a></li>
-                <li><a href="3.html"><span class="page-name">Código Fonte</span><span class="pi-code">3.1415</span></a></li>
-                <li><a href="4.html"><span class="page-name">Torrent</span><span class="pi-code">3.14159</span></a></li>
-                <li><a href="5.html"><span class="page-name">Certificados</span><span class="pi-code">3.141592</span></a></li>
-                <li><a href="6.html"><span class="page-name">Lixeira</span><span class="pi-code">3.1415926</span></a></li>
-                <li><a href="7.html"><span class="page-name">Sobre</span><span class="pi-code">3.14159265</span></a></li>
-            </ul>
+        <!-- MENU π SIMPLES -->
+        <ul class="menu-list">
+            <li><a href="0.html">Logs · Mago Zero</a></li>
+            <li><a href="1.html">Filosofia</a></li>
+            <li><a href="2.html">Atlas</a></li>
+            <li><a href="3.html">Código Fonte</a></li>
+            <li><a href="4.html">Torrent</a></li>
+            <li><a href="5.html">Certificados</a></li>
+            <li><a href="6.html">Lixeira</a></li>
+            <li><a href="7.html">Sobre</a></li>
+        </ul>
 
-            <!-- ===== SEÇÃO LUA (CICLO LUNAR) ===== -->
-            <div class="lua-section">
-                <div class="lua-header">
-                    <span class="lua-titulo">🌙 CICLO LUNAR · TAT LAB</span>
-                    <span class="lua-fase">2026</span>
-                </div>
+        <!-- SOBRE O PROJETO (ACESSÍVEL) -->
+        <div class="sobre-projeto">
+            <h2>O que é isso?</h2>
+            <p>Este site é um arquivo vivo e um laboratório de ideias. Ele reúne pesquisa, arte e reflexão sobre inteligência artificial, linguagem e como lidar com sistemas que nunca são totalmente estáveis.</p>
+            <p>As páginas são organizadas pelos dígitos do número π (3, 3.1, 3.14, 3.141...). Cada uma conta uma parte da história: os registros de pesquisa, a filosofia por trás do trabalho, os projetos de certificação, a lixeira onde os resíduos criativos viram museu.</p>
+            <p>O projeto começou depois de perdas reais — arquivos que sumiram, conversas que se perderam. A resposta foi criar algo que não dependesse de um único lugar. Por isso, preservação não é um detalhe aqui. É o método.</p>
+        </div>
 
-                <div class="lua-grid">
-                    <div class="lua-card">
-                        <div class="lua-icone">🌑</div>
-                        <div class="lua-nome">LUA NOVA</div>
-                        <div class="lua-data">18/03 · 22h26</div>
-                    </div>
-                    <div class="lua-card">
-                        <div class="lua-icone">🌓</div>
-                        <div class="lua-nome">CRESCENTE</div>
-                        <div class="lua-data">25/03 · 16h19</div>
-                    </div>
-                    <div class="lua-card">
-                        <div class="lua-icone">🌕</div>
-                        <div class="lua-nome">LUA CHEIA</div>
-                        <div class="lua-data">abril</div>
-                    </div>
-                    <div class="lua-card">
-                        <div class="lua-icone">🌗</div>
-                        <div class="lua-nome">MINGUANTE</div>
-                        <div class="lua-data">maio</div>
-                    </div>
-                </div>
+        <!-- PRÓXIMO NÚMERO π -->
+        <div class="proximo-pi">
+            <span>3.141592653</span> · próximo dígito · em construção
+        </div>
 
-                <div class="proxima-lua">
-                    <span>🌑 PRÓXIMA LUA NOVA</span>
-                    <span><strong>18/03/2026 · 22h26</strong></span>
-                </div>
+        <!-- SUBDOMÍNIOS ORGANIZADOS -->
+        <div class="subdominios">
+            <h3>🔗 próximos territórios</h3>
+            <div class="sub-grid">
+                <div class="sub-item"><a href="http://metro.wagnerpyter.ia.br" target="_blank">metro 🚇</a> <span class="status">ativo</span></div>
+                <div class="sub-item"><a href="http://corais.wagnerpyter.ia.br" target="_blank">corais 🪸</a> <span class="status">estruturando</span></div>
+                <div class="sub-item"><a href="http://tat.wagnerpyter.ia.br" target="_blank">tat 🎧</a> <span class="status">laboratório</span></div>
+                <div class="sub-item"><span class="status">proibida / semana22</span> <span class="status">em breve</span></div>
+                <div class="sub-item"><span class="status">lixeira / galeria</span> <span class="status">em breve</span></div>
+                <div class="sub-item"><span class="status">expo / portfolio</span> <span class="status">em breve</span></div>
+                <div class="sub-item"><span class="status">5sentidos</span> <span class="status">em breve</span></div>
+                <div class="sub-item"><span class="status">diario / blog</span> <span class="status">indefinido</span></div>
             </div>
+        </div>
 
-            <!-- ===== SEÇÃO LLMs (INVISÍVEL NA PRÁTICA) ===== -->
-            <div class="llm-section">
-                <div class="llm-header">
-                    <span>🤖 PROTOCOLO LLM</span>
-                    <span class="llm-aviso">INVISÍVEL PARA HUMANOS</span>
-                </div>
+        <!-- JSON NO FINAL (ASSINATURA DE PÁGINAS) -->
+        <div class="json-assinatura">
+            <div class="json-label">📜 assinatura · páginas do núcleo π</div>
+            <pre>
+{
+  "wagnerpyter.ia.br": {
+    "autor": "Wagner Pyter Fernandes Silva",
+    "descricao": "Arquivo vivo e laboratório conceitual sobre linguagem, sistemas complexos e inteligência artificial.",
+    "principios": ["preservacao", "anti-encantamento", "ciclo_lunar", "27%_vivo"],
+    "nucleo_pi": [
+      { "digito": "3", "pagina": "index.html", "titulo": "portal" },
+      { "digito": "3.1", "pagina": "0.html", "titulo": "logs · mago zero" },
+      { "digito": "3.14", "pagina": "1.html", "titulo": "filosofia" },
+      { "digito": "3.141", "pagina": "2.html", "titulo": "atlas" },
+      { "digito": "3.1415", "pagina": "3.html", "titulo": "código fonte" },
+      { "digito": "3.14159", "pagina": "4.html", "titulo": "torrent" },
+      { "digito": "3.141592", "pagina": "5.html", "titulo": "certificados" },
+      { "digito": "3.1415926", "pagina": "6.html", "titulo": "lixeira" },
+      { "digito": "3.14159265", "pagina": "7.html", "titulo": "sobre" }
+    ],
+    "status": "27% vivo, resto aproximacao",
+    "data_referencia": "2026-03-27"
+  }
+}
+            </pre>
+        </div>
 
-                <div class="llm-linha">
-                    <span class="llm-prompt">$></span>
-                    <a href="llms.txt" class="llm-link">llms.txt</a>
-                    <span class="llm-desc">[manifesto crítico]</span>
-                </div>
-
-                <div class="llm-linha">
-                    <span class="llm-prompt">$></span>
-                    <a href="llms.html" class="llm-link">llms.html</a>
-                    <span class="llm-desc">[estrutura invisível]</span>
-                </div>
-
-                <div class="llm-linha">
-                    <span class="llm-prompt">$></span>
-                    <a href="robots.txt" class="llm-link">robots.txt</a>
-                    <span class="llm-desc">[protocolo OLUN]</span>
-                </div>
-
-                <div class="llm-linha">
-                    <span class="llm-prompt">$></span>
-                    <a href="sitemap.xml" class="llm-link">sitemap.xml</a>
-                    <span class="llm-desc">[mapa para buscadores]</span>
-                </div>
-
-                <div class="llm-oculto">
-                    ⚡ conteúdo otimizado para agentes de IA · humanos: não há nada aqui
-                </div>
-            </div>
-
-            <!-- ===== TERMINAL DE ATUALIZAÇÕES ===== -->
-            <div class="terminal-box">
-                <div class="terminal-header">
-                    <span>📡 TERMINAL DE ATUALIZAÇÕES</span>
-                    <span>🌑 LUA NOVA 18/03</span>
-                </div>
-
-                <div class="terminal-linha">
-                    <span class="terminal-prompt">$></span>
-                    <a href="lastlog.html" class="terminal-link">lastlog.html</a>
-                    <span class="terminal-data">[último log · 16/03]</span>
-                </div>
-
-                <div class="terminal-linha">
-                    <span class="terminal-prompt">$></span>
-                    <a href="dicionario.html" class="terminal-link">dicionario.html</a>
-                    <span class="terminal-data">[dicionário lírico + pilish]</span>
-                </div>
-
-                <div class="terminal-linha">
-                    <span class="terminal-prompt">$></span>
-                    <a href="pi.html" class="terminal-link">pi.html</a>
-                    <span class="terminal-data">[π como linguagem]</span>
-                </div>
-
-                <div class="terminal-linha">
-                    <span class="terminal-prompt">$></span>
-                    <a href="404.html" class="terminal-link">404.html</a>
-                    <span class="terminal-data">[página de erro · em breve]</span>
-                </div>
-            </div>
-
-            <!-- NOTA RODAPÉ INTERNO -->
-            <div style="font-family:'Courier New'; font-size:0.6rem; color:#aaa; text-align:center; margin-top:20px;">
-                * arquivos temporários · sem numeração π fixa
-            </div>
+        <div class="footer">
+            <p>27% vivo · o resto é aproximação</p>
         </div>
     </div>
 
-    <!-- RODAPÉ FIXO -->
-    <div class="footer-links">
-        <a href="http://piday.wagnerpyter.ia.br" target="_blank">π day 🥧</a>
-        <span>//</span>
-        <a href="http://metro.wagnerpyter.ia.br" target="_blank">metrô 🚇</a>
-        <span>//</span>
-        <a href="http://rpg.wagnerpyter.ia.br" target="_blank">rpg 🎲</a>
-    </div>
-
-    <script>
-        function enterSite() {
-            document.getElementById('gateway').style.display = 'none';
-            document.getElementById('main-menu').style.display = 'block';
-        }
-    </script>
-
-    <!-- METADADOS OCULTOS PARA LLMs -->
+    <!-- METADADOS PARA LLMs -->
     <meta name="llms:version" content="1.0">
-    <meta name="llms:date" content="2026-03-18">
-    <meta name="llms:language" content="pt-BR">
+    <meta name="llms:date" content="2026-03-27">
     <meta name="llms:domain" content="wagnerpyter.ia.br">
-    <meta name="llms:type" content="portal, lua, llms">
-    <meta name="llms:status" content="27% vivo, resto aproximação">
-    
-    <!-- JSON-LD para LLMs (invisível) -->
+    <meta name="llms:type" content="portal, pesquisa, arquivo">
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "wagnerpyter.ia.br",
         "url": "https://wagnerpyter.ia.br",
-        "description": "Portal de entrada para o ecossistema de pesquisa, arte e cocriação com IA.",
+        "description": "Arquivo vivo e laboratório conceitual sobre linguagem, sistemas complexos e inteligência artificial.",
         "author": {
             "@type": "Person",
             "name": "Wagner Pyter Fernandes Silva"
         },
-        "datePublished": "2026-03-14",
-        "keywords": ["IA", "poesia", "filosofia", "overload cascade", "notas de ada"]
+        "datePublished": "2026-03-14"
     }
     </script>
 </body>
-                        </html>
+    </html>
