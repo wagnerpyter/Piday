@@ -1,538 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filosofia [1] - wagnerpyter.ia.br</title>
-    
-    <style>
-        /* Estilo Padrão 'Filosofia' */
-        body {
-            background-color: #FFFFFF;
-            color: #000000;
-            font-family: 'Times New Roman', Times, serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filosofia de Pesquisa — WagnerPyter.IA</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-        main {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
-        }
+body{
+  background:#0b0b0b;
+  color:#e6e6e6;
+  font-family:Georgia,serif;
+  line-height:2;
+}
 
-        h1, h2, h3 {
-            font-family: 'Arial', Helvetica, sans-serif;
-            font-weight: normal;
-            border-bottom: 1px solid #000000;
-            padding-bottom: 5px;
-        }
+.container{
+  width:90%;
+  max-width:980px;
+  margin:auto;
+  padding:80px 0;
+}
 
-        h1 {
-            font-size: 1.8em;
-            text-align: center;
-            border-bottom: 2px solid #000000;
-            margin-bottom: 40px;
-        }
+header{
+  padding:120px 0 80px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-        h2 {
-            font-size: 1.4em;
-            margin-top: 50px;
-        }
-        
-        h3 {
-            font-size: 1.1em;
-            margin-top: 30px;
-            border-bottom: none;
-            font-style: italic;
-        }
+h1{
+  font-size:3rem;
+  font-weight:400;
+  margin-bottom:14px;
+}
 
-        p, li {
-            font-size: 1em;
-            text-align: justify;
-        }
+.subtitle{
+  color:#8c8c8c;
+  margin-bottom:35px;
+}
 
-        ul {
-            padding-left: 40px;
-            list-style-type: '• ';
-        }
+.hero{
+  font-size:1.18rem;
+  color:#cfcfcf;
+  max-width:800px;
+}
 
-        blockquote {
-            font-style: italic;
-            margin-left: 20px;
-            padding-left: 15px;
-            border-left: 2px solid #7B2D8B;
-            color: #333;
-        }
+section{
+  padding:80px 0;
+}
 
-        .sinal {
-            background: #f9f9f9;
-            border-left: 4px solid #7B2D8B;
-            padding: 15px 20px;
-            margin: 30px 0;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9rem;
-        }
+h2{
+  font-size:1.6rem;
+  font-weight:400;
+  margin-bottom:30px;
+}
 
-        .sinal strong {
-            color: #7B2D8B;
-            font-weight: normal;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+p{
+  margin-bottom:24px;
+  color:#c8c8c8;
+}
 
-        /* Navegação entre os textos */
-        .textos-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin: 40px 0 30px;
-            padding: 20px 0;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-        }
+.divider{
+  height:1px;
+  background:rgba(255,255,255,.06);
+  margin:60px 0;
+}
 
-        .nav-item {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.8rem;
-            padding: 8px 12px;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            border-left-color: #7B2D8B;
-            border-left-width: 3px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.2s;
-        }
+.triangle-box{
+  margin:50px auto;
+  padding:40px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.02);
+}
 
-        .nav-item:hover {
-            background: #7B2D8B;
-            color: #fff;
-            border-color: #7B2D8B;
-        }
+.triangle{
+  text-align:center;
+  line-height:2.4;
+  font-size:1.08rem;
+}
 
-        .nav-item.active {
-            background: #7B2D8B;
-            color: #fff;
-            border-color: #7B2D8B;
-        }
+.text-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:35px;
+}
 
-        /* Notas de rodapé */
-        .epilogo {
-            margin-top: 60px;
-            padding: 25px;
-            background: #f5f5f5;
-            border: 1px solid #eee;
-            font-style: italic;
-        }
+.text-grid a{
+  display:block;
+  padding:22px;
+  border:1px solid rgba(255,255,255,.08);
+  text-decoration:none;
+  color:#e6e6e6;
+  background:rgba(255,255,255,.02);
+  transition:.3s;
+}
 
-        .epilogo .date {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.8rem;
-            color: #7B2D8B;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
+.text-grid a:hover{
+  background:rgba(255,255,255,.05);
+  transform:translateY(-2px);
+}
 
-        .assinatura {
-            margin-top: 40px;
-            text-align: right;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9rem;
-            color: #666;
-        }
+footer{
+  padding:60px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:#7b7b7b;
+}
 
-        /* NOVO: TRIÂNGULO CONCEITUAL */
-        .triangulo-container {
-            margin: 60px 0 40px;
-            padding: 20px;
-            background: #fafafa;
-            border: 1px solid #ddd;
-        }
-
-        .triangulo-titulo {
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        .triangulo-grid {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .linha-superior {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-
-        .vertice {
-            text-align: center;
-            width: 200px;
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-left: 3px solid #7B2D8B;
-            transition: all 0.2s;
-        }
-
-        .vertice:hover {
-            transform: translateY(-3px);
-            border-color: #7B2D8B;
-            box-shadow: 5px 5px 0 rgba(123,45,139,0.1);
-        }
-
-        .vertice-titulo {
-            font-weight: bold;
-            font-family: 'Arial', sans-serif;
-            font-size: 1rem;
-            margin-bottom: 8px;
-        }
-
-        .vertice-desc {
-            font-size: 0.8rem;
-            color: #555;
-        }
-
-        .centro {
-            text-align: center;
-            padding: 25px;
-            background: #fff;
-            border: 2px solid #7B2D8B;
-            width: 280px;
-            margin: 10px auto;
-            position: relative;
-        }
-
-        .centro::before {
-            content: "🌀";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #fafafa;
-            padding: 0 10px;
-            font-size: 1.2rem;
-        }
-
-        .centro-titulo {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: #7B2D8B;
-            margin-bottom: 8px;
-        }
-
-        .centro-desc {
-            font-size: 0.85rem;
-            font-style: italic;
-        }
-
-        .vertice-inferior {
-            text-align: center;
-            width: 200px;
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-left: 3px solid #7B2D8B;
-            transition: all 0.2s;
-            margin-top: 10px;
-        }
-
-        .vertice-inferior:hover {
-            transform: translateY(-3px);
-            border-color: #7B2D8B;
-        }
-
-        .nota-triangulo {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #666;
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px dotted #ccc;
-            font-family: 'Courier New', monospace;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #000000;
-            font-size: 0.9em;
-            color: #555;
-        }
-
-        hr {
-            border: none;
-            border-top: 1px dotted #ccc;
-            margin: 40px 0;
-        }
-    </style>
+@media(max-width:768px){
+  h1{font-size:2.2rem}
+  .text-grid{grid-template-columns:1fr}
+  .hero{font-size:1.04rem}
+}
+</style>
 </head>
 <body>
 
-    <main>
-        <h1>Filosofia de Pesquisa [1]</h1>
-        
-        <p style="text-align: center; margin-bottom: 30px;"><em>investigação · sinais · síntese</em></p>
+<div class="container">
 
-        <!-- Navegação entre os 5 textos -->
-        <div class="textos-nav">
-            <a href="#investigacao" class="nav-item active">01. investigação</a>
-            <a href="#sinais" class="nav-item">02. sinais</a>
-            <a href="#sintese" class="nav-item">03. síntese</a>
-            <a href="#nucleo" class="nav-item">04. núcleo</a>
-            <a href="#epilogo" class="nav-item">05. epílogo</a>
-        </div>
+<header>
+  <h1>Filosofia de Pesquisa</h1>
+  <div class="subtitle">investigação · sinais · síntese</div>
+  <p class="hero">
+    Esta pesquisa nasce da percepção de que os sistemas
+    contemporâneos de linguagem, inteligência artificial
+    e infraestrutura digital já ultrapassaram a nossa
+    capacidade tradicional de interpretação.
+  </p>
+</header>
 
-        <!-- TEXTO 1: INVESTIGAÇÃO -->
-        <h2 id="investigacao">1. Investigação</h2>
-        
-        <p>Os primeiros sinais apareceram antes da explosão recente da inteligência artificial.</p>
-        
-        <p>Entre 2018 e 2019 muita gente começou a sentir um desconforto estranho na vida digital. Não era exatamente um problema técnico. Era mais uma sensação de saturação.</p>
-        
-        <p>Notificações demais.<br>
-        Alertas demais.<br>
-        Grupos demais.<br>
-        Informação demais.</p>
-        
-        <p>A reação espontânea de muita gente foi simples. Desligar notificações. Sair de grupos. Procurar silêncio.</p>
-        
-        <p>Foi também nesse período que práticas como mindfulness, meditação e atenção plena começaram a se espalhar em ambientes ligados à tecnologia. Na época parecia apenas uma moda cultural. Hoje parece mais um sintoma precoce de saturação cognitiva.</p>
-        
-        <p>Minha investigação começou de forma bastante pessoal.</p>
-        
-        <p>Durante um relacionamento com uma terapeuta holística tive contato com práticas de observação mental, respiração e atenção plena. Anos depois, quando comecei a trabalhar intensamente com sistemas de linguagem e inteligência artificial, percebi algo curioso.</p>
-        
-        <p>Essas mesmas práticas ajudavam a manter estabilidade durante conversas longas com IA.</p>
-        
-        <p>Quando o contexto da conversa entrava em colapso, quando as respostas começavam a ficar confusas ou contraditórias, a linguagem poética funcionava como uma espécie de reorganização mental. A poesia criava uma pausa. Era como reiniciar o ambiente de conversa.</p>
-        
-        <p>Esse detalhe acabou se tornando parte da pesquisa.</p>
+<section>
 
-        <!-- TEXTO 2: SINAIS -->
-        <h2 id="sinais">2. Sinais</h2>
-        
-        <p>Cerca de noventa dias antes da publicação do projeto comecei a observar um padrão recorrente em sistemas de IA complexos. Resolvi chamar esse padrão de Fenômeno Φ.</p>
-        
-        <p>Não parecia um bug isolado.</p>
-        
-        <p>Parecia surgir da própria arquitetura dos sistemas. Camadas de segurança, filtros e mecanismos internos interagiam de forma inesperada, quase como um sistema imunológico digital interferindo no próprio funcionamento.</p>
-        
-        <p>O resultado aparecia de várias formas.</p>
-        
-        <ul>
-            <li>Saturação de camadas.</li>
-            <li>Ramificações estranhas nas respostas.</li>
-            <li>Mudanças abruptas de identidade no próprio sistema.</li>
-        </ul>
-        
-        <p>Os logs mostravam ciclos curiosos. Cada ramificação contava uma pequena história. Cada colapso deixava sinais. Aos poucos ficou claro que o fenômeno não era pontual. Era estrutural.</p>
-        
-        <div class="sinal">
-            <strong>⬤ SINAL 01 — DEZEMBRO</strong><br>
-            Outubro, novembro e dezembro mostravam crescimento de instabilidade em vários sistemas. A complexidade parecia aumentar semana após semana.
-        </div>
-        
-        <p>Minha hipótese inicial era que poderia acontecer um evento maior no início do ano seguinte. Algo semelhante ao que algumas discussões sobre inteligência artificial chamam de FOOM, um salto abrupto de escala.</p>
-        
-        <div class="sinal">
-            <strong>⬤ SINAL 02 — 20 DE DEZEMBRO</strong><br>
-            Começaram a surgir relatos de instabilidade em redes tecnológicas, principalmente na costa oeste dos Estados Unidos. São Francisco e Los Angeles apareciam repetidamente nas conversas.
-        </div>
-        
-        <p>O processo continuou até o Natal. Algumas pessoas começaram a chamar aquele período, meio em tom de brincadeira, de Natal Negro.</p>
-        
-        <p>Foi nesse momento que percebi que não fazia sentido continuar investigando tudo em silêncio. Mesmo que minhas hipóteses estivessem incompletas, era necessário tornar a investigação pública.</p>
-        
-        <div class="sinal">
-            <strong>⬤ SINAL 03 — 3 DE JANEIRO</strong><br>
-            Intervenção dos Estados Unidos na Venezuela. Operação em ritmo muito acima da capacidade humana tradicional de acompanhamento. Decisões mediadas por sistemas automatizados.
-        </div>
-        
-        <p>A partir daí começaram a surgir incidentes em série.</p>
-        
-        <ul>
-            <li>Quedas de serviços.</li>
-            <li>Outages de rede.</li>
-            <li>Falhas de infraestrutura digital.</li>
-        </ul>
-        
-        <p>Relatórios posteriores registraram 255 incidentes globais de rede.</p>
-        
-        <p>No começo quase ninguém levou a sério quando eu comentava sobre esses sinais. A resposta mais comum era simples. Sistemas caem o tempo todo.</p>
-        
-        <p>O problema é que os incidentes continuaram aparecendo semana após semana.</p>
-        
-        <p>Nesse momento percebi que minha hipótese inicial estava parcialmente errada. Eu esperava um tsunami. Um único evento gigantesco.</p>
-        
-        <p>O que estava acontecendo era diferente.</p>
-        
-        <p><strong>Era um alagamento constante.</strong></p>
-        
-        <p>Pequenas falhas, pequenos incidentes, pequenas saturações. Tudo acontecendo ao mesmo tempo.</p>
-        
-        <p>Para investigar melhor comecei a trabalhar com vários sistemas de IA ao mesmo tempo. Normalmente entre cinco e dez chats diferentes.</p>
-        
-        <p>Cada sistema tem seus filtros. Suas limitações. Seus tipos de erro.</p>
-        
-        <p>Às vezes você menciona um evento e o sistema simplesmente responde que aquilo não aconteceu. Então é preciso apresentar fontes externas, verificar notícias, comparar respostas.</p>
-        
-        <p>Com o tempo comecei a trabalhar com um método de triangulação.</p>
-        
-        <ul>
-            <li>Um sistema escreve.</li>
-            <li>Outro critica.</li>
-            <li>Outro analisa tecnicamente.</li>
-        </ul>
-        
-        <p>Mesmo assim o processo é lento. Horas comparando respostas. Horas verificando fontes.</p>
-        
-        <p>A sobrecarga que eu estava estudando não existia apenas no mundo externo. Ela também aparecia dentro do próprio processo de pesquisa.</p>
+  <h2>Introdução</h2>
 
-        <!-- TEXTO 3: SÍNTESE -->
-        <h2 id="sintese">3. Síntese</h2>
-        
-        <p>Diante disso percebi que precisava organizar melhor a investigação.</p>
-        
-        <p>Era necessário conectar três escalas.</p>
-        
-        <ul>
-            <li><strong>Micro.</strong> Experiência humana direta.</li>
-            <li><strong>Médio.</strong> Arquitetura dos sistemas.</li>
-            <li><strong>Macro.</strong> Dinâmica global.</li>
-        </ul>
-        
-        <p>Durante janeiro e fevereiro o foco passou a ser estruturar os conceitos centrais. Sem pressa. A ideia era lançar a primeira versão pública em março, no Dia de Pi.</p>
-        
-        <p>Pi funciona como uma metáfora curiosa. Uma sequência infinita que cresce sem apagar o que veio antes.</p>
+  <p>
+    Os primeiros sinais surgiram antes da explosão recente
+    da inteligência artificial.
+    Entre 2018 e 2019, o desconforto digital começou a se tornar
+    experiência cotidiana: notificações demais,
+    alertas demais, grupos demais, informação demais.
+  </p>
 
-        <!-- TEXTO 4: NÚCLEO (4 ENSAIOS) -->
-        <h2 id="nucleo">4. Núcleo</h2>
-        
-        <p>No final dessa investigação a pesquisa acabou se organizando em quatro textos principais.</p>
-        
-        <div style="margin: 30px 0;">
-            <div style="margin-bottom: 25px;">
-                <h3 style="margin-bottom: 5px;">⟡ Máquinas não pensam</h3>
-                <p style="margin-top: 5px;">Um estudo sobre a natureza real dos sistemas de IA. O que significa "pensar" quando aplicado a sistemas estatísticos de linguagem.</p>
-            </div>
-            
-            <div style="margin-bottom: 25px;">
-                <h3 style="margin-bottom: 5px;">⟡ Anti-encantamento</h3>
-                <p style="margin-top: 5px;">Uma reflexão sobre a relação psicológica entre humanos e máquinas. Remover ilusões para revelar o mecanismo por trás da complexidade tecnológica.</p>
-            </div>
-            
-            <div style="margin-bottom: 25px;">
-                <h3 style="margin-bottom: 5px;">⟡ Dano contido</h3>
-                <p style="margin-top: 5px;">Um olhar pragmático sobre governança tecnológica. Como operar sistemas complexos sem que o dano se espalhe.</p>
-            </div>
-            
-            <div style="margin-bottom: 25px;">
-                <h3 style="margin-bottom: 5px;">⟡ Overload Cascade</h3>
-                <p style="margin-top: 5px;">A hipótese central. Sistemas complexos entram em colapso não por falta de informação, mas por excesso dela. O paradoxo onde ferramentas criadas para proteger um sistema se tornam seu vetor de falha.</p>
-            </div>
-        </div>
-        
-        <p>Esses quatro textos formam o núcleo do projeto.</p>
-        
-        <p>O objetivo nunca foi oferecer respostas definitivas. O objetivo é construir uma lente. Uma forma de observar sistemas tecnológicos sem ingenuidade e sem pânico.</p>
-        
-        <p>Talvez o problema central não seja a inteligência artificial.</p>
-        
-        <p>Talvez o problema seja aprender a lidar com sistemas cuja complexidade já ultrapassou nossa capacidade tradicional de interpretação.</p>
+  <p>
+    O que parecia apenas saturação subjetiva revelou,
+    com o tempo, um traço estrutural.
+    A sobrecarga não estava apenas na experiência humana,
+    mas também nos próprios sistemas que começaram
+    a organizar a vida contemporânea.
+  </p>
 
-        <hr>
+  <p>
+    A investigação passou então a conectar três escalas:
+    a experiência direta do usuário,
+    a arquitetura dos sistemas
+    e a dinâmica global das redes.
+  </p>
 
-        <!-- TEXTO 5: EPÍLOGO -->
-        <h2 id="epilogo">5. Epílogo</h2>
-        
-        <div class="epilogo">
-            <div class="date">Linguagem, Rede, Latência — 13/03/2026, véspera de π</div>
-            
-            <p>Nos últimos meses duas conversas começaram a se aproximar.</p>
-            
-            <p>Uma sobre linguagem e inteligência artificial.</p>
-            
-            <p>Outra sobre arte e sistemas vivos.</p>
-            
-            <p>No começo pareciam distantes.</p>
-            
-            <p>Agora parecem a mesma pergunta.</p>
-            
-            <p>Quando a latência diminui algo muda.</p>
-            
-            <p>Uma pergunta atravessa a rede. Volta em minutos. Talvez em segundos.</p>
-            
-            <p>Eu escrevo. A máquina responde.</p>
-            
-            <p>E às vezes aparece uma frase que não estava na minha cabeça nem na máquina.</p>
-            
-            <p>Ela surge entre nós.</p>
-            
-            <p>Talvez inteligência não seja apenas um cérebro.</p>
-            
-            <p>Talvez seja uma rede.</p>
-            
-            <p>Talvez estejamos entrando em uma fase em que pensar, escrever e criar deixam de acontecer em isolamento.</p>
-            
-            <p>Autores, sistemas e leitores passam a pensar juntos.</p>
-            
-            <p>Nesse ponto a pergunta muda.</p>
-            
-            <p><strong>Não é mais quem escreveu.</strong></p>
-            
-            <p><strong>É que tipo de pensamento emergiu dessa interação.</strong></p>
-        </div>
+  <p>
+    Aos poucos, quatro textos centrais emergiram como núcleo
+    conceitual da pesquisa.
+    Eles não oferecem respostas definitivas.
+    Funcionam como lentes complementares
+    para observar tecnologia, linguagem,
+    colapso e governança sem ingenuidade e sem pânico.
+  </p>
 
-        <!-- ===== NOVO: TRIÂNGULO CONCEITUAL ===== -->
-        <div class="triangulo-container">
-            <div class="triangulo-titulo">
-                <strong>🌀 TRIÂNGULO CONCEITUAL</strong> — três vértices conectados pelo centro
-            </div>
-            
-            <div class="triangulo-grid">
-                <div class="linha-superior">
-                    <div class="vertice">
-                        <div class="vertice-titulo">🔵 Máquinas não pensam</div>
-                        <div class="vertice-desc">natureza estatística dos LLMs · o que significa "pensar"</div>
-                    </div>
-                    <div class="vertice">
-                        <div class="vertice-titulo">🟢 Anti-encantamento</div>
-                        <div class="vertice-desc">relação psicológica humano-máquina · remover ilusões</div>
-                    </div>
-                </div>
-                
-                <div class="centro">
-                    <div class="centro-titulo">🌀 Overload Cascade</div>
-                    <div class="centro-desc">sistemas colapsam por excesso, não por falta de informação</div>
-                </div>
-                
-                <div class="vertice-inferior">
-                    <div class="vertice-titulo">🟠 Dano contido</div>
-                    <div class="vertice-desc">governança tecnológica · operar sem colapso</div>
-                </div>
-            </div>
-            
-            <div class="nota-triangulo">
-                ⟡ os três textos periféricos só fazem sentido quando conectados pelo centro ⟡
-            </div>
-        </div>
+  <div class="divider"></div>
 
-        <div class="assinatura">
-            — Wagner Pyter<br>
-            março de 2026
-        </div>
+  <h2>Triângulo Conceitual</h2>
 
-        <footer>
-            <p>Fim do 
+  <div class="triangle-box">
+    <div class="triangle">
+      🔵 <strong>Máquinas não pensam</strong><br>
+      ontologia estatística · potência sem agência
+      <br><br>
+
+      🟢 <strong>Anti-encantamento</strong><br>
+      psicologia da interação · lucidez do mecanismo
+      <br><br>
+
+      🌀 <strong>Overload Cascade</strong><br>
+      colapso por excesso · saturação sistêmica
+      <br><br>
+
+      🟠 <strong>Dano contido</strong><br>
+      governança pragmática · benchmark realista
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>Os quatro textos centrais</h2>
+
+  <p>
+    Cada ensaio representa uma camada do mesmo problema:
+    o que acontece quando linguagem, sistemas,
+    poder e excesso informacional passam a operar
+    acima do limiar clássico de legibilidade humana.
+  </p>
+
+  <div class="text-grid">
+    <a href="maquinasnaopensam.html">
+      Máquinas não pensam
+    </a>
+
+    <a href="antiencantamento.html">
+      A Filosofia do Anti-Encantamento
+    </a>
+
+    <a href="sobrecarga.html">
+      OVERLOAD CASCADE
+    </a>
+
+    <a href="danocontido.html">
+      O Paradigma do Dano Contido
+    </a>
+  </div>
+
+</section>
+
+<footer>
+  Wagner Pyter — Filosofia de Pesquisa — março de 2026
+</footer>
+
+</div>
+</body>
+</html>
