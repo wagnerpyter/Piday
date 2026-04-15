@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OVERLOAD CASCADE — WagnerPyter.IA</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0b0b;
+  color:#e6e6e6;
+  font-family:Georgia,serif;
+  line-height:2;
+}
+.container{
+  width:90%;
+  max-width:920px;
+  margin:auto;
+  padding:80px 0;
+}
+header{
+  padding:120px 0 80px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+h1{
+  font-size:3.2rem;
+  font-weight:400;
+  margin-bottom:14px;
+}
+.subtitle{
+  color:#8c8c8c;
+  margin-bottom:35px;
+}
+.hero{
+  font-size:1.18rem;
+  color:#cfcfcf;
+  max-width:760px;
+}
+section{
+  padding:80px 0;
+}
+h2{
+  font-size:1.5rem;
+  font-weight:400;
+  margin:60px 0 25px;
+}
+p{
+  margin-bottom:22px;
+  color:#c8c8c8;
+}
+.flow{
+  margin:30px 0;
+  padding:28px;
+  background:rgba(255,255,255,.02);
+  border-left:2px solid #6f7f96;
+  color:#fff;
+  white-space:pre-line;
+}
+blockquote{
+  margin:40px 0;
+  padding:28px;
+  border-left:2px solid #6f7f96;
+  background:rgba(255,255,255,.02);
+  color:#fff;
+  font-style:italic;
+}
+.divider{
+  height:1px;
+  background:rgba(255,255,255,.06);
+  margin:60px 0;
+}
+footer{
+  padding:60px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:#7b7b7b;
+}
+@media(max-width:768px){
+  h1{font-size:2.3rem}
+  .hero{font-size:1.04rem}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <h1>OVERLOAD CASCADE</h1>
+  <div class="subtitle">sobrecarga · colapso por excesso · observabilidade</div>
+  <p class="hero">
+    Um ensaio técnico-filosófico sobre sistemas
+    que entram em falha não por escassez,
+    mas pelo excesso de monitoramento,
+    ruído e interpretação.
+  </p>
+</header>
+
+<section>
+
+  <h2>1. Princípio</h2>
+  <p>
+    Sistemas complexos colapsam quando observação
+    e monitoramento excedem sua capacidade de processamento.
+  </p>
+
+  <blockquote>
+    não é falta de informação  
+    é excesso
+  </blockquote>
+
+  <div class="divider"></div>
+
+  <h2>2. Mecanismo</h2>
+  <div class="flow">
+monitoramento ↑
+telemetria ↑
+logs ↑
+alertas ↑
+↓
+ruído dominante
+↓
+fadiga cognitiva
+↓
+decisões degradadas
+↓
+estado inconsistente
+↓
+falha sistêmica
+  </div>
+
+  <p>
+    O excesso de observabilidade pode degradar a própria capacidade
+    de resposta do sistema e dos operadores humanos,
+    fenômeno amplamente associado a *alert overload*. 1
+  </p>
+
+  <div class="divider"></div>
+
+  <h2>3. Diferença do Caos Clássico</h2>
+  <p>
+    A teoria clássica do caos descreve pequenas perturbações externas
+    produzindo grandes efeitos.
+  </p>
+
+  <p>
+    O paradigma da sobrecarga propõe a borboleta invertida:
+  </p>
+
+  <blockquote>
+    complexidade interna  
+    → implosão do sistema
+  </blockquote>
+
+  <p>
+    O sistema não é derrubado pelo exterior.
+    Ele derruba a si mesmo.
+  </p>
+
+  <div class="divider"></div>
+
+  <h2>4. Analogia Técnica</h2>
+  <p>
+    No DDoS clássico, agentes externos saturam o servidor.
+    Aqui, o próprio sistema gera carga excessiva.
+  </p>
+
+  <div class="flow">
+self-inflicted denial of service
+retry storm
+observability overload
+  </div>
+
+  <p>
+    Em microserviços, isso aparece como *retry storms*,
+    onde a lógica de recuperação gera a própria cascata de falha. 2
+  </p>
+
+  <div class="divider"></div>
+
+  <h2>5. Evidência Científica</h2>
+  <p>
+    Há forte consenso interdisciplinar de que excesso informacional
+    reduz precisão cognitiva, aumenta fadiga decisória
+    e leva operadores a ignorarem sinais críticos. 3
+  </p>
+
+  <div class="flow">
+queda de precisão
+alert fatigue
+decision fatigue
+ignorância de sinais críticos
+  </div>
+
+  <p>
+    Em ambientes hospitalares, estudos mostram que
+    80–99% dos alarmes podem ser irrelevantes,
+    favorecendo dessensibilização e erro humano. 4
+  </p>
+
+  <div class="divider"></div>
+
+  <h2>Definição Final</h2>
+  <p>
+    OVERLOAD CASCADE é o processo em que o volume
+    de monitoramento e informação excede a capacidade
+    de interpretação de um sistema.
+  </p>
+
+  <p>
