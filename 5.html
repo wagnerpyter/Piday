@@ -1,352 +1,235 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificados [5] - wagnerpyter.ia.br</title>
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: #FFFFFF;
-            color: #000000;
-            font-family: 'Times New Roman', Times, serif;
-            line-height: 1.6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WagnerPyter · Certificação Híbrida</title>
 
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
-        h1, h2, h3 {
-            font-family: 'Arial', Helvetica, sans-serif;
-            font-weight: normal;
-            border-bottom: 1px solid #000000;
-            padding-bottom: 5px;
-        }
+<style>
+:root {
+  --bg: #0c0b0e;
+  --gold: #d4af37;
+  --text: #e3dcd0;
+  --muted: #8a8175;
+}
 
-        h1 {
-            font-size: 1.8em;
-            text-align: center;
-            border-bottom: 2px solid #000000;
-            margin-bottom: 20px;
-        }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
 
-        .subhead {
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: #7B2D8B;
-            margin-bottom: 40px;
-        }
+section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+}
 
-        /* ===== MENU PADRÃO ===== */
-        .menu-padrao {
-            background: #f5f5f5;
-            border-bottom: 1px solid #000;
-            padding: 12px 20px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
+h1, h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
 
-        .menu-padrao a {
-            color: #0000FF;
-            text-decoration: none;
-            padding: 4px 8px;
-        }
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
 
-        .menu-padrao a:hover {
-            color: #FF00FF;
-            text-decoration: underline;
-        }
+h2 {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
 
-        .menu-padrao .ativo {
-            color: #7B2D8B;
-            font-weight: bold;
-            border-bottom: 2px solid #7B2D8B;
-        }
+p {
+  font-size: 1.1rem;
+  color: var(--text);
+}
 
-        /* OBJETIVO PRINCIPAL */
-        .objetivo-principal {
-            background: #f9f9f9;
-            border-left: 6px solid #7B2D8B;
-            padding: 30px;
-            margin: 30px 0 50px;
-            font-size: 1.1rem;
-            text-align: center;
-        }
+.hero {
+  text-align: center;
+  padding-top: 120px;
+}
 
-        .objetivo-principal strong {
-            color: #7B2D8B;
-            font-size: 1.3rem;
-            display: block;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+.hero p {
+  font-size: 1.4rem;
+  margin-top: 20px;
+}
 
-        /* PROJETO PROTÓTIPO */
-        .projeto-box {
-            border: 2px solid #000;
-            padding: 30px;
-            margin: 40px 0;
-            background: #fff;
-            position: relative;
-        }
+.divider {
+  height: 1px;
+  background: rgba(212,175,55,0.2);
+  margin: 60px 0;
+}
 
-        .projeto-box h2 {
-            margin-top: 0;
-            border-bottom: none;
-            text-align: center;
-        }
+.grid {
+  display: grid;
+  gap: 20px;
+}
 
-        .projeto-badge {
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: #7B2D8B;
-            color: #fff;
-            padding: 3px 12px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-        }
+.card {
+  border: 1px solid rgba(212,175,55,0.2);
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+}
 
-        .caracteristicas {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
+.manifesto {
+  font-size: 1.3rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+}
 
-        .card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            background: #fafafa;
-            border-left: 3px solid #7B2D8B;
-        }
+.small {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
 
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .card-title {
-            font-weight: bold;
-            font-family: 'Arial', sans-serif;
-            margin-bottom: 10px;
-        }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: #555;
-        }
-
-        /* Códigos e hashes */
-        .codigo-box {
-            background: #f2f2f2;
-            padding: 20px;
-            margin: 30px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            border: 1px dashed #7B2D8B;
-        }
-
-        .hash-line {
-            margin: 8px 0;
-            word-break: break-all;
-        }
-
-        /* Tabela de padrões */
-        .standard-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9rem;
-        }
-
-        .standard-table th {
-            background: #f2f2f2;
-            font-family: 'Arial', sans-serif;
-            font-weight: normal;
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-
-        .standard-table td {
-            padding: 8px 10px;
-            border: 1px solid #ddd;
-        }
-
-        .status-em-andamento {
-            background: #fff3e0;
-            border-left: 4px solid #ff9900;
-            padding: 15px;
-            margin: 30px 0;
-            font-size: 0.9rem;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #000;
-            font-size: 0.8rem;
-            color: #666;
-            font-family: 'Courier New', monospace;
-        }
-    </style>
+footer {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted);
+}
+</style>
 </head>
+
 <body>
 
-    <!-- ===== MENU PADRÃO ===== -->
-    <div class="menu-padrao">
-        <a href="https://wagnerpyter.ia.br">◉ portal</a>
-        <a href="https://tat.wagnerpyter.ia.br">🎧 tat</a>
-        <a href="https://corais.wagnerpyter.ia.br">🪸 corais</a>
-        <a href="https://expo.wagnerpyter.ia.br">🖐️ expo</a>
-        <a href="https://proibida.wagnerpyter.ia.br">👃 proibida</a>
-        <a href="https://lixeira.wagnerpyter.ia.br">🗑️ lixeira</a>
-        <a href="/" class="ativo">📜 certificados</a>
+<section class="hero">
+  <h1>Certificação de Criação Híbrida</h1>
+  <p>
+    A obra não é do humano nem da máquina.<br>
+    A obra é filha do encontro.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <h2>O Problema</h2>
+  <p>
+    A criação contemporânea é híbrida.<br>
+    A lei não é.
+  </p>
+  <p class="small">
+    O direito autoral reconhece apenas autoria humana. A criação com IA existe fora desse modelo.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <h2>O Insight</h2>
+  <p>
+    Não registramos autoria.<br>
+    Registramos o processo.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <h2>Certificado Híbrido</h2>
+  <p>27% digital · 73% físico · 100% registro</p>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <h2>Componentes</h2>
+  <div class="grid">
+    <div class="card">
+      <strong>Papel Perfurado</strong><br>
+      Registro físico do código digital.
     </div>
+    <div class="card">
+      <strong>Braille</strong><br>
+      A obra pode ser lida pelo toque.
+    </div>
+    <div class="card">
+      <strong>Hash SHA-256</strong><br>
+      Identidade única da obra.
+    </div>
+    <div class="card">
+      <strong>Assinatura ICP-Brasil</strong><br>
+      Prova de autenticidade.
+    </div>
+    <div class="card">
+      <strong>Biblioteca Nacional</strong><br>
+      Persistência histórica.
+    </div>
+  </div>
+</section>
 
-    <main>
-        <h1>Registro de Certificados [5]</h1>
-        <div class="subhead">PROJETO PROTÓTIPO · CERTIFICADO HÍBRIDO</div>
+<div class="divider"></div>
 
-        <!-- OBJETIVO PRINCIPAL -->
-        <div class="objetivo-principal">
-            <strong>⬤ CERTIFICADO HÍBRIDO</strong>
-            <p>Este cartório não é apenas digital. O certificado existe no papel, perfurado como máquina de Turing, escrito em braille, registrado na Biblioteca Nacional, assinado digitalmente com certificado do Gov.Br.</p>
-            <p style="font-size:0.9rem; margin-top:15px;">↳ 27% digital · 73% físico · 100% registro</p>
-        </div>
+<section>
+  <h2>Fluxo</h2>
+  <p>
+    Obra → Hash → Papel → Braille → Registro → Assinatura → Arquivo público
+  </p>
+</section>
 
-        <!-- PROJETO PROTÓTIPO -->
-        <div class="projeto-box">
-            <div class="projeto-badge">PROTÓTIPO · EM DESENVOLVIMENTO</div>
-            <h2>📜 Certidão de Obra Cocriada</h2>
-            <p style="text-align:center; margin:15px 0;">"Registro híbrido de obras que nascem da interação humano-IA"</p>
+<div class="divider"></div>
 
-            <div class="caracteristicas">
-                <div class="card">
-                    <div class="card-icon">📄</div>
-                    <div class="card-title">Papel Perfurado</div>
-                    <div class="card-desc">Cartão perfurado estilo máquina de Turing (1936). Cada obra vira uma sequência de furos que codifica hash SHA-256 e metadados. O papel é o registro analógico do digital.</div>
-                </div>
+<section>
+  <h2>O que resolve</h2>
+  <p>
+    Prova de existência<br>
+    Prova de integridade<br>
+    Registro histórico<br>
+    Rastreabilidade da criação
+  </p>
+</section>
 
-                <div class="card">
-                    <div class="card-icon">👆</div>
-                    <div class="card-title">Braille</div>
-                    <div class="card-desc">O título, autor e data da obra em braille no verso do certificado. Acessibilidade como registro tátil. O cego pode ler o que a máquina escreveu.</div>
-                </div>
+<div class="divider"></div>
 
-                <div class="card">
-                    <div class="card-icon">🏛️</div>
-                    <div class="card-title">Biblioteca Nacional</div>
-                    <div class="card-desc">Registro ISBN e depósito legal. O certificado híbrido entra no acervo físico da Biblioteca Nacional como documento de autoria cocriada.</div>
-                </div>
+<section>
+  <h2>O que não resolve</h2>
+  <p class="small">
+    Não cria novos direitos autorais.<br>
+    Não transforma IA em autora.<br>
+    Não substitui a lei.
+  </p>
+</section>
 
-                <div class="card">
-                    <div class="card-icon">🔐</div>
-                    <div class="card-title">Assinatura Digital Gov.Br</div>
-                    <div class="card-desc">PDF assinado com certificado digital ICP-Brasil (e-CPF ou e-CNPJ). A assinatura do autor humano no documento prova autenticidade e data.</div>
-                </div>
+<div class="divider"></div>
 
-                <div class="card">
-                    <div class="card-icon">🧬</div>
-                    <div class="card-title">Hash SHA-256</div>
-                    <div class="card-desc">Impressão digital da obra. Gravada no papel perfurado, no PDF e no blockchain opcional. A mesma hash une o físico e o digital.</div>
-                </div>
+<section>
+  <h2>Conceito</h2>
+  <p>
+    Assistente, do latim assistens:<br>
+    aquele que se coloca ao lado.
+  </p>
+  <p>
+    A criação sempre foi feita ao lado.<br>
+    Este sistema registra o que ficou invisível.
+  </p>
+</section>
 
-                <div class="card">
-                    <div class="card-icon">⚖️</div>
-                    <div class="card-title">Validade Jurídica</div>
-                    <div class="card-desc">Certificado digital ICP-Brasil + registro físico na Biblioteca Nacional + papel perfurado como prova de existência. Múltiplas camadas de validação.</div>
-                </div>
-            </div>
-        </div>
+<div class="divider"></div>
 
-        <!-- COMO FUNCIONA -->
-        <h2>🔧 Fluxo de Criação</h2>
+<section class="manifesto">
+  <p>
+    A obra não nasce sozinha.<br>
+    Ela acontece.<br><br>
 
-        <div class="codigo-box">
-            <div class="hash-line"><strong>1. Obra digital</strong><br>Arquivo final (HTML, PDF, áudio, imagem) → calcula-se hash SHA-256</div>
-            <div class="hash-line" style="margin-top:15px;"><strong>2. Papel perfurado</strong><br>Hash convertido em sequência binária → perfurado em cartão de 80 colunas (formato IBM 5081)</div>
-            <div class="hash-line" style="margin-top:15px;"><strong>3. Braille</strong><br>Metadados essenciais: título, autor, data, hash resumido → impressão em braille no verso</div>
-            <div class="hash-line" style="margin-top:15px;"><strong>4. Registro na Biblioteca Nacional</strong><br>Depósito legal do certificado físico + ficha catalográfica + ISBN da obra</div>
-            <div class="hash-line" style="margin-top:15px;"><strong>5. Assinatura digital</strong><br>PDF do certificado assinado com certificado Gov.Br (ICP-Brasil) — Wagner Pyter Fernandes Silva</div>
-            <div class="hash-line" style="margin-top:15px;"><strong>6. Arquivo público</strong><br>PDF assinado disponível no site + cartão perfurado arquivado + entrada no acervo da Biblioteca Nacional</div>
-        </div>
+    Entre decisões,<br>
+    entre influências,<br>
+    entre presença humana e cálculo.<br><br>
 
-        <!-- PADRÕES DE CERTIFICAÇÃO -->
-        <h2>📋 Padrões de Certificação</h2>
+    Este não é um cartório de propriedade.<br>
+    É um cartório de existência.
+  </p>
+</section>
 
-        <table class="standard-table">
-            <tr>
-                <th>Padrão</th>
-                <th>Uso</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td><strong>ACA-1.0</strong><br>Atestado Criação Autônoma</td>
-                <td>Obras geradas por IA com mínima intervenção humana. Status legal: Domínio Público (CC0).</td>
-                <td>✅ em uso</td>
-            </tr>
-            <tr>
-                <td><strong>CDC-1.0</strong><br>Certificado Digital Criação</td>
-                <td>Obras com direção criativa humana determinante. Status legal: Direitos Autorais Humanos.</td>
-                <td>✅ em uso</td>
-            </tr>
-            <tr>
-                <td><strong>Certificado Híbrido</strong><br>(protótipo)</td>
-                <td>Papel perfurado + Braille + Biblioteca Nacional + Assinatura Gov.Br</td>
-                <td>🟡 em desenvolvimento</td>
-            </tr>
-        </table>
-
-        <!-- EXEMPLO DE HASH -->
-        <div class="status-em-andamento">
-            <strong>📌 PROTÓTIPO EM ANDAMENTO</strong><br>
-            O primeiro certificado híbrido será emitido para a obra <em>"π como Linguagem Visual"</em> (piday.wagnerpyter.ia.br).<br><br>
-            <strong>Hash SHA-256 (provisório):</strong><br>
-            <code style="font-size:0.7rem; word-break:break-all;">a4b8c3d2e1f567890e4b0c3d2a1f567890e4b0c3d2a1f567890e4b0c3d2a1f56789</code><br><br>
-            <strong>Próximos passos:</strong> perfuração do cartão piloto, impressão em braille, registro na Biblioteca Nacional, assinatura digital.
-        </div>
-
-        <!-- LINKS PARA DOCUMENTOS -->
-        <h2>📚 Documentos de Referência</h2>
-
-        <div style="margin:20px 0; padding:15px; background:#fafafa; border:1px solid #ddd;">
-            <p><strong>⬤ ACA-1.0:</strong> <a href="Atestado_de_Criação_Autônoma_(ACA-1.0)_3.pdf" target="_blank">Atestado de Criação Autônoma (PDF)</a> — padrão para obras geradas por IA</p>
-            <p><strong>⬤ CDC-1.0:</strong> <a href="Modelo_Padrão_Universal__Certificado_Digital_de_Cr.pdf" target="_blank">Modelo Padrão Universal: Certificado Digital de Criação (PDF)</a> — padrão para obras com direção humana</p>
-            <p><strong>⬤ Certificado existente:</strong> <a href="Certificado_de_Autoria_e_Manifesto_de_Valorização_.pdf" target="_blank">Ghost in the Machine (PDF)</a> — exemplo prático do CDC-1.0</p>
-        </div>
-
-        <!-- SOBRE O CARTÓRIO -->
-        <div style="margin-top:50px; padding:25px; background:#f2f2f2; border:1px solid #ccc;">
-            <h3 style="border-bottom: none; text-align:center;">Sobre este cartório</h3>
-            <p style="text-align:center;">Todo certificado segue os padrões ACA ou CDC. O protótipo híbrido une papel perfurado (máquina de Turing), braille, Biblioteca Nacional e assinatura digital ICP-Brasil.</p>
-            <p style="text-align:center; font-family:'Courier New'; font-size:0.8rem; margin-top:15px;">
-                ⬤ Obra não é do humano nem da máquina.<br>
-                ⬤ A obra é filha do encontro.<br>
-                ⬤ Este cartório é a certidão de nascimento.
-            </p>
-        </div>
-
-    </main>
-
-    <footer>
-        <p>fim do arquivo de certificados · protótipo híbrido em desenvolvimento</p>
-        <p style="font-size:0.7rem; margin-top:10px;">27% digital · 73% físico · 100% registro</p>
-    </footer>
+<footer>
+  WagnerPyter · Registro de Criação Híbrida
+</footer>
 
 </body>
-                    </html>
+</html>
