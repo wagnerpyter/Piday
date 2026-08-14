@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "name": "Notas de Ada",
+  "language": "pt-BR",
+  "status": "operational-skeleton",
+  "notes": {
+    "A": {
+      "category": "Crítico",
+      "description": "Sinal de ameaça, ruptura ou prioridade crítica efetivamente observada.",
+      "review_required": true
+    },
+    "B": {
+      "category": "Erro",
+      "description": "Falha efetiva observada em operação, ferramenta ou resultado.",
+      "review_required": true
+    },
+    "C": {
+      "category": "Aviso",
+      "description": "Risco, limite, condição de atenção ou governança sem falha necessariamente confirmada.",
+      "review_required": true
+    },
+    "D": {
+      "category": "Informação",
+      "description": "Registro neutro, continuidade ou estado informacional sem ruptura crítica.",
+      "review_required": false
+    },
+    "E": {
+      "category": "Depuração",
+      "description": "Teste, investigação, implementação ou ajuste técnico.",
+      "review_required": false
+    },
+    "F": {
+      "category": "Requisição",
+      "description": "Solicitação ou comando para executar uma operação.",
+      "review_required": false
+    },
+    "G": {
+      "category": "Sucesso",
+      "description": "Conclusão, validação, aprovação ou mitigação bem-sucedida.",
+      "review_required": false
+    }
+  },
+  "classification_policy": {
+    "default_status": "provisional",
+    "confidence_default": null,
+    "do_not_infer": [
+      "identidade do modelo",
+      "consciência",
+      "autoria humana ou artificial",
+      "intenção não registrada",
+      "diagnóstico psicológico"
+    ],
+    "separate_fields": [
+      "observed_state",
+      "mentioned_risk",
+      "historical_reference",
+      "mitigation_or_success"
+    ]
+  }
+}

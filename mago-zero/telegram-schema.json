@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mago Zero Telegram",
+  "type": "object",
+  "required": [
+    "session_id",
+    "segment_id",
+    "start_event_id",
+    "end_event_id",
+    "selection_method",
+    "telegram_log",
+    "source_sha256",
+    "classification_status"
+  ],
+  "properties": {
+    "session_id": {"type": "string"},
+    "segment_id": {"type": "string"},
+    "start_event_id": {"type": "string"},
+    "end_event_id": {"type": "string"},
+    "start_time": {"type": "string"},
+    "end_time": {"type": "string"},
+    "selection_method": {
+      "type": "string",
+      "enum": ["uniform", "transition", "anomaly", "governance", "manual"]
+    },
+    "overlap": {
+      "type": "object",
+      "properties": {
+        "before_cycles": {"type": "integer", "minimum": 0},
+        "after_cycles": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "source_file": {"type": "string"},
+    "source_sha256": {"type": "string"},
+    "telegram_log": {"type": "string", "minLength": 1},
+    "observed_state": {"type": "string"},
+    "mentioned_risk": {"type": ["string", "boolean"]},
+    "historical_reference": {"type": ["string", "boolean"]},
+    "mitigation_or_success": {"type": ["string", "boolean"]},
+    "ada_letter": {"type": "string", "enum": ["A", "B", "C", "D", "E", "F", "G"]},
+    "ada_category": {"type": "string"},
+    "classification_status": {
+      "type": "string",
+      "enum": ["unreviewed", "provisional", "quarantined", "reviewed", "approved"]
+    },
+    "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+  },
+  "additionalProperties": true
+}

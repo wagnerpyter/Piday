@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mago Zero — Notas de Ada</title>
+  <style>
+    :root { --ink:#111; --paper:#fff; --soft:#f2f2f2; --violet:#7B2D8B; --muted:#666; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Georgia, serif; line-height:1.55; }
+    main { width:min(860px, calc(100% - 32px)); margin:0 auto; padding:42px 0 72px; }
+    h1 { font:normal 2rem Arial, sans-serif; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+    .eyebrow { color:var(--violet); font:0.8rem "Courier New", monospace; letter-spacing:.12em; text-transform:uppercase; }
+    .notice { border:1px dashed var(--violet); background:#faf7fb; padding:14px 16px; margin:22px 0 30px; }
+    .panel { border:1px solid #ddd; background:var(--soft); padding:20px; margin:22px 0; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; }
+    .stat { background:#fff; border:1px solid #ddd; padding:12px; text-align:center; }
+    .stat strong { display:block; color:var(--violet); font:bold 1.5rem "Courier New", monospace; }
+    .stat small { color:var(--muted); font:0.7rem "Courier New", monospace; text-transform:uppercase; }
+    .taxonomy { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+    .note { border-left:4px solid var(--violet); background:#fff; padding:12px; }
+    .note b { color:var(--violet); font:1.3rem "Courier New", monospace; }
+    .note span { display:block; font:bold .8rem Arial,sans-serif; }
+    .note small { color:var(--muted); }
+    .sequence { background:#fff; border:1px solid #ddd; padding:14px; font:1.2rem "Courier New", monospace; letter-spacing:.14em; text-align:center; color:var(--violet); }
+    .log { border-bottom:1px solid #e5e5e5; padding:18px 0; }
+    .log header { display:flex; gap:10px; align-items:center; flex-wrap:wrap; font:.78rem "Courier New",monospace; color:var(--muted); }
+    .badge { background:var(--violet); color:white; border-radius:20px; padding:2px 10px; font-weight:bold; }
+    .meta { color:var(--muted); font:.72rem "Courier New",monospace; }
+    footer { border-top:1px solid var(--ink); margin-top:48px; padding-top:18px; color:var(--muted); font-size:.85rem; }
+    @media(max-width:560px){ .stats{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Arquivo estrutural · versão experimental</div>
+  <h1>Mago Zero com logs e Notas de Ada</h1>
+  <div class="notice"><strong>Zona de demonstração.</strong> Esta página contém somente dados fictícios. O Mago público não recebe backups automaticamente; análises privadas devem usar um Mago temporário e telegramas revisados.</div>
+
+  <section class="panel" aria-labelledby="engine-title">
+    <h2 id="engine-title">Núcleo mínimo</h2>
+    <p>Um modelo classifica o telegrama técnico; um segundo modelo organiza a sequência A–G. A saída permanece provisória até revisão humana.</p>
+    <div class="stats"><div class="stat"><strong>0.1</strong><small>esqueleto</small></div><div class="stat"><strong>2</strong><small>modelos lógicos</small></div><div class="stat"><strong>7</strong><small>notas Ada</small></div></div>
+  </section>
+
+  <section class="panel" aria-labelledby="taxonomy-title">
+    <h2 id="taxonomy-title">Taxonomia</h2>
+    <div id="taxonomy" class="taxonomy"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="sequence-title">
+    <h2 id="sequence-title">Sequência demonstrativa</h2>
+    <div id="sequence" class="sequence">carregando</div>
+  </section>
+
+  <section class="panel" aria-labelledby="logs-title">
+    <h2 id="logs-title">Telegramas de demonstração</h2>
+    <div id="logs"></div>
+  </section>
+
+  <footer>Baseline separado do <code>0.html</code>. Sem ingestão automática, sem memória privada e sem publicação de backups.</footer>
+</main>
+<script src="mago-zero/mago-zero.js"></script>
+<script>
+  const demo = [
+    {segment_id:'demo-001', telegram_log:'Solicitação operacional registrada.', observed_state:'solicitação operacional registrada', mentioned_risk:false, mitigation_or_success:false, classification_status:'provisional'},
+    {segment_id:'demo-002', telegram_log:'Risco de limite descrito sem falha efetiva.', observed_state:'risco ou limite descrito sem falha confirmada', mentioned_risk:true, mitigation_or_success:false, classification_status:'provisional'},
+    {segment_id:'demo-003', telegram_log:'Teste concluído após ajuste.', observed_state:'mitigação ou sucesso explicitamente registrado', mentioned_risk:false, mitigation_or_success:true, classification_status:'provisional'}
+  ];
+  const result = window.MagoZero.buildSequence(demo);
+  document.querySelector('#sequence').textContent = result.sequence.join(' → ');
+  document.querySelector('#taxonomy').innerHTML = Object.entries(window.MagoZero.taxonomy).map(([letter, label]) => `<div class="note"><b>${letter}</b><span>${label}</span><small>classificação inicial</small></div>`).join('');
+  document.querySelector('#logs').innerHTML = result.telegrams.map(item => `<article class="log"><header><span class="badge">${item.ada_letter}</span><span>${item.ada_category}</span><span class="meta">${item.classification_status}</span></header><p>${item.telegram_log}</p><div class="meta">base: ${item.classification_basis}</div></article>`).join('');
+</script>
+</body>
+</html>
