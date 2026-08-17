@@ -270,6 +270,23 @@
 
         .experiment-card .card-title { color: #7B2D8B; }
 
+        .experiment-action {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 8px 12px;
+            border: 1px solid #7B2D8B;
+            color: #7B2D8B;
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            text-transform: lowercase;
+        }
+
+        .experiment-action:hover {
+            color: #FFFFFF;
+            background: #7B2D8B;
+        }
+
         footer {
             text-align: center;
             margin-top: 60px;
@@ -422,6 +439,7 @@
                             <div class="node"><strong>entrada:</strong> ${escapeHtml(experiment.entry)}</div>
                         </div>
                         <div style="margin-top:12px;"><span class="tag">${escapeHtml(experiment.status)}</span></div>
+                        ${experiment.href ? `<a class="experiment-action" href="${escapeHtml(experiment.href)}">abrir experimento →</a>` : ''}
                     </div>
                 </div>
             `).join('');

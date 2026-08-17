@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena · experimento · Atlas</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #fcf9fd; color: #17121a; font-family: Georgia, 'Times New Roman', serif; line-height: 1.6; }
+        main { max-width: 760px; margin: 0 auto; padding: 36px 20px 64px; }
+        nav { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; padding: 12px; border-bottom: 1px solid #222; background: #fff; font: 0.78rem 'Courier New', monospace; }
+        nav a { color: #17121a; text-decoration: none; }
+        nav a:hover { color: #7B2D8B; text-decoration: underline; }
+        .kicker { color: #7B2D8B; font: 0.78rem 'Courier New', monospace; letter-spacing: 0.08em; }
+        h1 { margin: 8px 0 4px; color: #7B2D8B; font: 700 2.6rem Arial, sans-serif; letter-spacing: 0.05em; }
+        .subtitle { color: #7B2D8B; font: 0.9rem 'Courier New', monospace; }
+        .intro { margin: 34px 0; padding: 24px; border: 2px solid #7B2D8B; background: #fff; }
+        .prompt { margin: 24px 0 12px; font-size: 1.35rem; }
+        .choices { display: grid; gap: 10px; margin: 18px 0; }
+        button { padding: 13px 15px; border: 1px solid #7B2D8B; background: #fff; color: #7B2D8B; text-align: left; font: 0.9rem 'Courier New', monospace; cursor: pointer; }
+        button:hover, button:focus { background: #7B2D8B; color: #fff; }
+        #result { min-height: 80px; margin-top: 20px; padding: 18px; border-left: 3px solid #7B2D8B; background: #f4edf6; }
+        .meta { margin-top: 34px; color: #555; font-size: 0.85rem; }
+        .back { display: inline-block; margin-top: 28px; color: #7B2D8B; font: 0.8rem 'Courier New', monospace; }
+        footer { margin-top: 50px; padding-top: 16px; border-top: 1px solid #222; color: #666; text-align: center; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">portal</a>
+        <a href="0.html">mago-0</a>
+        <a href="1.html">filosofia</a>
+        <a href="2.html">atlas</a>
+        <a href="3.html">código</a>
+    </nav>
+    <main>
+        <div class="kicker">ATLAS · EXPERIMENTO</div>
+        <h1 id="title">ELENA</h1>
+        <div class="subtitle" id="subtitle">presença em definição</div>
+
+        <section class="intro">
+            <p id="description">carregando experimento...</p>
+            <p class="prompt">Por onde você quer entrar?</p>
+            <div class="choices" id="choices">
+                <button type="button" data-route="literario">um universo literário</button>
+                <button type="button" data-route="tecnico">um universo técnico</button>
+                <button type="button" data-route="labirinto">um labirinto</button>
+            </div>
+            <div id="result" aria-live="polite">Escolha uma entrada para iniciar o experimento.</div>
+        </section>
+
+        <div class="meta" id="meta"></div>
+        <a class="back" href="2.html">← voltar ao Atlas</a>
+        <footer>experimento aberto · entre livro, teatro e jogo-formulário</footer>
+    </main>
+
+    <script>
+        const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+        const routes = {
+            literario: 'Você entrou pela porta literária. O caminho ainda não está escrito; a próxima sala será encontrada entre obras, personagens e fragmentos.',
+            tecnico: 'Você entrou pela porta técnica. O caminho atravessa mecanismos, agentes e experimentos do Atlas.',
+            labirinto: 'Você escolheu o labirinto. Não há uma rota correta: cada resposta pode abrir um território diferente.'
+        };
+        fetch('atlas.json')
+            .then((response) => { if (!response.ok) throw new Error(`atlas.json: ${response.status}`); return response.json(); })
+            .then(({ atlas }) => {
+                const experiment = (atlas.experiments || []).find((item) => item.id === 'elena');
+                if (!experiment) throw new Error('experimento Elena não encontrado');
+                document.querySelector('#title').textContent = experiment.title;
+                document.querySelector('#subtitle').textContent = experiment.subtitle;
+                document.querySelector('#description').textContent = experiment.description;
+                document.querySelector('#meta').textContent = `temas: ${(experiment.themes || []).join(' · ')} · ${experiment.status}`;
+            })
+            .catch((error) => { document.querySelector('#description').textContent = `dados indisponíveis · ${error.message}`; });
+        document.querySelectorAll('[data-route]').forEach((button) => button.addEventListener('click', () => {
+            document.querySelector('#result').textContent = routes[button.dataset.route];
+        }));
+    </script>
+</body>
+</html>

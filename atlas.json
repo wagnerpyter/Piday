@@ -56,7 +56,7 @@
         "description": "Uma presença em teste, entre livro, teatro e jogo. Sua função ainda não foi estabelecida.",
         "themes": ["universos literários", "universos técnicos", "labirinto", "formulário narrativo"],
         "entry": "O visitante responde, escolhe e avança por territórios do Atlas.",
-        "href": "#elena-experiment"
+        "href": "elena.html"
       }
     ],
     "overview": [
