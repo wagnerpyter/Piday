@@ -1,0 +1,70 @@
+{
+  "atlas": {
+    "title": "Atlas · wagnerpyter.ia.br",
+    "subtitle": "Cartografia de territórios · 2026",
+    "intro": "Este atlas organiza os territórios do projeto. Todo mapa é provisório.",
+    "data_version": "1.0.0",
+    "last_update": "2026-08-16",
+    "pi_core": [
+      {"label": "3 · portal", "href": "index.html"},
+      {"label": "3.1 · logs", "href": "0.html"},
+      {"label": "3.14 · filosofia", "href": "1.html"},
+      {"label": "3.141 · atlas", "href": "2.html"},
+      {"label": "3.1415 · código", "href": "3.html"},
+      {"label": "3.14159 · torrent", "href": "4.html"},
+      {"label": "3.141592 · certificados", "href": "5.html"},
+      {"label": "3.1415926 · lixeira", "href": "6.html"},
+      {"label": "3.14159265 · sobre", "href": "7.html"}
+    ],
+    "territories": [
+      {
+        "id": "teatro-magico",
+        "icon": "🎭",
+        "title": "TEATRO MÁGICO",
+        "subtitle": "ficção · arte pessoal · memórias",
+        "status": "em breve",
+        "tag": "teatro.wagnerpyter.ia.br",
+        "nodes": [
+          "palco principal · personas, performances",
+          "ficção · contos, mitologias",
+          "arte pessoal · fotografia, poesia",
+          "memória afetiva · infância, Guiomar"
+        ]
+      },
+      {
+        "id": "circulos-ciclos",
+        "icon": "🔄",
+        "title": "CÍRCULOS CICLOS",
+        "subtitle": "laboratório · experimentos · mecanismos",
+        "status": "em breve",
+        "tag": "ciclos.wagnerpyter.ia.br",
+        "nodes": [
+          "TAT Lab Cycle · lua nova, crescente, cheia, minguante",
+          "mecanismos · Mago-0, Notas de Ada",
+          "experimentos · sonificação, agentes autônomos",
+          "análise · padrões, partituras"
+        ]
+      }
+    ],
+    "experiments": [
+      {
+        "id": "elena",
+        "icon": "◈",
+        "title": "ELENA",
+        "subtitle": "experimento · presença em definição",
+        "status": "experimental",
+        "description": "Uma presença em teste, entre livro, teatro e jogo. Sua função ainda não foi estabelecida.",
+        "themes": ["universos literários", "universos técnicos", "labirinto", "formulário narrativo"],
+        "entry": "O visitante responde, escolhe e avança por territórios do Atlas.",
+        "href": "#elena-experiment"
+      }
+    ],
+    "overview": [
+      {"label": "🥧 NÚCLEO π", "status": "ativo", "description": "3.1 · 3.14 · 3.141 · 3.1415 · 3.14159 · 3.141592 · 3.1415926 · 3.14159265"},
+      {"label": "🎭 TEATRO MÁGICO", "status": "futuro", "description": "ficção · arte pessoal · personas · memórias"},
+      {"label": "🔄 CÍRCULOS CICLOS", "status": "futuro", "description": "laboratório · experimentos · mecanismos · TAT Lab"},
+      {"label": "◈ ELENA", "status": "experimental", "description": "presença em definição · livro · teatro · jogo-formulário"},
+      {"label": "🏛️ INSTITUCIONAL", "status": "em definição", "description": "cartório · registros públicos · documentação oficial"}
+    ]
+  }
+}

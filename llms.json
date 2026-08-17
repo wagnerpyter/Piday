@@ -91,6 +91,18 @@
       {"file": "6.html", "pi_code": "3.1415926", "name": "Lixeira"},
       {"file": "7.html", "pi_code": "3.14159265", "name": "Sobre"}
     ],
+    "atlas_data": {
+      "source": "atlas.json",
+      "purpose": "Dados estruturados consumidos pelo Atlas HTML",
+      "experiments": [
+        {
+          "id": "elena",
+          "status": "experimental",
+          "description": "Presença em definição entre livro, teatro e jogo-formulário",
+          "themes": ["universos literários", "universos técnicos", "labirinto", "formulário narrativo"]
+        }
+      ]
+    },
     "critical_files": [
       {"file": "robots.txt", "purpose": "Protocolo de Coexistência OLUN"},
       {"file": "llms.txt", "purpose": "Manifesto e crítica conceitual sobre formatos para LLMs"},
