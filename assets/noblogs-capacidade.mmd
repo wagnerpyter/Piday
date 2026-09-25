@@ -1,0 +1,23 @@
+flowchart LR
+    A["Rastros digitais\nblogs · links · dados"] --> B["Visibilidade\nmais pessoas sabem"]
+    B --> C["Participação\nentrar · comunicar · conectar"]
+    C --> D["Organização\nconfiar · decidir · continuar"]
+    D --> E["Capacidade coletiva\nfazer o que antes não era possível"]
+    E --> F["Transformação material\npolítica · infraestrutura · território"]
+
+    G["Digital\nalcance · velocidade · acessibilidade"] --> B
+    H["Analógico\npresença · território · corporeidade"] --> D
+    I["Ecologia híbrida\ncasa · rua · plataforma"] --> D
+    I --> E
+
+    B -. "não é" .-> E
+    C -. "não garante" .-> F
+    F -. "retroage sobre" .-> D
+
+    classDef digital fill:#eee4f3,stroke:#7b2d8b,color:#32143b,stroke-width:1.5px;
+    classDef material fill:#e4f1ec,stroke:#216b58,color:#123d32,stroke-width:1.5px;
+    classDef neutral fill:#fffdf9,stroke:#625b68,color:#17131b,stroke-width:1.3px;
+    classDef warning fill:#fff2df,stroke:#a75b16,color:#5d3007,stroke-width:1.3px;
+    class A,G digital;
+    class H,I material;
+    class B,C,D,E,F neutral;
