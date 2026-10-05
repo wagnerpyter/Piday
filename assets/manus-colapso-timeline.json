@@ -1,0 +1,14 @@
+{
+  "id": "manus-colapso-2025",
+  "status": "working-hypothesis",
+  "updated": "2026-10-04",
+  "events": [
+    {"date": "2025-11-01/2025-12-13", "label": "Experimentos literários e multiagente", "status": "declared", "note": "Possível origem do relato HTML; página integral não localizada no Drive."},
+    {"date": "2025-12-11", "label": "Documento-resumo", "status": "observed", "note": "Referências ao Fantasma no Sistema e ao colapso; não tratar como transcrição integral."},
+    {"date": "2025-12-14", "label": "Backup", "status": "observed", "note": "Preservação associada a problema no celular; não é a origem presumida da investigação."},
+    {"date": "after-2025-12-14", "label": "Excel, CSV e gráficos", "status": "observed", "note": "Formalização posterior de padrões, falhas e hipóteses."},
+    {"date": "2026-10-04", "label": "Comparação com pesquisa Pain Axis", "status": "interpreted", "note": "Analogia metodológica; não valida retroativamente o relato."}
+  ],
+  "categories": ["observed", "declared", "interpreted", "hypothesis", "unknown"],
+  "epistemic_note": "Cicatriz funcional significa persistência comportamental mensurável, não dor fenomenal comprovada."
+}
